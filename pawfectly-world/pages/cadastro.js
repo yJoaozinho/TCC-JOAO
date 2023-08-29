@@ -5,6 +5,7 @@ import Button from '../src/components/button/button'
 import Link from 'next/link'
 import Logo from "../src/components/logo/logo"
 import SideBar from '../src/components/sideBar/sideBar'
+import { useState } from 'react';
 
 export default function CadastroPage() {
     return(
@@ -22,7 +23,7 @@ export default function CadastroPage() {
                 <div className={styles.cardLogin}>
                     <h3> Cadastro </h3>
                     <form className={styles.form}>  
-                        <Input type = "text" placeholder = "Seu nome"/>   
+                        <Input type = "text" placeholder = "Seu username"/>   
                         <Input type = "email" placeholder = "Seu email"/>
                         <Input type = "password" placeholder = "Sua senha"/>
                         

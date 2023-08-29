@@ -1,4 +1,5 @@
 .sidebar{
+  
     flex: 0 0 auto;
     width: 250px;
     background-color:#19376D;
@@ -16,29 +17,30 @@
     font-weight: bold;
 }
 
-.ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-.li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-
+.buttonLink {
   
-.li:hover {
-    background-color: #f0f0f0;
-    color: #19376D;
-    border-radius: 10px;
-  }
-
-.link{
+  display: block;
+  width: 200px;
+  padding: 1rem; 
+  background-color: #19376D; 
+  color: #fff; 
+  text-align: center;
   text-decoration: none;
-  color: #ffffff;
-
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
 }
 
-.link:hover{
-  color: #19376D;
+.buttonLink:hover {
+  background-color: #2980b9; /* Cor de fundo do botão ao passar o mouse */
+}
+
+.ul{
+  list-style: none;
+  padding: 0;
+}
+
+.logo{
+  position: center;
+
 }

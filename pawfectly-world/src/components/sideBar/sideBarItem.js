@@ -5,8 +5,8 @@ export default function sideBarItem (props){
      
     const { link, text } = props;
     return(
-        <div>
-            <Link className={Styles.link}href={props.link}>{props.text}</Link>
-        </div>
+        <li className={Styles.sideBarItem}>
+            <Link className={Styles.buttonLink}href={props.link}>{props.text}</Link>
+        </li>
     )
 }

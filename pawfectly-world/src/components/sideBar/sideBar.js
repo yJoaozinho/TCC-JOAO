@@ -9,16 +9,9 @@ export default function SideBar () {
           <Logo h= "150" w="150" />
           
           <ul className={Styles.ul}>
-            <li className={Styles.li}>
-              <SideBarItem link="/" text ="Pagina inicial"/>
-            </li>
-            <li className={Styles.li}>
-              <SideBarItem link="/cadastro" text ="Criar conta"/>
-            </li>
-            <li className={Styles.li}>
-              <SideBarItem link="/login" text ="Entrar em conta"/>
-            </li>
-
+          <SideBarItem link="/" text ="Pagina inicial"/>
+          <SideBarItem link="/login" text ="Login"/>
+          <SideBarItem link="/cadastro" text ="Cadastro"/>
 
           </ul>
       
