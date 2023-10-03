@@ -1,4 +1,4 @@
-import styles from "./logo.module.css"
+
 import Image from "next/image"
 
 export default function logoDoSite (props) {

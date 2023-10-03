@@ -1,39 +1,60 @@
-import LoginCard from "../src/components/loginCards/loginCard"
-import styles from '../styles/login.module.css'
-import Input from '../src/components/input/input'
-import Button from '../src/components/button/button'
-import Link from "next/link"
-import Logo from "../src/components/logo/logo"
-import SideBar from "../src/components/sideBar/sideBar"
-import { useState } from 'react'
-import { login } from './api/api';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import Link from "next/link";
+
+import LoginCard from "../src/components/loginCards/loginCard";
+import styles from '../styles/login.module.css';
+import Input from '../src/components/input/input';
+import Button from '../src/components/button/button';
+import Logo from "../src/components/logo/logo";
+import SideBar from "../src/components/sideBar/sideBar";
 
 export default function LoginPage() {
-  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null); 
+  const [error, setError] = useState(null);
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     try {
       const response = await login(email, password);
-     
-        router.push('/inndex');
+      if (response.token) {
+        router.push('/index');
+      } else {
+        setError('Erro ao fazer login. Verifique suas credenciais.');
+      }
     } catch (error) {
       setError('Erro ao fazer login. Verifique suas credenciais.');
+      console.log(error);
     }
+  };
+
+  const login = async (email, password) => {
+    const response = await fetch('http://localhost:2306/user/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, senha: password })
+    });
+
+    if (!response.ok) {
+      throw new Error('Erro na autenticação');
+    }
+
+    return response.json();
   };
 
   return (
     <div className={styles.background}>
-      <SideBar/>
+      <SideBar />
 
       <LoginCard>
         <div className={styles.cardInfo}>
           <h1>Pawfectly World!</h1>
-          <Logo h="200" w="200"/>
+          <Logo h="200" w="200" />
         </div>
 
         <div className={styles.cardLogin}>
@@ -54,7 +75,7 @@ export default function LoginPage() {
             <Button type="submit">Entrar</Button>
           </form>
           <Link className={styles.link} href='/cadastro'>Não possui uma conta?</Link>
-          {error && <p className={styles.error}>{error}</p>} 
+          {error && <p className={styles.error}>{error}</p>}
         </div>
       </LoginCard>
     </div>

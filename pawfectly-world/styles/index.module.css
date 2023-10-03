@@ -1,3 +1,65 @@
-.body{
-    background-color: aliceblue;
+.body {
+    /* aaa*/
+}
+
+
+.perfil {
+    margin-left: 660px;  
+    width: 40%;  
+    display: flex;
+    flex-direction: column;  
+    height: 100%;           
+    border-radius: 10px;
+    background-color:#19376D ;  
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);  
+    text-align: center;
+    color:#fff;
+    overflow: hidden;
+    
+}
+.posts {
+    flex-grow: 1;           
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.posts strong {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.container {
+    height: 100vh;  
+    display: flex;
+}
+
+
+    
+
+.infoUsuario {
+    margin: 20px;
+    width: 100%;
+    border-bottom: 3px solid #2980b9;
+    border-top: 3px solid #2980b9;
+    font-family: Arial, sans-serif;
+    font-size: 25px;         
+    text-align: left;       
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+
+.campo {
+    margin-bottom: 10px; 
+    padding: 10px; 
+    
+    
+}
+
+.strong {
+    display: block; 
+    margin-bottom: 5px; 
 }

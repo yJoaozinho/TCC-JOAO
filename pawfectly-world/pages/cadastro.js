@@ -1,28 +1,48 @@
-import styles from '../styles/login.module.css'
-import LoginCard from "../src/components/loginCards/loginCard"
-import Input from '../src/components/input/input'
-import Button from '../src/components/button/button'
-import Link from 'next/link'
-import Logo from "../src/components/logo/logo"
-import SideBar from '../src/components/sideBar/sideBar'
-import { useState } from 'react'
-import { cadastrar } from './api/api'
+import styles from '../styles/login.module.css';
+import LoginCard from "../src/components/loginCards/loginCard";
+import Input from '../src/components/input/input';
+import Button from '../src/components/button/button';
+import Link from 'next/link';
+import Logo from "../src/components/logo/logo";
+import SideBar from '../src/components/sideBar/sideBar';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function CadastroPage() {
 
+    const router = useRouter();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleCadastro = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         try {
             const response = await cadastrar(username, email, password);
-            router.push('/inndex');
+            if (response.status === 201) {
+                router.push('/index');
+            }
         } catch (error) {
-            console.error('Erro ao cadastrar:', error);
+            console.error('Erro ao cadastrar:', error.message); 
         }
+    };
+
+    const cadastrar = async (username, email, password) => {
+        const response = await fetch('http://localhost:2306/user/signUp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, email, password })
+        });
+
+        if (response.status !== 201) {
+            const errorData = await response.json();
+            throw new Error(errorData.mensagem);
+        }
+
+        return response.json();
     };
 
     return (

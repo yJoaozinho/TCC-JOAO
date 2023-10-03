@@ -32,7 +32,7 @@
 }
 
 .buttonLink:hover {
-  background-color: #2980b9; /* Cor de fundo do botão ao passar o mouse */
+  background-color: #2980b9; 
 }
 
 .ul{
@@ -43,4 +43,13 @@
 .logo{
   position: center;
 
+}
+.activeLink {
+  color: #19376D; 
+  background-color: #A5D7E8;
+}
+.perfilLogout{
+  margin-bottom: 0;
+  border: #19376D;
+  border: 2;
 }
