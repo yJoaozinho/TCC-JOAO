@@ -46,10 +46,31 @@
 }
 .activeLink {
   color: #19376D; 
-  background-color: #A5D7E8;
+  background-color:#A5D7E8;
 }
-.perfilLogout{
-  margin-bottom: 0;
-  border: #19376D;
-  border: 2;
+
+.buttonContainer {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+  width: 250px;
+  height: 40px;
+  padding: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #A5D7E8;  
+  border-radius: 10px;     
+
 }
+
+.btnEditar {
+  text-decoration: none;
+  color: white;
+}
+.btnRemover {
+  text-decoration: none;
+  color: red;
+}
+

@@ -8,6 +8,7 @@
 }
 
 .fotoDePerfil {
+    margin: 40px;
     border-radius: 50%;
     border: 0.5em solid #2980b9;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
