@@ -2,28 +2,46 @@ import Logo from "../logo/logo"
 import Styles from "./sideBar.module.css"
 import SideBarItem from "./sideBarItem"
 import Link from "next/link"
+import React, { useState } from 'react';
 
-export default function SideBar () {
+export default function SideBar() {
+  const [showModal, setShowModal] = useState(false);
+  
 
-    return (
-        <div className={Styles.sidebar}>
-          <Logo h= "150" w="150" />
-          
-          <ul className={Styles.ul}>
-          <SideBarItem link="/" text ="Pagina inicial"/>
-          <SideBarItem link="/login" text ="Login"/>
-          <SideBarItem link="/cadastro" text ="Cadastro"/>
-          <SideBarItem link="/perfilUsuario" text ="Meu Perfil"/>
-          <SideBarItem link="/meusAnimais" text ="Meus Pets"/>
-        
-          </ul>
-      
-          <div className={Styles.buttonContainer}>
-            <a href="editarUsuario" className={Styles.btnEditar}>Editar</a>
-            <a href="logOut" className={Styles.btnRemover}>Sair</a>
-          </div>
+  return (
+    <div className={Styles.sidebar}>
+      <Logo h="150" w="150" />
+
+      <ul className={Styles.ul}>
+        <SideBarItem link="/" text="Pagina inicial" />
+        <SideBarItem link="/perfilUsuario" text="Meu Perfil" />
+        <SideBarItem link="/meusAnimais" text="Meus Pets" />
+
+      </ul>
+
+      <div>
+        <div className={Styles.buttonContainer}>
+          <a href="editarUsuario" className={Styles.btnEditar}>Editar</a>
+          <button className={Styles.btnRemover} onClick={() => setShowModal(true)}>Sair</button>
         </div>
-      )
-    }
-        
-    
+
+        {showModal && (
+          <div className={Styles.modal}>
+            <div className={Styles.modalContent}>
+              <span className={Styles.closeBtn} onClick={() => setShowModal(false)}>&times;</span>
+              <p className={Styles.p}>Tem certeza que deseja sair?</p>
+              <button className={Styles.confirmar} onClick={() => {
+                // funcao de sair aqui
+                console.log('Saindo...');
+                setShowModal(false);
+              }}>Sim</button>
+              <button className={Styles.cancelar} onClick={() => setShowModal(false)}>Cancelar</button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+
