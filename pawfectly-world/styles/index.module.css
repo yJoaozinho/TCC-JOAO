@@ -1,24 +1,28 @@
 .body {
-    /* aaa*/
+    /* aaa */
 }
 
+.container {
+    height: 100vh;
+    display: flex;
+}
 
 .perfil {
-    margin-left: 660px;  
-    width: 40%;  
     display: flex;
-    flex-direction: column;  
-    height: 100%;           
+    margin-left: 660px;
+    width: 40%;
+    flex-direction: column;
+    height: 100%;
     border-radius: 10px;
-    background-color:#19376D ;  
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);  
+    background-color: #19376D;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    color:#fff;
+    color: #fff;
     overflow: hidden;
-    
 }
+
 .posts {
-    flex-grow: 1;           
+    flex-grow: 1;
     padding: 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
@@ -30,36 +34,114 @@
     margin-bottom: 10px;
 }
 
-.container {
-    height: 100vh;  
-    display: flex;
-}
-
-
-    
-
 .infoUsuario {
     margin: 20px;
     width: 100%;
     border-bottom: 3px solid #2980b9;
     border-top: 3px solid #2980b9;
     font-family: Arial, sans-serif;
-    font-size: 25px;         
-    text-align: left;       
+    font-size: 25px;
+    text-align: left;
     padding: 10px;
     box-sizing: border-box;
 }
 
-
-
 .campo {
-    margin-bottom: 10px; 
-    padding: 10px; 
-    
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.link {
+    color: #19376D;
+    background-color: #2980b9;
+    border-radius: 10px;
+    padding: 5px;
+    width: 150px;
+    margin: 3px 3px 3px auto;
+}
+
+.link:hover {
+    color: black;
+    background-color: aquamarine;
+}
+
+.modalOverlay {
+    margin-left: 600px;
+    width: 50%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #19376D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.modalContent {
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; 
+    justify-content: center;
+}
+
+.fechar {
+    position: absolute;
+    bottom: 10px;
+    background-color: red;
+    color: black;
+    border-radius: 10px;
+    opacity: 0.8;
+    width: 70px;
+    font-size: 15px;
+    height: 30px;
+    top: 40px;
+    right: 30px;
+}
+
+.fechar:hover {
+    opacity: 1;
+}
+
+.input, .inputSenha {
+    height: 35px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    width: 100%; 
+    color: black;
+    background-color: #fff;
+    font-size: 14px;
     
 }
 
-.strong {
-    display: block; 
-    margin-bottom: 5px; 
+.passwordContainer {
+    display: flex;
+    width: 100%; 
+    align-items: center;
+    justify-content: space-between; 
+}
+.btnSenha{
+    height: 30px;
+    width:200px ;
+    background-color: #2980b9;
+    color: black;
+    border-radius: 8px;
+}
+.btnform{
+    position: absolute;
+    right: 50%;
+    background-color: greenyellow;
+    border-radius: 8px;
+    width: 70px;
+    height: 30px;
+}
+.input::placeholder, .inputSenha::placeholder {
+    color: #aaa;  
+    opacity: 1;   
 }
