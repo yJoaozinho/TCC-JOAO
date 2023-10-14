@@ -49,6 +49,8 @@ export default function perfilUsuario() {
         return (
             <div className={Styles.modalOverlay}>
                 <div className={Styles.modalContent}>
+
+                    <h1 className={Styles.tituloh1}>Editar perfil</h1>
                 <button className={Styles.fechar} onClick={onClose}>Fechar</button>
                     <form onSubmit={handleSubmit}>
                         <input

@@ -16,12 +16,14 @@ export default function SideBar() {
         <SideBarItem link="/" text="Pagina inicial" />
         <SideBarItem link="/perfilUsuario" text="Meu Perfil" />
         <SideBarItem link="/meusAnimais" text="Meus Pets" />
+        <SideBarItem link="/doarAnimal" text="Doar Animal"/>
+        <SideBarItem link="/login" text="Login" />
 
       </ul>
 
       <div>
         <div className={Styles.buttonContainer}>
-          <a href="editarUsuario" className={Styles.btnEditar}>Editar</a>
+          <a href="perfilUsuario" className={Styles.btnEditar}>Perfil</a>
           <button className={Styles.btnRemover} onClick={() => setShowModal(true)}>Sair</button>
         </div>
 
@@ -31,7 +33,7 @@ export default function SideBar() {
               <span className={Styles.closeBtn} onClick={() => setShowModal(false)}>&times;</span>
               <p className={Styles.p}>Tem certeza que deseja sair?</p>
               <button className={Styles.confirmar} onClick={() => {
-                // funcao de sair aqui
+                
                 console.log('Saindo...');
                 setShowModal(false);
               }}>Sim</button>
