@@ -10,7 +10,7 @@ import Logo from "../src/components/logo/logo";
 import SideBar from "../src/components/sideBar/sideBar";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('');
+  const [username_ou_email, setUsername_ou_email] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const router = useRouter();
@@ -19,7 +19,7 @@ export default function LoginPage() {
     e.preventDefault();
 
     try {
-      const response = await login(email, password);
+      const response = await login(username_ou_email, password);
       if (response.token) {
         router.push('/index');
       } else {
@@ -37,7 +37,7 @@ export default function LoginPage() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ email, senha: password })
+      body: JSON.stringify({ email, senha })
     });
 
     if (!response.ok) {
@@ -64,7 +64,7 @@ export default function LoginPage() {
               type="text"
               placeholder="Email ou Username"
               name="email"
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail_ou_username(e.target.value)}
             />
             <Input
               type="password"

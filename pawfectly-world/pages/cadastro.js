@@ -9,40 +9,47 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 export default function CadastroPage() {
-
+    
     const router = useRouter();
+    const [nome, setNome] = useState('');
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [senha, setSenha] = useState('');
+    const [role, setRole] = useState('');
 
     const handleCadastro = async (e) => {
         e.preventDefault();
-
+        
         try {
-            const response = await cadastrar(username, email, password);
+            const response = await cadastrar(nome, username, email, senha, role);
             if (response.status === 201) {
-                router.push('/index');
+                router.push('/index'); // Certifique-se de que o caminho '/index' está correto
             }
         } catch (error) {
             console.error('Erro ao cadastrar:', error.message); 
         }
     };
 
-    const cadastrar = async (username, email, password) => {
-        const response = await fetch('http://localhost:2306/user/signUp', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ username, email, password })
-        });
-
-        if (response.status !== 201) {
-            const errorData = await response.json();
-            throw new Error(errorData.mensagem);
+    const cadastrar = async (nome, username, email, senha, role) => {
+        try {
+            const response = await fetch('http://localhost:2306/user/signUp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ nome, username, email, senha, role })
+            });
+    
+            if (!response.ok) {
+                const errorData = await response.text();
+                throw new Error(`Erro ao cadastrar: ${errorData} (status: ${response.status})`);
+            }
+    
+            return response;
+        } catch (error) {
+            console.error('Erro na requisição:', error);
+            throw error;
         }
-
-        return response.json();
     };
 
     return (
@@ -58,14 +65,15 @@ export default function CadastroPage() {
                 <div className={styles.cardLogin}>
                     <h3> Cadastro </h3>
                     <form className={styles.form} onSubmit={handleCadastro}>
+                        <Input type="text" placeholder="Seu nome" value={nome} onChange={(e) => setNome(e.target.value)} />
                         <Input type="text" placeholder="Seu username" value={username} onChange={(e) => setUsername(e.target.value)} />
                         <Input type="email" placeholder="Seu email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                        <Input type="password" placeholder="Sua senha" value={password} onChange={(e) => setPassword(e.target.value)} />
-
+                        <Input type="password" placeholder="Sua senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
+                        <Input type="text" placeholder="Sua role" value={role} onChange={(e) => setRole(e.target.value)} />
                         <Button type="submit">Cadastrar</Button>
                     </form>
 
-                    <Link className={styles.link} href={"/login"}>Já possui uma conta?</Link>
+                    <Link href="/login"className={styles.link}>Já possui uma conta?</Link> 
                 </div>
             </LoginCard>
         </div>

@@ -11,7 +11,7 @@ export default function doarAnimal() {
         tipoAnimal: "",
         racaAnimal: "",
         genero: "",
-        adocaoMarcada: false,
+        adocao: false,
         descricaoAnimal: "",
     });
 
@@ -144,15 +144,15 @@ export default function doarAnimal() {
                         </div>
 
                         <div className={Styles.checkboxContainer}>
-                            <label className={Styles.label} htmlFor="adocaoMarcada">
-                                Adoção Marcada:
+                            <label className={Styles.label} htmlFor="adocao">
+                                Esta para Adoção ?
                             </label>
                             <div className={Styles.checkboxWrapper}>
                                 <input
                                     className={Styles.checkbox}
                                     type="checkbox"
-                                    id="adocaoMarcada"
-                                    name="adocaoMarcada"
+                                    id="adocao"
+                                    name="adocao"
                                     onChange={handleInputChange}
                                 />
                             </div>
