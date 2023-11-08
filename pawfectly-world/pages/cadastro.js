@@ -15,29 +15,40 @@ export default function CadastroPage() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    const [role, setRole] = useState('');
+    
 
     const handleCadastro = async (e) => {
         e.preventDefault();
-        
+    
         try {
-            const response = await cadastrar(nome, username, email, senha, role);
+            const response = await cadastrar(nome, username, email, senha);
             if (response.status === 201) {
-                router.push('/index'); // Certifique-se de que o caminho '/index' está correto
+               
+                const token = response.headers.get('Authorization');
+    
+                if (token) {
+                    
+                    const jwt = token.replace('Bearer ', '');
+    
+                    
+                    localStorage.setItem('jwt', jwt);
+                }
+    
+                router.push('/home');
             }
         } catch (error) {
-            console.error('Erro ao cadastrar:', error.message); 
+            console.error('Erro ao cadastrar:', error.message);
         }
     };
 
-    const cadastrar = async (nome, username, email, senha, role) => {
+    const cadastrar = async (nome, username, email, senha) => {
         try {
-            const response = await fetch('http://localhost:2306/user/signUp', {
+            const response = await fetch('http://localhost:2306/user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ nome, username, email, senha, role })
+                body: JSON.stringify({ nome, username, email, senha })
             });
     
             if (!response.ok) {
@@ -51,10 +62,42 @@ export default function CadastroPage() {
             throw error;
         }
     };
+        /*const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:2306/user', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            nome,
+            username,
+            email,
+            senha,
+            role
+          })
+        });
+        if (response.ok) {
+          const auth = response.headers.get("Authorization").toString();
+          localStorage.setItem('Authorization', auth);
+          console.log('Login realizado com sucesso!');
+          router.push('/home')
+        } else {
+          console.error('Erro ao fazer a solicitação HTTP.');
+        }
+     } catch (error) {
+       console.error('Erro ao fazer a solicitação HTTP:', error);
+     }
+   };
+
+   const handleSubmit = (e) => {
+    e.preventDefault(); 
+    fetchData(); 
+  };*/
 
     return (
         <div className={styles.background}>
-            <SideBar />
+            
             <LoginCard>
                 <div className={styles.cardInfo}>
                     <h1>Pawfectly World!</h1>
@@ -69,11 +112,10 @@ export default function CadastroPage() {
                         <Input type="text" placeholder="Seu username" value={username} onChange={(e) => setUsername(e.target.value)} />
                         <Input type="email" placeholder="Seu email" value={email} onChange={(e) => setEmail(e.target.value)} />
                         <Input type="password" placeholder="Sua senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
-                        <Input type="text" placeholder="Sua role" value={role} onChange={(e) => setRole(e.target.value)} />
                         <Button type="submit">Cadastrar</Button>
                     </form>
 
-                    <Link href="/login"className={styles.link}>Já possui uma conta?</Link> 
+                    <Link href="/"className={styles.link}>Já possui uma conta?</Link> 
                 </div>
             </LoginCard>
         </div>
