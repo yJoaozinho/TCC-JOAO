@@ -30,7 +30,7 @@ export default function LoginPage() {
                 
                 localStorage.setItem('jwt', jwt);
             }
-            console.log(jwt)
+            
             router.push('/home');
         }
     } catch (error) {

@@ -3,7 +3,11 @@
 }
 
 .container {
-    height: 100vh;
+    width: 100vw; 
+    height: 100vh; 
+    background: linear-gradient(to bottom, #f8f8f8, #ffffff); 
+    margin: 0; 
+    padding: 0; 
     display: flex;
 }
 
@@ -19,6 +23,7 @@
     text-align: center;
     color: #fff;
     overflow: hidden;
+    align-items: center;
 }
 
 .posts {
@@ -40,12 +45,28 @@
     border-bottom: 3px solid #2980b9;
     border-top: 3px solid #2980b9;
     font-family: Arial, sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     text-align: left;
     padding: 10px;
     box-sizing: border-box;
 }
 
+.vemDeLadinho{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    padding: 10px;
+    width: 100%; 
+}
+.nome{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    opacity: 0.9;
+}
+
+.nickname{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 26px;
+}
 .campo {
     margin-bottom: 10px;
     padding: 10px;
@@ -55,7 +76,8 @@
     color: #19376D;
     background-color: #2980b9;
     border-radius: 10px;
-    padding: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     width: 150px;
     margin: 3px 3px 3px auto;
 }
@@ -65,18 +87,35 @@
     background-color: aquamarine;
 }
 
-.modalOverlay {
-    margin-left: 600px;
-    width: 50%;
-    height: 100vh;
-    position: fixed;
+.pagina{
+    width: 100vw; 
+    height: 100vh; 
+    position: fixed; 
     top: 0;
     left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background: linear-gradient(to bottom, #f8f8f8, #ffffff); 
+    z-index: 10; 
+}
+
+
+.modalOverlay {
+    width: 50%;
+    height: 750px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #19376D;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px;
+    padding: 5px;
+    border-radius: 8px;
+    z-index: 20;
+
 }
 
 .modalContent {
@@ -90,7 +129,12 @@
     align-items: stretch; 
     justify-content: center;
 }
-
+.botoesNav{
+    position: absolute;
+    padding: 2px;
+    top: 10px;
+    right: 470px;
+}
 .fechar {
     position: absolute;
     bottom: 10px;
@@ -103,10 +147,12 @@
     height: 30px;
     top: 40px;
     right: 30px;
+    opacity: 1;
 }
 
 .fechar:hover {
-    opacity: 1;
+    opacity: 0.8;
+    cursor: pointer;
 }
 
 .input, .inputSenha {
@@ -115,7 +161,7 @@
     margin-bottom: 10px;
     width: 100%; 
     color: black;
-    background-color: #fff;
+    background-color: #b4dcea;
     font-size: 14px;
     
 }
@@ -127,11 +173,18 @@
     justify-content: space-between; 
 }
 .btnSenha{
+    margin-left:6px ;
+    margin-bottom: 2px;
     height: 30px;
-    width:200px ;
+    width:160px ;
     background-color: #2980b9;
     color: black;
     border-radius: 8px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+.btnSenha:hover{
+    opacity: 1;
 }
 .btnform{
     position: absolute;
@@ -140,9 +193,14 @@
     border-radius: 8px;
     width: 70px;
     height: 30px;
+    opacity: 0.85;
+}
+.btnform:hover{
+    cursor: pointer;
+    opacity: 1;
 }
 .input::placeholder, .inputSenha::placeholder {
-    color: #aaa;  
+    color: #010101;  
     opacity: 1;   
 }
 .tituloh1 {

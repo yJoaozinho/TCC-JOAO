@@ -4,7 +4,6 @@ import Input from '../src/components/input/input';
 import Button from '../src/components/button/button';
 import Link from 'next/link';
 import Logo from "../src/components/logo/logo";
-import SideBar from '../src/components/sideBar/sideBar';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
