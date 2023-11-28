@@ -1,10 +1,16 @@
 import SideBar from "../src/components/sideBar/sideBar"
+import Styles from "../styles/meusAnimais.module.css"
+import MeusPets from "../src/components/meusPets/meusPets"
+
 export default function meusAnimais(){
 
     return(
         <div>
             <SideBar/>
-            <h1>*Animais</h1>
+            <div className={Styles.container}>
+                <MeusPets/>
+                <MeusPets/>
+            </div>
         </div>
     )
 }

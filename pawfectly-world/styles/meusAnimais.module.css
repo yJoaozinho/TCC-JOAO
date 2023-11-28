@@ -1,0 +1,14 @@
+.container{
+    margin-left: 600px;
+    width: 50%;
+    height: 100vh;
+    position: fixed;
+    top: o;
+    left: 0;
+    background-color: #19376D;
+    display: flex;
+    padding: 5px;
+    border-radius: 8px;
+    align-items: flex-start;
+    padding: 20px;
+}

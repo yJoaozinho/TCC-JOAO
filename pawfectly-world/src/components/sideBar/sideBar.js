@@ -13,7 +13,7 @@ export default function SideBar() {
       <Logo h="150" w="150" />
 
       <ul className={Styles.ul}>
-        <SideBarItem link="/" text="Pagina inicial" />
+        <SideBarItem link="/home" text="Pagina inicial" />
         <SideBarItem link="/perfilUsuario" text="Meu Perfil" />
         <SideBarItem link="/meusAnimais" text="Meus Pets" />
         <SideBarItem link="/doarAnimal" text="Doar Animal"/>

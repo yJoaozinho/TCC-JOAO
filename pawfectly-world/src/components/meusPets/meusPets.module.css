@@ -1,0 +1,40 @@
+.content{
+    width: 50%;
+    height: 150px;
+    background-color: cadetblue;
+    border-radius: 10px;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    margin: 20px;
+}
+.coias{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin: 10px;
+}
+.button{
+    background-color: #19376d;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    
+}
+.foto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 50%;
+    height: 100%;
+}
+.button:hover{
+    background-color: #416fc4;
+    cursor: pointer;
+}
