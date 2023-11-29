@@ -1,0 +1,23 @@
+
+
+.content {
+    width: 650px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 8px;
+    gap: 10px;
+    flex-direction: column;
+    margin-left: 125px;
+    
+  }
+  
+  .meinha {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 100vh; 
+    
+  }
+  
