@@ -37,119 +37,43 @@ export default function doarAnimal() {
                 <div className={Styles.modalContent}>
                     <form className={Styles.form} >
                         <label className={Styles.label} htmlFor="nomeAnimal">
-                            Nome do Animal:
-                        </label>
-                        <input
-                            className={Styles.input}
-                            type="text"
-                            id="nomeAnimal"
-                            name="nomeAnimal"
-                            required
-                            onChange={handleInputChange}
-                        />
-
-                        <label className={Styles.label} htmlFor="donoAnimal">
                             Username do Dono:
                         </label>
-                        <input
-                            className={Styles.input}
-                            type="text"
-                            id="donoAnimal"
-                            name="donoAnimal"
-                            required
-                            onChange={handleInputChange}
-                        />
+                        <Input type="text" placeholder="Dono do animal" value={dono} onChange={(e) => setDono(e.target.value)} />
+
+                        <label className={Styles.label} htmlFor="donoAnimal">
+                            Nome do animal:
+                        </label>
+                        <Input type="text" placeholder="Nome do Animal" value={nome} onChange={(e) => setNome(e.target.value)} />
 
                         <label className={Styles.label} htmlFor="idadeAnimal">
                             Idade do Animal:
                         </label>
-                        <input
-                            className={Styles.input}
-                            type="number"
-                            id="idadeAnimal"
-                            name="idadeAnimal"
-                            required
-                            onChange={handleInputChange}
-                        />
+                        <Input type="text" placeholder="Idade do Animal" value={idade} onChange={(e) => setIdade(e.target.value)} />
 
                         <label className={Styles.label} htmlFor="tipoAnimal">
                             Tipo de Animal:
                         </label>
-                        <input
-                            className={Styles.input}
-                            type="text"
-                            id="tipoAnimal"
-                            name="tipoAnimal"
-                            required
-                            onChange={handleInputChange}
-                        />
+                        <Input type="text" placeholder="Tipo do Animal" value={tipo} onChange={(e) => setTipo(e.target.value)} />
 
-                        <label className={Styles.label} htmlFor="racaAnimal">
-                            Raça do Animal:
+                        <label className={Styles.label} htmlFor="tipoAnimal">
+                            Genero do Animal:
                         </label>
-                        <input
-                            className={Styles.input}
-                            type="text"
-                            id="racaAnimal"
-                            name="racaAnimal"
-                            required
-                            onChange={handleInputChange}
-                        />
-
-                        <div className={Styles.checkboxContainer}>
-                            <label className={Styles.label}>Gênero do Animal:</label>
-                            <div className={Styles.checkboxWrapper}>
-                                <input
-                                    className={Styles.checkbox}
-                                    type="radio"
-                                    id="macho"
-                                    name="genero"
-                                    value="macho"
-                                    onChange={handleInputChange}
-                                />
-                                <label className={Styles.label} htmlFor="macho">
-                                    Macho
-                                </label>
-                            </div>
-                            <div className={Styles.checkboxWrapper}>
-                                <input
-                                    className={Styles.checkbox}
-                                    type="radio"
-                                    id="femea"
-                                    name="genero"
-                                    value="femea"
-                                    onChange={handleInputChange}
-                                />
-                                <label className={Styles.label} htmlFor="femea">
-                                    Fêmea
-                                </label>
-                            </div>
-                        </div>
-
+                        <Input type="text" placeholder="Genero do Animal" value={sexo} onChange={(e) => setSexo(e.target.value)} />
+                        
                         <div className={Styles.checkboxContainer}>
                             <label className={Styles.label} htmlFor="adocao">
                                 Esta para Adoção ?
                             </label>
                             <div className={Styles.checkboxWrapper}>
-                                <input
-                                    className={Styles.checkbox}
-                                    type="checkbox"
-                                    id="adocao"
-                                    name="adocao"
-                                    onChange={handleInputChange}
-                                />
+                            <Input type="checkbox" placeholder="Adocao ativa" value={adocao} onChange={(e) => setAdocao(e.target.value)} />
                             </div>
                         </div>
 
                         <label className={Styles.label} htmlFor="descricaoAnimal">
                             Descrição do Animal:
                         </label>
-                        <textarea
-                            className={Styles.input}
-                            id="descricaoAnimal"
-                            name="descricaoAnimal"
-                            onChange={handleInputChange}
-                        ></textarea>
+                        <Input type="text" placeholder="Descricao do Animal" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
 
                         <div>
                             <button
