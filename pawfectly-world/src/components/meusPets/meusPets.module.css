@@ -1,40 +1,45 @@
-.content{
-    width: 50%;
-    height: 150px;
+.content {
+    width: 200px;
+    height: 280px; 
     background-color: #A5D7E8;
     border-radius: 10px;
     display: flex;
-    align-items: flex-start;
-    padding: 10px;
-    margin: 20px;
-}
-.coias{
-    width: 50%;
-    height: 100%;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 5px;
-    margin: 10px;
+    flex-direction: column;
+    padding: 20px; 
+    margin: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    border: 2px solid black;
 }
-.button{
+.a{
+    font-size: larger;
+}
+
+.button {
     background-color: #19376d;
     padding: 10px;
     font-size: 15px;
     border-radius: 15px;
     border: none;
     color: white;
-    
+     
+    margin: 10px;
 }
-.foto{
+
+.foto {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    width: 50%;
-    height: 100%;
+    padding: 10px; 
+    border-radius: 50%; 
+    overflow: hidden; 
 }
-.button:hover{
+
+.foto img {
+    border-radius: 50%; 
+}
+
+.button:hover {
     background-color: #416fc4;
     cursor: pointer;
 }

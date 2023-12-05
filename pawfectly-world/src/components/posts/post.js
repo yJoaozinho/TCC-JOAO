@@ -1,10 +1,10 @@
 import Styles from "./post.module.css"
-import Image from "next/image";
-export default function Post({ title, description, imageUrl, name, nickname }) {
+import  Image  from "next/image";
+export default function Post({ title, description, name, nickname }) {
     return (
         <div className={Styles.post}>
             <div className={Styles.postImage}>
-                <Image src={imageUrl} alt="Imagem do post" width={100} height={100} />
+                <Image src="/logo.jpg"alt="Imagem do post" width={200} height={200} />
             </div>
             <div className={Styles.tudao}>
                 <div className={Styles.postHeader}>

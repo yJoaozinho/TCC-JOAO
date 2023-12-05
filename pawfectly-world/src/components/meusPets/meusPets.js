@@ -1,17 +1,17 @@
 import Styles from "./meusPets.module.css"
 import Image from "next/image"
-export default function meusPets(){
+export default function MeusPets() {
 
-    return(
+    return (
         <div className={Styles.content}>
-            <div className={Styles.foto}>
+           <a className={Styles.a}><strong>Renato</strong></a>
 
+           
+            <div className={Styles.foto}>
+                <Image src="/gato.jpg" width={170} height={170} />
             </div>
-            <div className={Styles.coisas}>
-                <h1> Renato</h1>
-                <button className={Styles.button}>Doar</button>
-                <button className={Styles.button}>Ir para Perfil!</button>
-            </div>
+
+            <button className={Styles.button}>Ir para Perfil!</button>
         </div>
     )
 }

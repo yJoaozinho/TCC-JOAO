@@ -1,5 +1,6 @@
 .post {
-    width: 100%;
+    width: 686px;
+    min-height: 210px;
     display: flex;
     border: 2px dashed #007bff;
     margin-bottom: 16px;
@@ -14,12 +15,13 @@
   }
   
   .postImage {
-    width: 50%;
+    width: 100%; 
+    height: auto; 
+    max-width: 200px; 
+    max-height: 200px; 
     left: 0;
-    flex: 1;
-    max-width: 100px;
-    margin-right: 16px;
-  }
+    
+}
   
   .postImage img {
     max-width: 100%;
@@ -43,6 +45,7 @@
   .postActions {
     display: flex;
     align-items: center;
+    padding-bottom: 10px;
   }
   
   .likeButton,
@@ -59,4 +62,11 @@
   .likeButton:hover,
   .commentButton:hover {
     background-color: #0056b3;
+  }
+  .tudao{
+    right: 0;
+    padding-right: 60px;
+    padding-left: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
   }

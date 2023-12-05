@@ -10,7 +10,6 @@ export default function Home() {
         <Posts
           title="Título do Post 1"
           description="Descrição do Post 1"
-          imageUrl="./public/images/bg-ceu.jpg"
           name="Nome do Usuário"
           nickname="@nickname"
         /><Posts

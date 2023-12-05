@@ -5,7 +5,7 @@ export default function logoDoSite (props) {
 
     return(
         <Image 
-        src="/images/logoSemBG.png"
+        src="/logoSemBG.png"
         width={props.w}
         height={props.h}
         />

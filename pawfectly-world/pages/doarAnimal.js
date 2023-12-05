@@ -1,19 +1,19 @@
 import SideBar from "../src/components/sideBar/sideBar";
 import Styles from "../styles/doar.module.css";
 import { useState, useEffect } from "react";
+import Input from "../src/components/input/input";
 
 export default function doarAnimal() {
     const [isModalOpen, setModalOpen] = useState(false);
-    const [formData, setFormData] = useState({
-        nomeAnimal: "",
-        donoAnimal: "",
-        idadeAnimal: "",
-        tipoAnimal: "",
-        racaAnimal: "",
-        genero: "",
-        adocao: false,
-        descricaoAnimal: "",
-    });
+    
+    const [dono, setDono] = useState('');//username
+    const [nome, setNome] = useState('');//string
+    const [idade, setIdade] = useState('');//string
+    const [tipo, setTipo] = useState('');//string
+    const [sexo, setSexo] = useState('');//string
+    const [adocao, setAdocao] = useState('');//boolean
+    const [descricao, setDescricao] = useState('');//string
+    
 
     const handleOpenModal = () => {
         setModalOpen(true);
@@ -27,32 +27,15 @@ export default function doarAnimal() {
          handleOpenModal();
     }, []);
 
-    const handleInputChange = (e) => {
-        const { name, value, type, checked } = e.target;
-        const newValue = type === "checkbox" ? checked : value;
-
-        setFormData({
-            ...formData,
-            [name]: newValue,
-        });
-    };
+   
 
     function Modal({ isOpen, onClose }) {
         if (!isOpen) return null;
 
-        const handleSubmit = (e) => {
-            e.preventDefault();
-            const formDataJSON = JSON.stringify(formData);
-            console.log(formDataJSON);
-
-            
-            onClose();
-        };
-
         return (
             <div className={Styles.modalOverlay}>
                 <div className={Styles.modalContent}>
-                    <form className={Styles.form} onSubmit={handleSubmit}>
+                    <form className={Styles.form} >
                         <label className={Styles.label} htmlFor="nomeAnimal">
                             Nome do Animal:
                         </label>

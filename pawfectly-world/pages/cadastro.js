@@ -61,38 +61,7 @@ export default function CadastroPage() {
             throw error;
         }
     };
-        /*const fetchData = async () => {
-      try {
-        const response = await fetch('http://localhost:2306/user', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            nome,
-            username,
-            email,
-            senha,
-            role
-          })
-        });
-        if (response.ok) {
-          const auth = response.headers.get("Authorization").toString();
-          localStorage.setItem('Authorization', auth);
-          console.log('Login realizado com sucesso!');
-          router.push('/home')
-        } else {
-          console.error('Erro ao fazer a solicitação HTTP.');
-        }
-     } catch (error) {
-       console.error('Erro ao fazer a solicitação HTTP:', error);
-     }
-   };
-
-   const handleSubmit = (e) => {
-    e.preventDefault(); 
-    fetchData(); 
-  };*/
+        
 
     return (
         <div className={styles.background}>
