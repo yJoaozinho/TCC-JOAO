@@ -33,7 +33,7 @@ export default function CadastroPage() {
                     localStorage.setItem('jwt', jwt);
                 }
     
-                router.push('/home');
+                router.push('/editarPerfil');
             }
         } catch (error) {
             console.error('Erro ao cadastrar:', error.message);

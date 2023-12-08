@@ -17,7 +17,11 @@
     font-weight: bold;
     text-decoration: none;
 }
-
+.central{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .buttonLink {
   
   display: block;

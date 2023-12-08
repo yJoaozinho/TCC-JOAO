@@ -10,13 +10,15 @@ export default function SideBar() {
 
   return (
     <div className={Styles.sidebar}>
+      <div className={Styles.central}>
       <Logo h="150" w="150" />
+      </div>
 
       <ul className={Styles.ul}>
         <SideBarItem link="/home" text="Pagina inicial" />
         <SideBarItem link="/perfilUsuario" text="Meu Perfil" />
         <SideBarItem link="/meusAnimais" text="Meus Pets" />
-        <SideBarItem link="/doarAnimal" text="Doar Animal"/>
+        <SideBarItem link="/doarAnimal" text="Criar pet"/>
         
 
       </ul>
