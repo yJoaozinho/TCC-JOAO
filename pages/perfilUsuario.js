@@ -4,11 +4,39 @@ import FotoDePerfil from "../src/components/fotoDePerfil/fotoDePerfil"
 import MeusPets from "../src/components/meusPets/meusPets"
 import Link from "next/link"
 import { useRouter } from 'next/router';
-
+import { useEffect, useState } from 'react';
 
 export default function perfilUsuario() {
 
     const router = useRouter();
+    const [dadosDoUsuario, setDadosDoUsuario] = useState(null);
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwt');
+        
+    }, []);
+
+    async function buscarDadosDoUsuario() {
+        try {
+            const response = await fetch(`https://sua-api.com/auth`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Erro ao buscar informações do usuário');
+            }
+
+            return await response.json();
+            console.log(response)
+        } catch (error) {
+            console.error('Erro:', error);
+            return null;
+        }
+    }
 
     const handleEdit = async (e) => {
         router.push('/editarPerfil');

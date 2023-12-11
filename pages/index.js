@@ -22,6 +22,7 @@ export default function LoginPage() {
         if (response.status === 200) {
            
             const token = response.headers.get('Authorization');
+            console.log('Token recebido:', token);
 
             if (token) {
                 
