@@ -14,117 +14,160 @@ export default function LoginPage() {
   const [error, setError] = useState(null);
   const router = useRouter();
 
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await fetch('http://localhost:2306/auth', {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //         },
+  //         body: JSON.stringify({
+  //           email_ou_username,
+  //           senha
+  //         })
+  //       });
+  //       if (response.ok) {
+  //         const token = response.headers.get("Authorization")
+  //         localStorage.setItem('Authorization', token);
+  //         console.log('Auth recebido:', token);
+  //         console.log('Login realizado com sucesso!');
+  //         router.push('/home')
+  //       } else {
+  //         console.error('Erro ao fazer a solicitação HTTP.');
+  //       }
+  //    } catch (error) {
+  //      console.error('Erro ao fazer a solicitação HTTP:', error);
+  //    }
+  //  };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault(); 
+  //   fetchData(); 
+  // };
+
+
+
   const handlelogin = async (e) => {
     e.preventDefault();
 
     try {
-        const response = await logar(email_ou_username, senha);
-        if (response.status === 200) {
-           
-            const token = response.headers.get('Authorization');
-            console.log('Token recebido:', token);
+      const response = await logar(email_ou_username, senha);
 
-            if (token) {
-                
-                const jwt = token.replace('Bearer ', '');
-
-                
-                localStorage.setItem('jwt', jwt);
-            }
-            
-            router.push('/home');
+      if (response.status === 200) {
+        const token = response.headers.get('Authorization');
+        console.log('Token recebido:', token);
+    
+        if (token) {
+            console.log("token etapa 1: ", token);
+    
+            // Opcional: remover 'Bearer ' se estiver presente
+            const jwt = token.replace('Bearer ', '');
+            console.log('Token JWT:', jwt);
+    
+            // Armazenar o JWT no localStorage
+            localStorage.setItem('token', jwt);
+    
+            // Recuperar o JWT do localStorage para verificação
+            const storedToken = localStorage.getItem('token');
+            console.log('Token armazenado:', storedToken);
         }
-    } catch (error) {
-        console.error('Erro ao logar:', error.message);
     }
+    
+
+
+      router.push('/home');
+    
+    } catch (error) {
+    console.error('Erro ao logar:', error.message);
+  }
 };
 
 const logar = async (email_ou_username, senha) => {
-    try {
-        const response = await fetch('http://localhost:2306/auth', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email_ou_username, senha })
-        });
-
-        if (!response.ok) {
-            const errorData = await response.text();
-            throw new Error(`Erro ao logar: ${errorData} (status: ${response.status})`);
-        }
-
-        return response;
-    } catch (error) {
-        console.error('Erro na requisição:', error);
-        throw error;
-    }
-};
-  /*const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await login(username_ou_email, password);
-      const token = response.headers.get('Authorization').replace('Bearer ', '')
-      if (token) {
-        localStorage.setItem('jwt', token)
-        router.push('/home');
-      } else {
-        setError('Erro ao fazer login. Verifique suas credenciais.');
-      }
-    } catch (error) {
-      setError('Erro ao fazer login. Verifique suas credenciais.');
-      console.log(error);
-    }
-  };
-
-  const login = async (username_ou_email, password) => {
-    const response = await fetch('http://localhost:2306/auth/', {
+  try {
+    const response = await fetch('http://localhost:2306/auth', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username_ou_email, password })
+      body: JSON.stringify({ email_ou_username, senha })
     });
 
     if (!response.ok) {
-      throw new Error('Erro na autenticação');
+      const errorData = await response.text();
+      throw new Error(`Erro ao logar: ${errorData} (status: ${response.status})`);
     }
 
-    return response.json();
-  };*/
+    return response;
+  } catch (error) {
+    console.error('Erro na requisição:', error);
+    throw error;
+  }
+};
+/*const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  return (
-    <div className={styles.background}>
-      
+  try {
+    const response = await login(username_ou_email, password);
+    const token = response.headers.get('Authorization').replace('Bearer ', '')
+    if (token) {
+      localStorage.setItem('jwt', token)
+      router.push('/home');
+    } else {
+      setError('Erro ao fazer login. Verifique suas credenciais.');
+    }
+  } catch (error) {
+    setError('Erro ao fazer login. Verifique suas credenciais.');
+    console.log(error);
+  }
+};
 
-      <LoginCard>
-        <div className={styles.cardInfo}>
-          <h1>Pawfectly World!</h1>
-          <Logo h="200" w="200" />
-        </div>
+const login = async (username_ou_email, password) => {
+  const response = await fetch('http://localhost:2306/auth/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ username_ou_email, password })
+  });
 
-        <div className={styles.cardLogin}>
-          <h2> Login </h2>
-          <form className={styles.form} onSubmit={handlelogin}>
-            <Input
-              type="text"
-              placeholder="Email ou Username"
-              name="email"
-              onChange={(e) => setEmail_ou_username(e.target.value)}
-            />
-            <Input
-              type="password"
-              placeholder="Senha"
-              name="password"
-              onChange={(e) => setSenha(e.target.value)}
-            />
-            <Button type="submit">Entrar</Button>
-          </form>
-          <Link className={styles.link} href='/cadastro'>Não possui uma conta?</Link>
-          {error && <p className={styles.error}>{error}</p>}
-        </div>
-      </LoginCard>
-    </div>
-  );
+  if (!response.ok) {
+    throw new Error('Erro na autenticação');
+  }
+
+  return response.json();
+};*/
+
+return (
+  <div className={styles.background}>
+
+
+    <LoginCard>
+      <div className={styles.cardInfo}>
+        <h1>Pawfectly World!</h1>
+        <Logo h="200" w="200" />
+      </div>
+
+      <div className={styles.cardLogin}>
+        <h2> Login </h2>
+        <form className={styles.form} onSubmit={handlelogin}>
+          <Input
+            type="text"
+            placeholder="Email ou Username"
+            name="email"
+            onChange={(e) => setEmail_ou_username(e.target.value)}
+          />
+          <Input
+            type="password"
+            placeholder="Senha"
+            name="password"
+            onChange={(e) => setSenha(e.target.value)}
+          />
+          <Button type="submit">Entrar</Button>
+        </form>
+        <Link className={styles.link} href='/cadastro'>Não possui uma conta?</Link>
+        {error && <p className={styles.error}>{error}</p>}
+      </div>
+    </LoginCard>
+  </div>
+);
 }

@@ -1,10 +1,11 @@
 import Styles from "../styles/index.module.css";
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
+import { jwtDecode } from "jwt-decode";
+
 
 export default function TesteForm() {
-    const [nomeUsuario, setNomeUsuario] = useState("");
-    const [nickname, setNickname] = useState("");
+    
     const [emailUsuario, setEmailUsuario] = useState("");
     const [cpf_cnpj, setCpf_cnpj] = useState("");
     const [telefone, setTelefone] = useState("");
@@ -14,63 +15,59 @@ export default function TesteForm() {
     const [bairro, setBairro] = useState("");
     const [rua, setRua] = useState("");
     const [estado, setEstado] = useState("");
+
     const router = useRouter();
 
+    const [token, setToken] = useState(null);
+    const [userId, setUserId] = useState(null);
+
     useEffect(() => {
-        // Esta verificação assegura que estamos no lado do cliente
-        if (typeof window !== 'undefined') {
-            const token = localStorage.getItem('jwt');
-            if (!token) {
-                console.error('Token não encontrado 1');
-                // Redirecione ou trate o erro de token não encontrado aqui
+        if (typeof window !== "undefined") {
+            const token = localStorage.getItem('token');
+
+            if (token) {
+                try {
+                    const decoded = jwtDecode(token);
+                    console.log('JWT Decodificado:', decoded);
+                    console.log('teste id ', decoded.sub)
+                    setToken(token);
+                    setUserId(decoded.sub);
+                } catch (error) {
+                    console.error('Erro ao decodificar o token:', error);
+                }
+            } else {
+                console.log('Nenhum token encontrado.');
             }
-            // Outras operações dependentes do token podem ser realizadas aqui
         }
+        
     }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Garantir que estamos no lado do cliente
-        if (typeof window !== 'undefined') {
-            const token = localStorage.getItem('jwt');
-            if (!token) {
-                console.error('Token não encontrado');
-                // Tratamento para quando o token não está presente
-                return;
-            }
+        
+        
+            
 
-            const userData = parseJwt(token);
-            if (!userData || !userData.id) {
-                console.error('Não foi possível obter o ID do usuário do token');
-                // Tratamento para quando não é possível obter o ID do usuário
-                return;
-            }
-
-            const userId = userData.id;
-
-            const dadosDoPerfil = {
-                nomeUsuario,
-                nickname,
-                emailUsuario,
-                cpf_cnpj,
-                telefone,
-                dataDeNascimento,
-                cep,
-                cidade,
-                bairro,
-                rua,
-                estado
-            };
-
+           
             try {
-                const response = await fetch(`https://sua-api.com/user/${userId}`, {
+                const response = await fetch(`http://localhost:2306/user/${userId}`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
                     },
-                    body: JSON.stringify(dadosDoPerfil)
+                    body: JSON.stringify({
+                        emailUsuario,
+                        cpf_cnpj,
+                        telefone,
+                        dataDeNascimento,
+                        cep,
+                        cidade,
+                        bairro,
+                        rua,
+                        estado
+                    })
                 });
 
                 if (response.status === 204) {
@@ -79,31 +76,19 @@ export default function TesteForm() {
                 } else {
                     const erroData = await response.json();
                     throw new Error(erroData.mensagem || 'Erro ao atualizar perfil');
+                    
                 }
             } catch (error) {
                 console.error('Erro:', error);
             }
         }
-    };
+    
 
     const onClose = () => {
         router.push('/perfilUsuario');
     };
 
-    function parseJwt(token) {
-        try {
-            const base64Url = token.split('.')[1];
-            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-
-            return JSON.parse(jsonPayload);
-        } catch (e) {
-            console.error('Erro ao decodificar o JWT', e);
-            return null;
-        }
-    }
+    
 
     return (
         <div className={Styles.pagina}>
@@ -146,12 +131,6 @@ export default function TesteForm() {
                         />
                         <input
                             className={Styles.input}
-                            name="estado"
-                            placeholder="Estado"
-                            value={estado} onChange={(e) => setEstado(e.target.value)}
-                        />
-                        <input
-                            className={Styles.input}
                             name="cidade"
                             placeholder="Cidade"
                             value={cidade} onChange={(e) => setCidade(e.target.value)}
@@ -168,7 +147,13 @@ export default function TesteForm() {
                             placeholder="Rua"
                             value={rua} onChange={(e) => setRua(e.target.value)}
                         />
-                        <button className={Styles.btnform} type="submit" >Enviar</button>
+                         <input
+                            className={Styles.input}
+                            name="estado"
+                            placeholder="Estado"
+                            value={estado} onChange={(e) => setEstado(e.target.value)}
+                        />
+                       
 
                         <button className={Styles.btnform} type="submit">Enviar</button>
                     </form>
@@ -176,6 +161,6 @@ export default function TesteForm() {
             </div>
         </div>
     );
-}
+};
 
 

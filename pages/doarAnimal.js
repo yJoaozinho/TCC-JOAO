@@ -37,32 +37,32 @@ export default function doarAnimal() {
                     </label>
 
 
-                    <label className={Styles.label} htmlFor="donoAnimal">
-                        Nome:
+                    <label className={Styles.label} htmlFor="dono">
+                        
                     </label>
-                    <Input type="text" placeholder="Nome do Animal" value={nome} onChange={(e) => setNome(e.target.value)} />
+                    <Input type="text" placeholder="Nome " value={nome} onChange={(e) => setNome(e.target.value)} />
 
                     <label className={Styles.label} htmlFor="idadeAnimal">
-                        Idade:
+                        
                     </label>
-                    <Input type="text" placeholder="Idade do Animal" value={idade} onChange={(e) => setIdade(e.target.value)} />
+                    <Input type="text" placeholder="Idade " value={idade} onChange={(e) => setIdade(e.target.value)} />
 
                     <label className={Styles.label} htmlFor="tipoAnimal">
-                        Tipo de pet
+                        
                     </label>
-                    <Input type="text" placeholder="Tipo do Animal" value={tipo} onChange={(e) => setTipo(e.target.value)} />
+                    <Input type="text" placeholder="Tipo " value={tipo} onChange={(e) => setTipo(e.target.value)} />
 
                     <label className={Styles.label} htmlFor="tipoAnimal">
-                        Genero do pet:
+                        
                     </label>
-                    <Input type="text" placeholder="Genero do Animal" value={sexo} onChange={(e) => setSexo(e.target.value)} />
+                    <Input type="text" placeholder="Genero " value={sexo} onChange={(e) => setSexo(e.target.value)} />
 
 
 
                     <label className={Styles.label} htmlFor="descricaoAnimal">
-                        Descrição do Pet:
+                        
                     </label>
-                    <Input type="text" placeholder="Descricao do Animal" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
+                    <Input type="text" placeholder="Descricao " value={descricao} onChange={(e) => setDescricao(e.target.value)} />
 
                     <div>
                         <div className={Styles.checkboxContainer}>
