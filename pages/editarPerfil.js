@@ -15,6 +15,7 @@ export default function TesteForm() {
     const [bairro, setBairro] = useState("");
     const [rua, setRua] = useState("");
     const [estado, setEstado] = useState("");
+    const [descricao, setdescricao] = useState("");
 
     const router = useRouter();
 
@@ -55,10 +56,10 @@ export default function TesteForm() {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
+                        'Authorization': `Bearer ${token}`//igual aqui q ta dando certo
                     },
                     body: JSON.stringify({
-                        emailUsuario,
+                        descricao,
                         cpf_cnpj,
                         telefone,
                         dataDeNascimento,
@@ -97,14 +98,13 @@ export default function TesteForm() {
                     <h1 className={Styles.tituloh1}>Editar perfil</h1>
                     <button className={Styles.fechar} onClick={onClose}>X</button>
                     <form onSubmit={handleSubmit}>
-
-                        <input
-                            className={Styles.input}
-                            name="emailUsuario"
-                            type="email"
-                            placeholder="E-mail do usuário"
-                            value={emailUsuario} onChange={(e) => setEmailUsuario(e.target.value)}
+                    <input
+                            className={Styles.inputD}
+                            name="descricao"
+                            placeholder="Fale um pouco sobre voce"
+                            value={descricao} onChange={(e) => setdescricao(e.target.value)}
                         />
+                        
                         <input
                             className={Styles.input}
                             name="cpf_cnpj"

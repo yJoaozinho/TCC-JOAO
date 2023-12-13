@@ -84,7 +84,7 @@ export default function LoginPage() {
 
 const logar = async (email_ou_username, senha) => {
   try {
-    const response = await fetch('http://localhost:2306/auth', {
+    const response = await fetch('http://localhost:2306/user/${userId}', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
