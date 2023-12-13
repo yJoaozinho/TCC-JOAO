@@ -17,17 +17,20 @@ export default function perfilUsuario() {
     const [erro, setErro] = useState('');
 
     useEffect(() => {
+
         if (typeof window !== "undefined") {
             const token = localStorage.getItem('token');
-                        
+            
             if (token) {
                 try {
+                    console.log('a porra do token :', token)
+                    
                     const decoded = jwtDecode(token);
-                    console.log('toiken normal:', token);
-                    console.log('JWT Decodificado:', decoded);
-                    console.log('teste id ', decoded.sub)
-                    setToken(token);
-                    setUserId(decoded.sub);
+                    const id = decoded.sub;
+                    console.log('teste id : ', id)
+                    setUserId(id)
+                    console.log('teste id 2: ', userId)
+
                 } catch (error) {
                     console.error('Erro ao decodificar o token:', error);
                 }
@@ -39,10 +42,10 @@ export default function perfilUsuario() {
 
         async function buscarPerfil() {
             try {
-              const response = await fetch(`http://localhost:2306/auth`, {
+              const response = await fetch(`http://localhost:2306/user/${id}`, {
                 method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${token}`//aqui o jeito q nao deu certo
+                    'Authorization': `Bearer ${token}`
                   }
               });
       

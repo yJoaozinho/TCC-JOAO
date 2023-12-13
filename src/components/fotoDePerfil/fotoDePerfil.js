@@ -7,6 +7,7 @@ export default function logoDoSite (props) {
         <div className={Styles.cotainer}>
         <Image className={Styles.fotoDePerfil}
         src="/peraul.jpg"
+        alt='foto de perfis'
         width={props.w}
         height={props.h}
         />
