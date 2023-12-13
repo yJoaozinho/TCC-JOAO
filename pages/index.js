@@ -14,112 +14,37 @@ export default function LoginPage() {
   const [error, setError] = useState(null);
   const router = useRouter();
 
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch('http://localhost:2306/auth', {
-  //         method: 'POST',
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //         },
-  //         body: JSON.stringify({
-  //           email_ou_username,
-  //           senha
-  //         })
-  //       });
-  //       if (response.ok) {
-  //         const token = response.headers.get("Authorization")
-  //         localStorage.setItem('Authorization', token);
-  //         console.log('Auth recebido:', token);
-  //         console.log('Login realizado com sucesso!');
-  //         router.push('/home')
-  //       } else {
-  //         console.error('Erro ao fazer a solicitação HTTP.');
-  //       }
-  //    } catch (error) {
-  //      console.error('Erro ao fazer a solicitação HTTP:', error);
-  //    }
-  //  };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault(); 
-  //   fetchData(); 
-  // };
-
-
-
-  const handlelogin = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await logar(email_ou_username, senha);
-
-      if (response.status === 200) {
-        const token = response.headers.get('Authorization');
-        console.log('Token recebido:', token);
-    
-        if (token) {
-            console.log("token etapa 1: ", token);
-    
-            // Opcional: remover 'Bearer ' se estiver presente
-            const jwt = token.replace('Bearer ', '');
-            console.log('Token JWT:', jwt);
-    
-            // Armazenar o JWT no localStorage
-            localStorage.setItem('token', jwt);
-    
-            // Recuperar o JWT do localStorage para verificação
-            const storedToken = localStorage.getItem('token');
-            console.log('Token armazenado:', storedToken);
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:2306/auth', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email_ou_username,
+            senha
+          })
+        });
+        if (response.ok) {
+          //const token = response.headers.get("Authorization")
+          const token = response.headers.get("Authorization").toString();
+          localStorage.setItem('token', token);
+          console.log('Auth recebido:', token);
+          console.log('Login realizado com sucesso!');
+          router.push('/home')
+        } else {
+          console.error('Erro ao fazer a solicitação HTTP.');
         }
-    }
-    
+     } catch (error) {
+       console.error('Erro ao fazer a solicitação HTTP:', error);
+     }
+   };
 
-
-      router.push('/home');
-    
-    } catch (error) {
-    console.error('Erro ao logar:', error.message);
-  }
-};
-
-const logar = async (email_ou_username, senha) => {
-  try {
-    const response = await fetch('http://localhost:2306/user/${userId}', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email_ou_username, senha })
-    });
-
-    if (!response.ok) {
-      const errorData = await response.text();
-      throw new Error(`Erro ao logar: ${errorData} (status: ${response.status})`);
-    }
-
-    return response;
-  } catch (error) {
-    console.error('Erro na requisição:', error);
-    throw error;
-  }
-};
-/*const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  try {
-    const response = await login(username_ou_email, password);
-    const token = response.headers.get('Authorization').replace('Bearer ', '')
-    if (token) {
-      localStorage.setItem('jwt', token)
-      router.push('/home');
-    } else {
-      setError('Erro ao fazer login. Verifique suas credenciais.');
-    }
-  } catch (error) {
-    setError('Erro ao fazer login. Verifique suas credenciais.');
-    console.log(error);
-  }
-};
+  const handleSubmit1 = (e) => {
+    e.preventDefault(); 
+    fetchData(); 
+  };
 
 const login = async (username_ou_email, password) => {
   const response = await fetch('http://localhost:2306/auth/', {
@@ -135,7 +60,7 @@ const login = async (username_ou_email, password) => {
   }
 
   return response.json();
-};*/
+};
 
 return (
   <div className={styles.background}>
@@ -149,7 +74,7 @@ return (
 
       <div className={styles.cardLogin}>
         <h2> Login </h2>
-        <form className={styles.form} onSubmit={handlelogin}>
+        <form className={styles.form} onSubmit={handleSubmit1}>
           <Input
             type="text"
             placeholder="Email ou Username"

@@ -2,11 +2,17 @@ import Logo from "../logo/logo"
 import Styles from "./sideBar.module.css"
 import SideBarItem from "./sideBarItem"
 import Link from "next/link"
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 
 export default function SideBar() {
   const [showModal, setShowModal] = useState(false);
-  
+
+  const router = useRouter();
+  const onClose = () => {
+    router.push('/')
+  }
+
 
   return (
     <div className={Styles.sidebar}>
@@ -35,7 +41,8 @@ export default function SideBar() {
               <span className={Styles.closeBtn} onClick={() => setShowModal(false)}>&times;</span>
               <p className={Styles.p}>Tem certeza que deseja sair?</p>
               <button className={Styles.confirmar} onClick={() => {
-                
+                onClose();
+                localStorage.removeItem('token');
                 console.log('Saindo...');
                 setShowModal(false);
               }}>Sim</button>

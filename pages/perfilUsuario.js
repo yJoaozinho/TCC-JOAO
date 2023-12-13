@@ -19,7 +19,7 @@ export default function perfilUsuario() {
     useEffect(() => {
         if (typeof window !== "undefined") {
             const token = localStorage.getItem('token');
-
+                        
             if (token) {
                 try {
                     const decoded = jwtDecode(token);
@@ -37,67 +37,35 @@ export default function perfilUsuario() {
         }
 
 
-        // async function buscarPerfil() {
-        //     try {
-        //       const response = await fetch(`http://localhost:2306/user/${userId}`, {
-        //         method: 'GET',
-        //         headers: {
-        //             'Authorization': `Bearer ${token}`//aqui o jeito q nao deu certo
-        //           }
-        //       });
+        async function buscarPerfil() {
+            try {
+              const response = await fetch(`http://localhost:2306/auth`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`//aqui o jeito q nao deu certo
+                  }
+              });
       
-        //       if (response.status === 401) {
-        //         throw new Error('Usuário não logado!');
-        //       } else if (response.status === 403) {
-        //         throw new Error('Acesso negado!');
-        //       } else if (!response.ok) {
-        //         throw new Error('Erro ao buscar informações do usuário');
-        //       }
+              if (response.status === 401) {
+                throw new Error('Usuário não logado!');
+              } else if (response.status === 403) {
+                throw new Error('Acesso negado!');
+              } else if (!response.ok) {
+                throw new Error('Erro ao buscar informações do usuário');
+              }
       
-        //       const dadosPerfil = await response.json();
-        //       setPerfil(dadosPerfil);
-        //     } catch (error) {
-        //       setErro(error.message);
-        //     }
-        //   }
+              const dadosPerfil = await response.json();
+              setPerfil(dadosPerfil);
+            } catch (error) {
+              setErro(error.message);
+            }
+          }
       
-        //   buscarPerfil();
+          buscarPerfil();
 
     }, []);
 
-    async function buscarPerfil() {
-        try {
-          const response = await fetch(`http://localhost:2306/user/${userId}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`//aqui o jeito q nao deu certo
-              }
-          });
-  
-          if (response.status === 401) {
-            throw new Error('Usuário não logado!');
-          } else if (response.status === 403) {
-            throw new Error('Acesso negado!');
-          } else if (!response.ok) {
-            throw new Error('Erro ao buscar informações do usuário');
-          }
-  
-          const dadosPerfil = await response.json();
-          setPerfil(dadosPerfil);
-        } catch (error) {
-          setErro(error.message);
-        }
-      }
-  
-      buscarPerfil();
 
-    if (erro) {
-        return <div>Erro: {erro}</div>;
-      }
-    
-      if (!perfil) {
-        return <div>Carregando...</div>;
-      }
 
 
     const handleEdit = async (e) => {

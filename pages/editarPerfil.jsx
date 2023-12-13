@@ -18,21 +18,28 @@ export default function TesteForm() {
     const [descricao, setdescricao] = useState("");
 
     const router = useRouter();
+    
 
     const [token, setToken] = useState(null);
     const [userId, setUserId] = useState(null);
-
+    const duelos = userid;
+    console.log(duelos)
     useEffect(() => {
         if (typeof window !== "undefined") {
             const token = localStorage.getItem('token');
+            setToken(token)
+            const decoded = jwtDecode(token);
+            const id = decoded.sub;
+            console.log('teste id : ', id)
+            setUserId(id)
+            console.log('teste id 2: ', userId)
 
+            console.log(decoded);
             if (token) {
                 try {
-                    const decoded = jwtDecode(token);
-                    console.log('JWT Decodificado:', decoded);
-                    console.log('teste id ', decoded.sub)
-                    setToken(token);
-                    setUserId(decoded.sub);
+                    console.log('a porra do token :', token)
+
+                    
                 } catch (error) {
                     console.error('Erro ao decodificar o token:', error);
                 }
@@ -52,12 +59,13 @@ export default function TesteForm() {
 
            
             try {
-                const response = await fetch(`http://localhost:2306/user/${userId}`, {
+                const response = await fetch(`http://localhost:2306/user/${userid}`, {
                     method: 'PATCH',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`//igual aqui q ta dando certo
-                    },
+                        'Authorization': `Bearer ${token}`
+                    }
+                    ,
                     body: JSON.stringify({
                         descricao,
                         cpf_cnpj,
@@ -81,6 +89,7 @@ export default function TesteForm() {
                 }
             } catch (error) {
                 console.error('Erro:', error);
+                console.log(userId)
             }
         }
     
