@@ -22,7 +22,9 @@ export default function TesteForm() {
 
     const [token, setToken] = useState(null);
     const [userId, setUserId] = useState(null);
-    const duelos = userid;
+    
+
+
     console.log(duelos)
     useEffect(() => {
         if (typeof window !== "undefined") {
