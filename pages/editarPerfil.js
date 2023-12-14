@@ -15,7 +15,7 @@ export default function TesteForm() {
     const [bairro, setBairro] = useState("");
     const [rua, setRua] = useState("");
     const [estado, setEstado] = useState("");
-    const [descricao, setdescricao] = useState("");
+    const [biografia, setBiografia] = useState("");
 
     const router = useRouter();
 
@@ -64,7 +64,7 @@ export default function TesteForm() {
                 }
                 ,
                 body: JSON.stringify({
-                    descricao,
+                    biografia,
                     cpf_cnpj,
                     telefone,
                     dataDeNascimento,
@@ -112,7 +112,7 @@ export default function TesteForm() {
                 }
                 ,
                 body: JSON.stringify({
-                    descricao,
+                    biografia,
                     cpf_cnpj,
                     telefone,
                     dataDeNascimento,
@@ -149,9 +149,9 @@ export default function TesteForm() {
                     <form onSubmit={teste}>
                         <input
                             className={Styles.inputD}
-                            name="descricao"
+                            name="biografia"
                             placeholder="Fale um pouco sobre voce"
-                            value={descricao} onChange={(e) => setdescricao(e.target.value)}
+                            value={biografia} onChange={(e) => setBiografia(e.target.value)}
                         />
 
                         <input

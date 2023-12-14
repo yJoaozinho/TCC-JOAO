@@ -1,6 +1,14 @@
 import Styles from "./meusPets.module.css"
 import Image from "next/image"
+import {useRouter} from "next/router"
 export default function MeusPets() {
+
+    const router = useRouter();
+
+    function irPerfil(e){
+        router.push('/perfilPet');
+    }
+
 
     return (
         <div className={Styles.content}>
@@ -11,7 +19,7 @@ export default function MeusPets() {
                 <Image src="/gato.jpg" width={170} height={170} />
             </div>
 
-            <button className={Styles.button}>Ir para Perfil!</button>
+            <button className={Styles.button} onClick={irPerfil}>Ir para Perfil!</button>
         </div>
     )
 }
