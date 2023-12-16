@@ -75,40 +75,40 @@ export default function perfilUsuario() {
         <h1 className={Styles.h1}>Dados Pessoais</h1>
         <ul className={Styles.ul}>
             <li className={Styles.li}>
-                <span className={Styles.label}>Nome:</span> João da Silva
+                <span className={Styles.label}>Nome:</span> {userData.nome}
             </li>
             <li className={Styles.li}>
-                <span className={Styles.label}>Username:</span> 30 anos
+                <span className={Styles.label}>Username:</span> {userData.username}
             </li>
             <li className={Styles.li}>
-                <span className={Styles.label}>E-mail:</span> exemplo@email.com
+                <span className={Styles.label}>E-mail:</span> {userData.email}
             </li>
             <li className={Styles.li}>
-                <span className={Styles.label}>CPF ou  CNPJ:</span> (00) 1234-5678
+                <span className={Styles.label}>CPF ou  CNPJ:</span> {userData.cpf_ou_cnpj}
             </li>
             <li className={Styles.li}>
-                <span className={Styles.label}>Telefone:</span> Rua Exemplo, 1234
+                <span className={Styles.label}>Telefone:</span> {userData.telefone}
             </li>
             <li className={Styles.li}>
-                <span className={Styles.label}>Idade:</span> Rua Exemplo, 1234
+                <span className={Styles.label}>Idade:</span> {userData.data_de_nascimento}
             </li>
             <li className={Styles.li}>
-                <span className={Styles.label}>Cep:</span> Rua Exemplo, 1234
+                <span className={Styles.label}>Cep:</span> {userData.cep}
             </li>
             <li className={Styles.li}>
-                <span className={Styles.label}>Estado:</span> Rua Exemplo, 1234
+                <span className={Styles.label}>Estado:</span> {userData.estado}
             </li>
             <li className={Styles.li}>
-                <span className={Styles.label}>Cidade:</span> Rua Exemplo, 1234
+                <span className={Styles.label}>Cidade:</span> {userData.cidade}
             </li>
             <li className={Styles.li}>
-                <span className={Styles.label}>Bairro:</span> Rua Exemplo, 1234
+                <span className={Styles.label}>Bairro:</span> {userData.bairro}
             </li>
             <li className={Styles.li}>
-                <span className={Styles.label}>Rua:</span> Rua Exemplo, 1234
+                <span className={Styles.label}>Rua:</span> {userData.rua}
             </li>
             <li className={Styles.li}>
-                <span className={Styles.label}>Numero:</span> Rua Exemplo, 1234
+                <span className={Styles.label}>Numero:</span> {userData.numero}
             </li>
             
         </ul>

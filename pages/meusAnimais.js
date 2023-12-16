@@ -1,6 +1,6 @@
 import SideBar from "../src/components/sideBar/sideBar"
 import Styles from "../styles/meusAnimais.module.css"
-import MeusPets from "../src/components/meusPets/meusPets"
+import PetCard from "./perfilPet";
 import { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 
@@ -63,47 +63,21 @@ export default function meusAnimais(){
 
     }, [token, userId]);
 
-    useEffect(() => {
-        async function fetchPetDetails(petId) {
-            try {
-                const response = await fetch(`http://localhost:2306/animal/${petId}`, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error('Erro ao buscar informações do pet');
-                }
-
-                const pet = await response.json();
-                console.log(pet); 
-                return pet;
-            } catch (error) {
-                console.error('Erro ao buscar pet:', error);
-            }
-        }
-
-        async function buscarDetalhesPets() {
-            if (userData && userData.pets && userData.pets.length > 0) {
-                const promises = userData.pets.map(petId => fetchPetDetails(petId));
-                const pets = await Promise.all(promises);
-                setPetsData(pets);
-                console.log(pets)
-            }
-        }
-
-        buscarDetalhesPets();
-    }, [userData, token]);
+    const animal = {
+        nome: 'Fido',
+        idade: '5 anos',
+        tipo: 'Cachorro',
+        raca: 'Vira-lata',
+        sexo: 'Masculino',
+        adocao: 'Disponível para adoção',
+        descricao: 'Fido é um cãozinho muito brincalhão e amoroso, adora passear e está procurando um lar para chamar de seu!',
+      };
 
     return (
         <div>
             <SideBar/>
             <div className={Styles.container}>
-                {petsData.map(pet => (
-                    <MeusPets key={pet._id} pet={pet} />
-                ))}
+            <PetCard {...animal} />
             </div>
         </div>
     );

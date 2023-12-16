@@ -97,11 +97,29 @@ export default function TesteForm() {
 
     const teste = async (e) => {
         e.preventDefault();
-        console.log('teste passou')
-        console.log('verificacao de token: ', token)
-        console.log('verificacao de id: ', userId)
-        const token1 = e.target.localStorage
-        console.log(token1)
+        const formData = {
+            biografia,
+            cpf_cnpj,
+            telefone,
+            dataDeNascimento,
+            cep,
+            cidade,
+            bairro,
+            rua,
+            estado
+        };
+    
+      
+        const dataToSend = Object.fromEntries(
+            Object.entries(formData).filter(([_, value]) => value !== "")
+        );
+    
+        if (Object.keys(dataToSend).length === 0) {
+            console.log("Nenhum campo preenchido. Não há dados para atualizar.");
+            return; 
+        }
+    
+        
 
         try{
         const response = await fetch(`http://localhost:2306/user/${userId}`, {
@@ -111,19 +129,9 @@ export default function TesteForm() {
                     'Authorization': `Bearer ${token}`
                 }
                 ,
-                body: JSON.stringify({
-                    biografia,
-                    cpf_cnpj,
-                    telefone,
-                    dataDeNascimento,
-                    cep,
-                    cidade,
-                    bairro,
-                    rua,
-                    estado
-                })
+                body: JSON.stringify((dataToSend))
             });
-
+            
             if (response.status === 204) {
                 console.log('Perfil atualizado com sucesso');
                 router.push('/perfilUsuario');
@@ -169,7 +177,7 @@ export default function TesteForm() {
                         <input
                             className={Styles.input}
                             name="dataDeNascimento"
-                            placeholder="data"
+                            placeholder="Idade"
                             value={dataDeNascimento} onChange={(e) => setDataDeNascimento(e.target.value)}
                         />
                         <input
