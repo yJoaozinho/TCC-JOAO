@@ -2,7 +2,6 @@ import Styles from "../styles/index.module.css"
 import SideBar from "../src/components/sideBar/sideBar"
 import FotoDePerfil from "../src/components/fotoDePerfil/fotoDePerfil"
 import MeusPets from "../src/components/meusPets/meusPets"
-import Link from "next/link"
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { jwtDecode } from "jwt-decode";
@@ -67,7 +66,7 @@ export default function perfilUsuario() {
 
 
     const handleEdit = async (e) => {
-        router.push('/editarPerfil');
+        router.push('/infoUser');
     }
 
    
@@ -78,7 +77,7 @@ export default function perfilUsuario() {
             <div className={Styles.perfil}>
                 <div className={Styles.botoesNav}>
                     <button className={Styles.link} onClick={handleEdit}>
-                        Editar perfil
+                        informações Pessoais
                     </button>
                     
 
@@ -99,16 +98,7 @@ export default function perfilUsuario() {
                     </div>
 
                 </div>
-                <h3><strong>pets:</strong></h3>
-                <div className={Styles.posts}>
-
-                    <MeusPets />
-                    <MeusPets />
-                    <MeusPets />
-                    <MeusPets />
-                    <MeusPets />
-                    <MeusPets />
-                </div>
+            
             </div>
 
 

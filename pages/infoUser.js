@@ -1,7 +1,4 @@
-import Styles from "../styles/index.module.css"
-import SideBar from "../src/components/sideBar/sideBar"
-import FotoDePerfil from "../src/components/fotoDePerfil/fotoDePerfil"
-import MeusPets from "../src/components/meusPets/meusPets"
+import Styles from "../styles/infoUser.module.css";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { jwtDecode } from "jwt-decode";
@@ -72,40 +69,51 @@ export default function perfilUsuario() {
    
     
     return (
+
         <div className={Styles.container}>
-            <SideBar />
-            <div className={Styles.perfil}>
-                <div className={Styles.botoesNav}>
-                    <button className={Styles.link} onClick={handleEdit}>
-                        Editar perfil
-                    </button>
-                    
+             <button className={Styles.editButton} onClick={handleEdit}>Editar Informações</button>
+        <h1 className={Styles.h1}>Dados Pessoais</h1>
+        <ul className={Styles.ul}>
+            <li className={Styles.li}>
+                <span className={Styles.label}>Nome:</span> João da Silva
+            </li>
+            <li className={Styles.li}>
+                <span className={Styles.label}>Username:</span> 30 anos
+            </li>
+            <li className={Styles.li}>
+                <span className={Styles.label}>E-mail:</span> exemplo@email.com
+            </li>
+            <li className={Styles.li}>
+                <span className={Styles.label}>CPF ou  CNPJ:</span> (00) 1234-5678
+            </li>
+            <li className={Styles.li}>
+                <span className={Styles.label}>Telefone:</span> Rua Exemplo, 1234
+            </li>
+            <li className={Styles.li}>
+                <span className={Styles.label}>Idade:</span> Rua Exemplo, 1234
+            </li>
+            <li className={Styles.li}>
+                <span className={Styles.label}>Cep:</span> Rua Exemplo, 1234
+            </li>
+            <li className={Styles.li}>
+                <span className={Styles.label}>Estado:</span> Rua Exemplo, 1234
+            </li>
+            <li className={Styles.li}>
+                <span className={Styles.label}>Cidade:</span> Rua Exemplo, 1234
+            </li>
+            <li className={Styles.li}>
+                <span className={Styles.label}>Bairro:</span> Rua Exemplo, 1234
+            </li>
+            <li className={Styles.li}>
+                <span className={Styles.label}>Rua:</span> Rua Exemplo, 1234
+            </li>
+            <li className={Styles.li}>
+                <span className={Styles.label}>Numero:</span> Rua Exemplo, 1234
+            </li>
+            
+        </ul>
+        
+    </div>
 
-                </div>
-                <div className={Styles.vemDeLadinho}>
-                    <FotoDePerfil h="110" w="140" />
-                    <div className={Styles.infosPrincipais}>
-                        <h3 className={Styles.nome}> <strong className={Styles.nickname}>@nome do animal</strong> - dono do animal</h3>
-                        <h4> tipo - sexo</h4>
-                    </div>
-                </div>
-
-                <div className={Styles.infoUsuario}>
-
-                    <div className={Styles.campo}>
-                        <strong>Descricao</strong><br></br>
-                        <span className={Styles.quebra}>Descricao do pet</span>
-                    </div>
-
-                </div>
-                <h3><strong>posts:</strong></h3>
-                <div className={Styles.posts}>
-
-                    
-                </div>
-            </div>
-
-
-        </div>
     )
 }
