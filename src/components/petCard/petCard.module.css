@@ -1,5 +1,7 @@
-/* components/PetCard.module.css */
+
 .card {
+    min-width: 500px;
+    max-height:50%;
     display: flex;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -10,18 +12,23 @@
   
   .card:hover {
     transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(15, 21, 130, 0.1);
   }
   
   .imageContainer {
-    width: 150px;
-    height: 150px;
+    width: 50%;
+    min-height: 100%;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .imageContainer img {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     object-fit: cover;
+    border-radius: 50%;
   }
   
   .info {

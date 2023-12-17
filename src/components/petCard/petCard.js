@@ -1,28 +1,40 @@
-import Styles from "./meusPets.module.css"
-import Image from "next/image"
-import { useRouter } from "next/router"
+import React from 'react';
+import styles from './petCard.module.css';
 
-export default function MeusPets({ pet }) {
-    const router = useRouter();
+export default function PetCard({ _idUsuario, _id, nome, idade, tipo, raca, sexo, adocao, descricao }) {
 
-    function irPerfil() {
-        
-        router.push(`/perfilPet/${pet._id}`);
+    const animal = {
+        _idUsuario,
+        _id,
+        nome,
+        idade,
+        tipo,
+        raca,
+        sexo,
+        adocao,
+        descricao
     }
 
-    
-    if (!pet) {
-        return <div>Carregando...</div>;
-    }
 
     return (
-        <div className={Styles.content}>
-            <a className={Styles.a}><strong>{pet.nome}</strong></a>
-            <div className={Styles.foto}>
-                
-                <Image src="/gato.jpg" width={170} height={170} alt="Imagem do Pet" />
+        <div className={styles.card}>
+
+            <div className={styles.imageContainer}>
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbgX4pT4oqPlpLL7e71-2Aeu6vkY3ZS2oOA&usqp=CAU" alt={`Foto de ${nome}`} />
             </div>
-            <button className={Styles.button} onClick={irPerfil}>Ir para Perfil!</button>
+
+
+            <div className={styles.info}>
+                <h2>{nome}</h2>
+                <p><strong>Idade:</strong> {idade}</p>
+                <p><strong>Tipo:</strong> {tipo}</p>
+                <p><strong>Raça:</strong> {raca}</p>
+                <p><strong>Sexo:</strong> {sexo}</p>
+                <p><strong>Adoção:</strong> {adocao}</p>
+                {descricao && <p><strong>Descrição:</strong> {descricao}</p>}
+            </div>
         </div>
-    )
-}
+    );
+};
+

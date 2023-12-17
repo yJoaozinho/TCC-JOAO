@@ -1,6 +1,6 @@
 import SideBar from "../src/components/sideBar/sideBar"
 import Styles from "../styles/meusAnimais.module.css"
-import PetCard from "./perfilPet";
+import PetCard from "../src/components/petCard/petCard"
 import { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 
@@ -9,13 +9,15 @@ export default function meusAnimais(){
     const [token, setToken] = useState(null);
     const [userId, setUserId] = useState(null);
     const [erro, setErro] = useState('');
-    const [userData, setUserData] = useState({});
-    const [petsData, setPetsData] = useState([]);
+    
+    
+    const [pets, setPets] = useState([]);
+
     
 
-    useEffect(() => {
+      useEffect(() => {
 
-        if (typeof window !== "undefined") {
+       if (typeof window !== "undefined") {
             const storedToken = localStorage.getItem('token');
             if (storedToken) {
                 setToken(storedToken);
@@ -30,55 +32,50 @@ export default function meusAnimais(){
             }
         }
 
-        async function buscarPerfil() {
-            if (token && userId) {
+        async function fetchPets() {
+            if (token) {
                 try {
-                    const response = await fetch(`http://localhost:2306/user/${userId}`, {
+                    const response = await fetch(`http://localhost:2306/animal/mypets`, {
                         method: 'GET',
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
                     });
-
+    
                     if (response.status === 401) {
                         throw new Error('Usuário não logado!');
                     } else if (response.status === 403) {
                         throw new Error('Acesso negado!');
                     } else if (!response.ok) {
-                        throw new Error('Erro ao buscar informações do usuário');
+                        throw new Error('Erro ao buscar pets');
                     }
-
-                    const dadosPerfil = await response.json();
-                    setUserData(dadosPerfil);
-                    console.log(dadosPerfil)
+    
+                    const petiscos = await response.json();
+                    setPets(petiscos)
                 } catch (error) {
                     setErro(error.message);
                 }
             }
         }
+        fetchPets()
 
-        buscarPerfil();
 
         
 
-    }, [token, userId]);
+        }, [token, pets]);
 
-    const animal = {
-        nome: 'Fido',
-        idade: '5 anos',
-        tipo: 'Cachorro',
-        raca: 'Vira-lata',
-        sexo: 'Masculino',
-        adocao: 'Disponível para adoção',
-        descricao: 'Fido é um cãozinho muito brincalhão e amoroso, adora passear e está procurando um lar para chamar de seu!',
-      };
+   
+    
 
-    return (
+
+      return (
         <div>
             <SideBar/>
-            <div className={Styles.container}>
-            <PetCard {...animal} />
-            </div>
+        <div className={Styles.container}>
+          {pets?.map(pet => (
+            <PetCard key={pet._id} {...pet} />
+          ))}
         </div>
-    );
-}
+        </div>
+      );
+    }

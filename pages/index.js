@@ -27,7 +27,7 @@ export default function LoginPage() {
           })
         });
         if (response.ok) {
-          //const token = response.headers.get("Authorization")
+          
           const token = response.headers.get("Authorization").toString();
           localStorage.setItem('token', token);
           console.log('Auth recebido:', token);

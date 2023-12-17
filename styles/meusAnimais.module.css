@@ -1,14 +1,14 @@
 .container{
     margin-left: 600px;
     width: 50%;
-    height: 100vh;
+    height: 100%;
     position: fixed;
-    top: o;
-    left: 0;
-    display: flex;
-    padding: 5px;
-    border-radius: 8px;
-    align-items: flex-start;
-    padding: 20px;
-    
+    overflow-y: auto;
+    padding: 10px;
+}
+.container::-webkit-scrollbar{
+    width: 50px;
+}
+.container::-webkit-scrollbar-thumb{
+    background-image: url(../public/logoSemBG.png);
 }
