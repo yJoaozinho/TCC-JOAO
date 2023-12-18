@@ -1,7 +1,6 @@
 import Styles from "../styles/index.module.css"
 import SideBar from "../src/components/sideBar/sideBar"
 import FotoDePerfil from "../src/components/fotoDePerfil/fotoDePerfil"
-import MeusPets from "../src/components/meusPets/meusPets"
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { jwtDecode } from "jwt-decode";
