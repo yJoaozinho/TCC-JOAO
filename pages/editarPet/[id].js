@@ -85,7 +85,7 @@ export default function editarPets() {
                 body: JSON.stringify(dataToSend)
             });
         
-            if (response.status === 204) {
+            if (response.status === 200) {
                 console.log('Pet atualizado com sucesso');
                 router.push('/meusAnimais');
             } else {

@@ -12,3 +12,7 @@
 .container::-webkit-scrollbar-thumb{
     background-image: url(../public/logoSemBG.png);
 }
+
+.carde{
+    border: 1px solid #ccc;
+}

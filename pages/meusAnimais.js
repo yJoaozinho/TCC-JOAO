@@ -15,10 +15,34 @@ export default function meusAnimais() {
 
     const [pets, setPets] = useState([]);
 
-    const botaoEdit = ()=>{
+    const botaoEdit = () => {
         router.push('/editarPet/${pet._id}')
     }
 
+    const onDelete = async (petId) => {
+        if (!token) {
+          return;
+        }
+    
+        try {
+          const response = await fetch(`http://localhost:2306/animal/${petId}`, {
+            method: 'DELETE',
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+    
+          if (response.status === 204) {
+            
+            
+          } else {
+            
+            console.error('Erro ao excluir o pet.');
+          }
+        } catch (error) {
+          console.error('Erro:', error);
+        }
+      };
 
     useEffect(() => {
 
@@ -78,11 +102,21 @@ export default function meusAnimais() {
             <SideBar />
             <div className={Styles.container}>
                 {pets?.map((pet) => (
-                    <div key={pet._id}>
+                    <div className={Styles.carde} key={pet._id}>
                         <PetCard {...pet} />
-                        <Link href={`/editarPet/${pet._id}`}>
+                        <button
+                            className={Styles.editButton}
+                            onClick={() => router.push(`/editarPet/${pet._id}`)}
+                        >
                             Editar Animal
-                        </Link>
+                        </button>
+
+                        <button
+                            className={Styles.deleteButton}
+                            onClick={() => onDelete(pet._id)}
+                        >
+                            Excluir
+                        </button>
                     </div>
                 ))}
             </div>
