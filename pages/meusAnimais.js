@@ -3,21 +3,26 @@ import Styles from "../styles/meusAnimais.module.css"
 import PetCard from "../src/components/petCard/petCard"
 import { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
+import Link from "next/link";
+import { useRouter } from 'next/router';
 
-export default function meusAnimais(){
+export default function meusAnimais() {
 
     const [token, setToken] = useState(null);
     const [userId, setUserId] = useState(null);
     const [erro, setErro] = useState('');
-    
-    
+    const router = useRouter();
+
     const [pets, setPets] = useState([]);
 
-    
+    const botaoEdit = ()=>{
+        router.push('/editarPet/${pet._id}')
+    }
 
-      useEffect(() => {
 
-       if (typeof window !== "undefined") {
+    useEffect(() => {
+
+        if (typeof window !== "undefined") {
             const storedToken = localStorage.getItem('token');
             if (storedToken) {
                 setToken(storedToken);
@@ -41,7 +46,7 @@ export default function meusAnimais(){
                             'Authorization': `Bearer ${token}`
                         }
                     });
-    
+
                     if (response.status === 401) {
                         throw new Error('Usuário não logado!');
                     } else if (response.status === 403) {
@@ -49,7 +54,7 @@ export default function meusAnimais(){
                     } else if (!response.ok) {
                         throw new Error('Erro ao buscar pets');
                     }
-    
+
                     const petiscos = await response.json();
                     setPets(petiscos)
                 } catch (error) {
@@ -60,22 +65,27 @@ export default function meusAnimais(){
         fetchPets()
 
 
-        
-
-        }, [token, pets]);
-
-   
-    
 
 
-      return (
+    }, [token, pets]);
+
+
+
+
+
+    return (
         <div>
-            <SideBar/>
-        <div className={Styles.container}>
-          {pets?.map(pet => (
-            <PetCard key={pet._id} {...pet} />
-          ))}
+            <SideBar />
+            <div className={Styles.container}>
+                {pets?.map((pet) => (
+                    <div key={pet._id}>
+                        <PetCard {...pet} />
+                        <Link href={`/editarPet/${pet._id}`}>
+                            Editar Animal
+                        </Link>
+                    </div>
+                ))}
+            </div>
         </div>
-        </div>
-      );
-    }
+    );
+}

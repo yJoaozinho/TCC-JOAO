@@ -50,45 +50,7 @@ export default function TesteForm() {
 
     }, []);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const token1 = e.target.localStorage
-        console.log(token1)
-
-        try {
-            const response = await fetch(`http://localhost:2306/user/${userId}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                }
-                ,
-                body: JSON.stringify({
-                    biografia,
-                    cpf_cnpj,
-                    telefone,
-                    dataDeNascimento,
-                    cep,
-                    cidade,
-                    bairro,
-                    rua,
-                    estado
-                })
-            });
-
-            if (response.status === 204) {
-                console.log('Perfil atualizado com sucesso');
-                router.push('/perfilUsuario');
-            } else {
-                const erroData = await response.json();
-                throw new Error(erroData.mensagem || 'Erro ao atualizar perfil');
-
-            }
-        } catch (error) {
-            console.error('Erro:', error);
-            
-        }
-    }
+    
 
 
     const onClose = () => {
