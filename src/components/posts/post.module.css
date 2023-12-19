@@ -1,72 +1,52 @@
-.post {
-    width: 686px;
-    min-height: 210px;
-    display: flex;
-    border: 2px dashed #007bff;
-    margin-bottom: 16px;
-    padding: 16px;
-    border-radius: 8px;
-    background-color: #A5D7E8;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    gap: 10px;
-    
-    
-  }
-  
-  .postImage {
-    width: 100%; 
-    height: auto; 
-    max-width: 200px; 
-    max-height: 200px; 
-    left: 0;
-    
+.body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 20px;
 }
-  
-  .postImage img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-  }
-  
-  .postContent {
-    flex: 3;
-  }
-  
-  .h2 {
-    font-size: 20px;
-    margin: 0;
-  }
-  
- .p {
-    margin: 8px 0;
-  }
-  
-  .postActions {
-    display: flex;
-    align-items: center;
-    padding-bottom: 10px;
-  }
-  
-  .likeButton,
-  .commentButton {
-    padding: 8px 16px;
-    margin-right: 8px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .likeButton:hover,
-  .commentButton:hover {
-    background-color: #0056b3;
-  }
-  .tudao{
-    right: 0;
-    padding-right: 60px;
-    padding-left: 100px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 25px;
-  }
+.post {
+  box-shadow: 5px 5px 1px 0px rgba(0,0,0,0.5);
+  background-color: #fff;
+  border-radius: 10px;
+  margin: auto;
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #004eae;
+}
+.postHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.postHeader img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.postHeader .name {
+  font-weight: bold;
+}
+.postHeader .timestamp {
+  color: #65676b;
+  font-size: 0.8rem;
+}
+.postHontent {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.postHooter {
+  color: #65676b;
+  border-top: 1px solid #ccd0d5;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+.postFooter span {
+  cursor: pointer;
+}
+.postFooter span:hover {
+  text-decoration: underline;
+}

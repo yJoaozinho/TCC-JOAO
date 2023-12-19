@@ -22,7 +22,6 @@ export default function SideBar() {
 
       <ul className={Styles.ul}>
         <SideBarItem link="/home" text="Pagina inicial" />
-        <SideBarItem link="/perfilUsuario" text="Meu Perfil" />
         <SideBarItem link="/meusAnimais" text="Meus Pets" />
         <SideBarItem link="/doarAnimal" text="Criar pet"/>
         

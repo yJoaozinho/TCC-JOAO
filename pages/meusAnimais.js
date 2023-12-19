@@ -19,7 +19,13 @@ export default function meusAnimais() {
         router.push('/editarPet/${pet._id}')
     }
 
+    const onPost = (idPet) =>{
+        router.push("/criarPost/${pet._id}")
+
+    }
+
     const onDelete = async (petId) => {
+        
         if (!token) {
           return;
         }
@@ -102,6 +108,7 @@ export default function meusAnimais() {
             <SideBar />
             <div className={Styles.container}>
                 {pets?.map((pet) => (
+                    
                     <div className={Styles.carde} key={pet._id}>
                         <PetCard {...pet} />
                         <button
@@ -113,9 +120,19 @@ export default function meusAnimais() {
 
                         <button
                             className={Styles.deleteButton}
-                            onClick={() => onDelete(pet._id)}
+                            onClick={() =>
+                                 
+                            onDelete(pet._id)}
                         >
                             Excluir
+                        </button>
+                        <button
+                            className={Styles.deleteButton}
+                            onClick={() =>
+                                 
+                            onPost(pet._id)}
+                        >
+                            Postar
                         </button>
                     </div>
                 ))}

@@ -76,6 +76,7 @@ export default function editarPets() {
 
 
         try {
+            
             const response = await fetch(`http://localhost:2306/animal/${id}`, {
                 method: 'PATCH',
                 headers: {
