@@ -15,14 +15,7 @@ export default function meusAnimais() {
 
     const [pets, setPets] = useState([]);
 
-    const botaoEdit = () => {
-        router.push('/editarPet/${pet._id}')
-    }
-
-    const onPost = (idPet) =>{
-        router.push("/criarPost/${pet._id}")
-
-    }
+    
 
     const onDelete = async (petId) => {
         
@@ -127,10 +120,8 @@ export default function meusAnimais() {
                             Excluir
                         </button>
                         <button
-                            className={Styles.deleteButton}
-                            onClick={() =>
-                                 
-                            onPost(pet._id)}
+                            className={Styles.editButton}
+                            onClick={() => router.push(`/criarPost/${pet._id}`)}
                         >
                             Postar
                         </button>

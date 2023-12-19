@@ -8,31 +8,31 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 export default function CadastroPage() {
-    
+
     const router = useRouter();
     const [nome, setNome] = useState('');
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
-    
+
 
     const handleCadastro = async (e) => {
         e.preventDefault();
-    
+
         try {
             const response = await cadastrar(nome, username, email, senha);
             if (response.status === 201) {
-               
+
                 const token = response.headers.get('Authorization');
-    
+
                 if (token) {
-                    
-                    const jwt = token.replace('Bearer ', '');
-    
-                    
-                    localStorage.setItem('jwt', jwt);
+
+                    const token = response.headers.get("Authorization").toString();
+                    localStorage.setItem('token', token);
+                    console.log('Auth recebido:', token);
+                    console.log('Login realizado com sucesso!');
                 }
-    
+
                 router.push('/editarPerfil');
             }
         } catch (error) {
@@ -49,23 +49,23 @@ export default function CadastroPage() {
                 },
                 body: JSON.stringify({ nome, username, email, senha })
             });
-    
+
             if (!response.ok) {
                 const errorData = await response.text();
                 throw new Error(`Erro ao cadastrar: ${errorData} (status: ${response.status})`);
             }
-    
+
             return response;
         } catch (error) {
             console.error('Erro na requisição:', error);
             throw error;
         }
     };
-        
+
 
     return (
         <div className={styles.background}>
-            
+
             <LoginCard>
                 <div className={styles.cardInfo}>
                     <h1>Pawfectly World!</h1>
@@ -83,7 +83,7 @@ export default function CadastroPage() {
                         <Button type="submit">Cadastrar</Button>
                     </form>
 
-                    <Link href="/"className={styles.link}>Já possui uma conta?</Link> 
+                    <Link href="/" className={styles.link}>Já possui uma conta?</Link>
                 </div>
             </LoginCard>
         </div>

@@ -3,6 +3,7 @@ import Styles from "../styles/doar.module.css";
 import { useState, useEffect } from "react";
 import Input from "../src/components/input/input";
 import { useRouter } from 'next/router';
+import { jwtDecode } from "jwt-decode";
 
 
 export default function doarAnimal() {

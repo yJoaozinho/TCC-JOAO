@@ -19,4 +19,6 @@
     justify-content: center; 
     height: 100vh; 
     }
-  
+.timeline{
+  margin: 5px;
+}
