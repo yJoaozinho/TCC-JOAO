@@ -102,8 +102,8 @@ export default function perfilPet() {
   const handleAdoptClick = async () => {
     try {
       const requestData = {
-        pet: id, // Substitua pelo ID do pet
-        owner: petData.dono, // Substitua pela propriedade correta que contém o ID do dono do pet
+        pet: id, 
+        owner: petData.dono, 
       };
       console.log(requestData)
   
@@ -119,15 +119,17 @@ export default function perfilPet() {
   
         if (response.status === 204) {
           console.log('Adoção realizada com sucesso!');
-          // Coloque aqui qualquer ação adicional após uma adoção bem-sucedida
+          
         } else if (response.status === 401) {
           const erroData = await response.json();
           console.error('Erro:', erroData.mensagem);
         } else {
-          console.error('Erro desconhecido ao realizar a adoção.');
+                const erroData = await response.json();
+                console.error('Erro:', erroData);
+              }
         }
       }
-    } catch (error) {
+     catch (error) {
       console.error('Erro:', error);
     }
   };
