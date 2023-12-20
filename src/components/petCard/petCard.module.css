@@ -1,46 +1,42 @@
-
 .card {
-    min-width: 500px;
-    max-height:50%;
-    display: flex;
+  background-color: #19376d; /* Cor de fundo do card */
+  border-radius: 10px; /* Bordas arredondadas */
+  color: white; /* Cor do texto */
+  overflow: hidden; /* Garante que o conteúdo não ultrapasse as bordas arredondadas */
+  width: 350px; /* Largura do card */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+  font-family: 'Arial', sans-serif; /* Fonte do texto */
+}
 
-    border-radius: 8px;
-    overflow: hidden;
-    
-    transition: transform 0.3s ease;
-  }
-  
-  .card:hover {
-    transform: translateY(-3px);
-    
-  }
-  
-  .imageContainer {
-    width: 50%;
-    min-height: 100%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .imageContainer img {
-    width: 80%;
-    height: 80%;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-  
-  .info {
-    padding: 16px;
-  }
-  
-  .info h2 {
-    margin-bottom: 8px;
-    font-size: 1.5em;
-  }
-  
-  .info p {
-    margin-bottom: 6px;
-  }
-  
+.imageContainer {
+  background-color: #004eae; /* Cor de fundo do container da imagem */
+  display: flex; /* Usa flexbox para centralizar a imagem */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 20px; /* Espaçamento interno */
+}
+
+.imageContainer img {
+  width: 120px; /* Largura da imagem */
+  height: 120px; /* Altura da imagem */
+  border-radius: 50%; /* Torna a imagem circular */
+}
+
+.info {
+  padding: 20px; /* Espaçamento interno */
+}
+
+.info h2 {
+  margin-bottom: 10px; /* Espaço abaixo do título */
+  text-align: center; /* Centraliza o texto */
+}
+
+.info p {
+  margin-bottom: 5px; /* Espaço abaixo dos parágrafos */
+}
+
+.info p strong {
+  color: #48c9b0; /* Cor para elementos fortes */
+}
+
+/* Estilos adicionais para os botões ou outros elementos podem ser adicionados aqui */
