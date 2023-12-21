@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 
 export default function Post({ _id, nome, descricao, dono }) {
     const router = useRouter();
-    const idDoPet = _id;
-    const [pet, setPet] = useState({});
+    const idPost = _id;
+    
     const [token, setToken] = useState("");
     const [erro, setErro] = useState("");
     const [userData, setUserData] = useState({});
@@ -26,36 +26,8 @@ export default function Post({ _id, nome, descricao, dono }) {
                 console.log("Nenhum token encontrado.");
             }
         }
-        fetchPets();
-        console.log("idzin", idDoPet);
-        console.log("tokenzin", token);
-        async function fetchPets() {
-            try {
-                const response = await fetch(
-                    `http://localhost:2306/animal/${idDoPet}`,
-                    {
-                        method: "GET",
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                        },
-                    }
-                );
-
-                if (response.status === 401) {
-                    throw new Error("Usuário não logado!");
-                } else if (response.status === 403) {
-                    throw new Error("Acesso negado!");
-                } else if (!response.ok) {
-                    throw new Error("Erro ao buscar pets");
-                }
-
-                const petiscos = await response.json();
-                setPet(petiscos);
-                console.log("dados do animal: ", petiscos);
-            } catch (error) {
-                setErro(error.message);
-            }
-        }
+        
+       
         async function buscarPerfil() {
             if (token && dono) {
               try {
@@ -83,28 +55,24 @@ export default function Post({ _id, nome, descricao, dono }) {
           }
       
           buscarPerfil();
-    }, [dono, idDoPet, token]);
+    }, [dono, token]);
 
     const excluirPost = async () => {
         try {
-            const requestData = {
-                pet: _id,
-                owner: dono,
-            };
-            console.log(requestData)
+            
 
             if (token) {
-                const response = await fetch('http://localhost:2306/adoption', {
-                    method: 'POST',
+                const response = await fetch(`http://localhost:2306/post/${idPost}`, {
+                    method: 'DELETE',
                     headers: {
-                        'Content-Type': 'application/json',
+                        
                         'Authorization': `Bearer ${token}`
                     },
-                    body: JSON.stringify(requestData)
+                    
                 });
 
                 if (response.status === 204) {
-                    console.log('Adoção realizada com sucesso!');
+                    console.log('excluiu');
 
                 } else if (response.status === 401) {
                     const erroData = await response.json();
@@ -131,7 +99,7 @@ export default function Post({ _id, nome, descricao, dono }) {
                 <div className={Styles.raiPaLa}>
                     <button
                         className={Styles.petButton}
-                        onClick={() => router.push(`/perfilPet/${_id}`)}
+                        
                     >
                         @{nome}
                     </button>
@@ -139,7 +107,7 @@ export default function Post({ _id, nome, descricao, dono }) {
             </div>
             <div className={Styles.postContent}>{descricao}</div>
             <div className={Styles.postFooter}>
-                <button className={Styles.petButton} onClick={handleAdoptClick}>
+                <button className={Styles.petButton} onClick={excluirPost}>
                     Excluir 
                 </button>
 

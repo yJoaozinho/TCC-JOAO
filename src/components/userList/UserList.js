@@ -60,7 +60,7 @@ export default function UserList() {
             {posts.map((post) => (
                 <PostUser
                     key={post.id}
-                    petId={post.pet}
+                    _id={post._id}
                     nome={post.nome}
                     username={post.username}
                     descricao={post.descricao}

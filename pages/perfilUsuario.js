@@ -4,7 +4,7 @@ import FotoDePerfil from "../src/components/fotoDePerfil/fotoDePerfil";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
-import UserList from "../src/components/userList/userList";
+import UserList from "../src/components/userList/UserList";
 
 export default function perfilUsuario() {
   const router = useRouter();
