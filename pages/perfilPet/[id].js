@@ -59,7 +59,7 @@ export default function perfilPet() {
             setShowAdoptButton(true);
           }
 
-          // Agora que temos os dados do pet, podemos buscar os dados do usuário
+          
           buscarPerfilUsuario(dadosPerfilPet.dono);
         } catch (error) {
           setErro(error.message);
@@ -145,7 +145,7 @@ export default function perfilPet() {
               className={Styles.link}
               onClick={handleAdoptClick}
             >
-              Adotar
+              Solicitar adocao
             </button>
           )}
         </div>

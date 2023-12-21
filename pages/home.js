@@ -74,11 +74,7 @@ export default function Home() {
     }
   }
 
-
-
-
-
-  useEffect(() => {
+   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedToken = localStorage.getItem("token");
       if (storedToken) {

@@ -76,38 +76,8 @@ export default function Post({ petId, nome, username, descricao }) {
       </div>
       <div className={Styles.postContent}>{descricao}</div>
       <div className={Styles.postFooter}>
-        <div className={Styles.heartContainer} title="Like">
-          <input
-            type="checkbox"
-            className={Styles.checkbox}
-            id="Give-It-An-Id"
-          />
-          <div className={Styles.svgContainer}>
-            {/* Assegure-se de que os SVGs têm o atributo xmlns definido corretamente */}
-            <svg
-              viewBox="0 0 24 24"
-              className={Styles.svgOutline}
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Seu caminho SVG */}
-            </svg>
-            <svg
-              viewBox="0 0 24 24"
-              className={Styles.svgFilled}
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Seu caminho SVG */}
-            </svg>
-            <svg
-              className={Styles.svgCelebrate}
-              width="100"
-              height="100"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Seus polígonos SVG */}
-            </svg>
-          </div>
-        </div>
+        
+        
       </div>
     </div>
   );

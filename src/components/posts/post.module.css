@@ -8,8 +8,11 @@
   padding: 20px;
   border: 1px solid #004eae;
   width: 400px;
-  height: 150px;
+  min-height: 150px;
   margin: 10px;
+  overflow: hidden;
+  word-wrap: break-word;
+  
 }
 
 .postHeader {
