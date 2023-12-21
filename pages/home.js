@@ -217,13 +217,8 @@ export default function Home() {
                 Sim
               </button>
               <button
-<<<<<<< HEAD
-                className={Styles1.cancelar}
-                onClick={() => setShowModal(false)}
-=======
                 className={Styles.cancelar}
                 onClick={() => onRejet(idAdot)}
->>>>>>> 3374f0b75675dee083b9c4d934478db3e112b04d
               >
                 Cancelar
               </button>
