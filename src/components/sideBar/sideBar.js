@@ -35,7 +35,7 @@ export default function SideBar() {
         </div>
 
         {showModal && (
-          <div className={Styles.modal}>
+          <div className={Styles.post}>
             <div className={Styles.modalContent}>
               <span className={Styles.closeBtn} onClick={() => setShowModal(false)}>&times;</span>
               <p className={Styles.p}>Tem certeza que deseja sair?</p>

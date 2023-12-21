@@ -12,11 +12,42 @@ export default function Home() {
   const [id, setId] = useState("");
   const [petData, setPetData] = useState({});
   const [idAdot, setIdAdot] = useState('');
+  const [showNotificationModal, setShowNotificationModal] = useState(false);
 
   const onAccept = (idAdot) => {
     aceitarAdocao(idAdot);
     setShowModal(false);
   };
+
+  const onRejet = (idAdot) => {
+    rejeitarAdot(idAdot);
+    setShowModal(false);
+  };
+
+  async function rejeitarAdot(idAdot) {
+
+
+    try {
+      const response = await fetch(`http://localhost:2306/adoption/${idAdot}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (response.status === 204) {
+        console.log("Adoção aceita com sucesso.");
+
+      } else {
+        const erroData = await response.json();
+        throw new Error(erroData.mensagem || "Erro ao aceitar adoção");
+      }
+    } catch (error) {
+      console.error("Erro:", error);
+    }
+  }
+
 
   async function aceitarAdocao(idAdot) {
 
@@ -32,6 +63,7 @@ export default function Home() {
 
       if (response.status === 204) {
         console.log("Adoção aceita com sucesso.");
+        setShowNotificationModal(true);
 
       } else {
         const erroData = await response.json();
@@ -185,11 +217,33 @@ export default function Home() {
               </button>
               <button
                 className={Styles.cancelar}
-                onClick={() => setShowModal(false)}
+                onClick={() => onRejet(idAdot)}
               >
                 Cancelar
               </button>
             </div>
+          </div>
+        )}
+        {showNotificationModal && (
+          <div className={Styles.modalNotification}>
+            <div className={Styles.modalNotificationHeader}>
+              <span
+                className={Styles.modalNotificationCloseBtn}
+                onClick={() => setShowNotificationModal(false)}
+              >
+                &times;
+              </span>
+              <h4>Notificação</h4>
+            </div>
+            <div className={Styles.modalNotificationContent}>
+              Adoção aceita com sucesso!
+            </div>
+            <button
+              className={Styles.modalNotificationConfirmBtn}
+              onClick={() => setShowNotificationModal(false)}
+            >
+              OK
+            </button>
           </div>
         )}
       </div>
