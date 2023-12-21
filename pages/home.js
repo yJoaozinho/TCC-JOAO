@@ -217,7 +217,7 @@ export default function Home() {
                 Sim
               </button>
               <button
-                className={Styles.cancelar}
+                className={Styles1.cancelar}
                 onClick={() => onRejet(idAdot)}
               >
                 Cancelar
