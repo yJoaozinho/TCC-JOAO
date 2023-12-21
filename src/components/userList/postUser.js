@@ -1,4 +1,4 @@
-import Styles from "./pet.module.css";
+import Styles from "./postList.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -85,7 +85,7 @@ export default function Post({ _id, nome, descricao, dono }) {
           buscarPerfil();
     }, [dono, idDoPet, token]);
 
-    const handleAdoptClick = async () => {
+    const excluirPost = async () => {
         try {
             const requestData = {
                 pet: _id,
@@ -140,7 +140,7 @@ export default function Post({ _id, nome, descricao, dono }) {
             <div className={Styles.postContent}>{descricao}</div>
             <div className={Styles.postFooter}>
                 <button className={Styles.petButton} onClick={handleAdoptClick}>
-                    Solicitar adocao
+                    Excluir 
                 </button>
 
             </div>

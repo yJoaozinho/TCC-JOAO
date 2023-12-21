@@ -108,13 +108,23 @@
     padding: 20px;
     border-radius: 4px;
     margin-bottom: 20px;
+    min-height: auto;
 }
 
 .quebra {
     white-space: pre-wrap;
-    /* Respeita quebras de linha na biografia */
+    overflow: hidden;
+    
 }
+.timeline {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
 
 .barra {
     border: 2px solid #f0f1f1;
+    
 }
