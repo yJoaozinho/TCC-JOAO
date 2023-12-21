@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Styles from "../../styles/editarPet.module.css";
+import SideBar from "../../src/components/sideBar/sideBar";
 
 export default function editarPets() {
   const router = useRouter();
@@ -86,6 +87,7 @@ export default function editarPets() {
   return (
     <div className={Styles.pagina}>
       <div className={Styles.modalOverlay}>
+        <SideBar/>
         <div className={Styles.modalContent}>
           <h1 className={Styles.tituloh1}>Editar pet</h1>
           <button className={Styles.fechar} onClick={onClose}>
