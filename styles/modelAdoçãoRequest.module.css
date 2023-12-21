@@ -1,0 +1,73 @@
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay semi-transparente */
+    z-index: 1000; /* Garante que o modal esteja acima de outros elementos */
+  }
+  
+  .modalContent {
+    background-color: #ffffff; /* Cor de fundo do conteúdo do modal */
+    padding: 20px;
+    border-radius: 10px; /* Bordas arredondadas */
+    width: 90%;
+    max-width: 400px; /* Largura máxima do modal */
+    text-align: center; /* Centraliza o texto dentro do modal */
+    position: relative; /* Para posicionar absolutamente os elementos dentro */
+  }
+  
+  .closeBtn {
+    position: absolute; /* Posiciona o botão de fechar */
+    top: 10px;
+    right: 15px;
+    font-size: 24px; /* Tamanho do símbolo de fechar */
+    cursor: pointer;
+  }
+  
+  .p {
+    margin-bottom: 30px; /* Espaço abaixo do parágrafo */
+    color: #34495e; /* Cor do texto */
+    font-family: 'Arial', sans-serif; /* Fonte do texto */
+  }
+  
+  .confirmar,
+  .cancelar {
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas do botão */
+    cursor: pointer;
+    font-weight: bold; /* Negrito para o texto do botão */
+    margin: 10px; /* Margem em torno do botão */
+    width: 100px; /* Largura fixa do botão */
+  }
+  
+  .confirmar {
+    background-color: #2ecc71; /* Cor de fundo para confirmar */
+    color: white; /* Cor do texto */
+  }
+  
+  .confirmar:hover {
+    background-color: #27ae60; /* Cor de fundo do botão ao passar o mouse */
+  }
+  
+  .cancelar {
+    background-color: #e74c3c; /* Cor de fundo para cancelar */
+    color: white; /* Cor do texto */
+  }
+  
+  .cancelar:hover {
+    background-color: #c0392b; /* Cor de fundo do botão ao passar o mouse */
+  }
+  
+  /* Media query para ajuste em dispositivos menores */
+  @media (max-width: 500px) {
+    .modalContent {
+      width: 95%; /* Largura ajustada para telas pequenas */
+    }
+  }
+  
