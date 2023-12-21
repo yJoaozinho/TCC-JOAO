@@ -1,63 +1,29 @@
-
-
 .content {
-    width: 650px;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    border-radius: 8px;
-    gap: 10px;
-    flex-direction: column;
-    margin-left: 125px;
-    
-  }
-  
-  .meinha {
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-    height: 100vh; 
-    }
-.timeline{
+  width: 650px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 8px;
+  gap: 10px;
+  flex-direction: column;
+  margin-left: 125px;
+
+}
+
+.meinha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.timeline {
   margin: 5px;
 }
-.modal {
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 1;
-}
 
-.modalContent {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #A5D7E8;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
-  text-align: center;
-  font-size: larger;
-  font-size: 20px;
-}
 
-.closeBtn {
-  position: absolute;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  top: 4px;
-  right: 6px;
-}
-
-.confirmar{
+.confirmar {
   position: absolute;
   left: 40px;
   bottom: 15px;
@@ -68,7 +34,6 @@
   cursor: pointer;
   background-color: rgb(47, 134, 255);
   color: black;
-
 }
 .cancelar{
   position: absolute;

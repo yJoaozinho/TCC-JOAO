@@ -1,4 +1,5 @@
 import Styles from "../styles/home.module.css";
+import Styles1 from "../styles/modelAdoçãoRequest.module.css";
 import SideBar from "../src/components/sideBar/sideBar";
 import PostsList from "../src/components/postList/postList";
 import { useState, useEffect } from "react";
@@ -192,19 +193,19 @@ export default function Home() {
         </div>
 
         {showModal && (
-          <div className={Styles.modal}>
-            <div className={Styles.modalContent}>
+          <div className={Styles1.modal}>
+            <div className={Styles1.modalContent}>
               <span
-                className={Styles.closeBtn}
+                className={Styles1.closeBtn}
                 onClick={() => setShowModal(false)}
               >
                 &times;
               </span>
-              <p className={Styles.p}>
+              <p className={Styles1.p}>
                 {adotanteData.nome} Esse usuario dedeja adotar seu animal {petData.nome}
               </p>
               <button
-                className={Styles.confirmar}
+                className={Styles1.confirmar}
                 onClick={() => {
                   onAccept(idAdot);
                 }}
