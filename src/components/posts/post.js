@@ -2,8 +2,9 @@ import Styles from "./post.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import LikeButton from "../likeButtton/likeButton";
 
-export default function Post({ petId, nome, username, descricao }) {
+export default function Post({ user ,petId, nome, username, descricao }) {
   const router = useRouter();
   const idDoPet = petId;
   const [pet, setPet] = useState({});
@@ -63,7 +64,14 @@ export default function Post({ petId, nome, username, descricao }) {
         <img src="/peraul.jpg" alt={`Foto do ${nome}`} />
         <div>
           <div className={Styles.name}>{nome}</div>
-          <div className={Styles.timestamp}>@{username}</div>
+          <div className={Styles.timestamp}>
+          <button
+            className={Styles.petButton}
+            onClick={() => router.push(`/outroUsuario/${user}`)}
+          >
+            @{username}
+          </button>
+          </div>
         </div>
         <div className={Styles.raiPaLa}>
           <button
@@ -76,7 +84,7 @@ export default function Post({ petId, nome, username, descricao }) {
       </div>
       <div className={Styles.postContent}>{descricao}</div>
       <div className={Styles.postFooter}>
-        
+        <LikeButton />
         
       </div>
     </div>

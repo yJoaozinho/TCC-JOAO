@@ -1,6 +1,7 @@
 import Styles from "../../styles/index.module.css";
 import SideBar from "../../src/components/sideBar/sideBar";
 import FotoDePerfil from "../../src/components/fotoDePerfil/fotoDePerfil";
+import PostDosPet from "../../src/components/userList/postDosPet";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { jwtDecode } from "jwt-decode";
@@ -161,6 +162,9 @@ export default function perfilPet() {
             <strong>Descricao:</strong><br></br>
             <span className={Styles.quebra}>{petData.descricao}</span>
           </div>
+        </div>
+        <div>
+          <PostDosPet id={id} />
         </div>
       </div>
     </div>
