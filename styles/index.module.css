@@ -145,8 +145,8 @@
 
 
 .modalOverlay {
-    width: 50%;
-    height: 650px;
+    width: 400px;
+    height: auto;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -155,7 +155,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
+    
     border-radius: 8px;
     z-index: 20;
 
@@ -171,6 +171,7 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
+    padding-bottom: 40px;
 }
 
 .botoesNav {
@@ -182,18 +183,15 @@
 
 .fechar {
     position: absolute;
-    bottom: 10px;
-    background-color: red;
-    color: black;
-    border-radius: 10px;
-    opacity: 0.8;
-    width: 70px;
-    font-size: 15px;
-    height: 30px;
-    top: 40px;
-    right: 30px;
-    opacity: 1;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #ffffff;
 }
+
 
 .fechar:hover {
     opacity: 0.8;
@@ -202,14 +200,12 @@
 
 .input,
 .inputSenha {
-    height: 35px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    width: 100%;
-    color: black;
-    background-color: #b4dcea;
-    font-size: 14px;
-
+    display: block;
+    width: 94%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
 }
 
 .passwordContainer {
@@ -218,7 +214,20 @@
     align-items: center;
     justify-content: space-between;
 }
+/* Existing styles */
 
+.row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .input.half {
+    flex: 0 0 42%; 
+    
+  }
+  
+  
+  
 .btnSenha {
     margin-left: 6px;
     margin-bottom: 2px;
@@ -236,14 +245,18 @@
 }
 
 .btnform {
-    position: absolute;
-    right: 50%;
-    background-color: greenyellow;
-    border-radius: 8px;
-    width: 70px;
-    height: 30px;
-    opacity: 0.85;
+    background-color: #a5d7e8;
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
 }
+
 
 .btnform:hover {
     cursor: pointer;

@@ -1,16 +1,8 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 
-export default function FollowButton() {
-    const [liked, setLiked] = useState(false);
-
-    const toggleLike = () => {
-        setLiked(!liked);
-    };
-
+export default function FollowButton({ isFollowed, onFollowClick }) {
     const buttonStyle = {
-        backgroundColor: liked ? 'blue' : 'grey',
+        backgroundColor: isFollowed ? 'blue' : 'grey',
         color: 'white',
         border: 'none',
         padding: '10px 20px',
@@ -22,9 +14,8 @@ export default function FollowButton() {
     };
 
     return (
-        <button style={buttonStyle} onClick={toggleLike}>
-            
-            {liked ? 'seguindo' : 'seguir'}
+        <button style={buttonStyle} onClick={onFollowClick}>
+            {isFollowed ? 'Seguindo' : 'Seguir'}
         </button>
     );
 }

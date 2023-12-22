@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 
-export default function LikeButton() {
+export default function LikeButton({ postId }) {
     const [liked, setLiked] = useState(false);
 
+    useEffect(() => {
+        // Chave única no localStorage para cada post
+        const likedStatus = localStorage.getItem(`liked-${postId}`);
+        setLiked(likedStatus === 'true');
+    }, [postId]);
+
     const toggleLike = () => {
-        setLiked(!liked);
+        const newLikedStatus = !liked;
+        setLiked(newLikedStatus);
+        // Atualiza o estado no localStorage com chave única para cada post
+        localStorage.setItem(`liked-${postId}`, newLikedStatus.toString());
     };
 
     const buttonStyle = {
