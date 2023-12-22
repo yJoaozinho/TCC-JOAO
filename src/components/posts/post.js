@@ -3,7 +3,7 @@ import Styles from "./post.module.css";
 import { useRouter } from "next/router";
 import LikeButton from "../likeButtton/likeButton";
 
-export default function Post({ user, petId, nome, username, descricao }) {
+export default function Post({chave, user, petId, nome, username, descricao }) {
     const router = useRouter();
     const [pet, setPet] = useState({});
     const [token, setToken] = useState("");
@@ -72,7 +72,7 @@ export default function Post({ user, petId, nome, username, descricao }) {
             </div>
             <div className={Styles.postContent}>{descricao}</div>
             <div className={Styles.postFooter}>
-                <LikeButton postId={petId} />
+                <LikeButton postId={chave} />
             </div>
         </div>
     );

@@ -112,72 +112,78 @@ export default function TesteForm() {
 
     return (
         <div className={Styles.pagina}>
-            <div className={Styles.modalOverlay}>
-                <div className={Styles.modalContent}>
-                    <h1 className={Styles.tituloh1}>Editar perfil</h1>
-                    <button className={Styles.fechar} onClick={onClose}>X</button>
-                    <form onSubmit={teste}>
-                        <input
-                            className={Styles.inputD}
-                            name="biografia"
-                            placeholder="Fale um pouco sobre voce"
-                            value={biografia} onChange={(e) => setBiografia(e.target.value)}
-                        />
+           <div className={Styles.modalOverlay}>
+  <div className={Styles.modalContent}>
+    <h1 className={Styles.tituloh1}>Editar perfil</h1>
+    <button className={Styles.fechar} onClick={onClose}>X</button>
+    <form onSubmit={teste}>
+      <input
+        className={Styles.input}
+        name="biografia"
+        placeholder="Fale um pouco sobre voce"
+        value={biografia} onChange={(e) => setBiografia(e.target.value)}
+      />
 
-                        <input
-                            className={Styles.input}
-                            name="cpf_cnpj"
-                            placeholder="CPF"
-                            value={cpf_cnpj} onChange={(e) => setCpf_cnpj(e.target.value)}
-                        />
-                        <input
-                            className={Styles.input}
-                            name="telefone"
-                            placeholder="Telefone"
-                            value={telefone} onChange={(e) => setTelefone(e.target.value)}
-                        />
-                        <input
-                            className={Styles.input}
-                            name="dataDeNascimento"
-                            placeholder="Idade"
-                            value={dataDeNascimento} onChange={(e) => setDataDeNascimento(e.target.value)}
-                        />
-                        <input
-                            className={Styles.input}
-                            name="cep"
-                            placeholder="CEP"
-                            value={cep} onChange={(e) => setCep(e.target.value)}
-                        />
-                        <input
-                            className={Styles.input}
-                            name="cidade"
-                            placeholder="Cidade"
-                            value={cidade} onChange={(e) => setCidade(e.target.value)}
-                        />
-                        <input
-                            className={Styles.input}
-                            name="bairro"
-                            placeholder="Bairro"
-                            value={bairro} onChange={(e) => setBairro(e.target.value)}
-                        />
-                        <input
-                            className={Styles.input}
-                            name="rua"
-                            placeholder="Rua"
-                            value={rua} onChange={(e) => setRua(e.target.value)}
-                        />
-                        <input
-                            className={Styles.input}
-                            name="estado"
-                            placeholder="Estado"
-                            value={estado} onChange={(e) => setEstado(e.target.value)}
-                        />
+      <input
+        className={Styles.input}
+        name="cpf_cnpj"
+        placeholder="CPF"
+        value={cpf_cnpj} onChange={(e) => setCpf_cnpj(e.target.value)}
+      />
+      <input
+        className={Styles.input}
+        name="telefone"
+        placeholder="Telefone"
+        value={telefone} onChange={(e) => setTelefone(e.target.value)}
+      />
+      <div className={Styles.row}>
+        <input
+          className={`${Styles.input} ${Styles.half}`}
+          name="cep"
+          placeholder="CEP"
+          value={cep} onChange={(e) => setCep(e.target.value)}
+        />
+        <input
+          className={`${Styles.input} ${Styles.half}`}
+          name="cidade"
+          placeholder="Cidade"
+          value={cidade} onChange={(e) => setCidade(e.target.value)}
+        />
+      </div>
+      <div className={Styles.row}>
+        <input
+          className={`${Styles.input} ${Styles.half}`}
+          name="bairro"
+          placeholder="Bairro"
+          value={bairro} onChange={(e) => setBairro(e.target.value)}
+        />
+        <input
+          className={`${Styles.input} ${Styles.half}`}
+          name="rua"
+          placeholder="Rua"
+          value={rua} onChange={(e) => setRua(e.target.value)}
+        />
+      </div>
+      <div className={Styles.row}>
+        <input
+          className={`${Styles.input} ${Styles.half}`}
+          name="estado"
+          placeholder="Estado"
+          value={estado} onChange={(e) => setEstado(e.target.value)}
+        />
+        <input
+        className={`${Styles.input} ${Styles.half}`}
+        name="dataDeNascimento"
+        placeholder="Idade"
+        value={dataDeNascimento} onChange={(e) => setDataDeNascimento(e.target.value)}
+      />
+      </div>
 
+      <button className={Styles.btnform} type="submit">Enviar</button>
+    </form>
+  </div>
+</div>
 
-                        <button className={Styles.btnform} type="submit">Enviar</button>
-                    </form>
-                </div>
-            </div>
         </div>
     );
 };

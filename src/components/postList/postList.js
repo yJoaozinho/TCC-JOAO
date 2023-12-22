@@ -41,12 +41,12 @@ export default function PostsList() {
                     throw new Error('Erro na requisição');
                 }
                 return response.json();
-                
+
             })
             .then((data) => {
                 if (Array.isArray(data)) {
                     setPosts(data);
-                    console.log('post aquis',data)
+                    console.log('post aquis', data)
                 } else {
                     console.error('A resposta da API não é um array:', data);
                 }
@@ -56,16 +56,17 @@ export default function PostsList() {
 
     return (
         <div className={Styles.es}>
-            {posts.map((post) => (
+            {posts.map(post => (
                 <Post
-                    key={post.id}
-                    petId={post.pet}
+                    chave={post.id}
+                    user={post.user}
+                    petId={post.petId}
                     nome={post.nome}
                     username={post.username}
                     descricao={post.descricao}
-                    user={post.user}
                 />
             ))}
+
         </div>
     );
 }
