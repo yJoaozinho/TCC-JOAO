@@ -202,7 +202,7 @@ export default function Home() {
                 &times;
               </span>
               <p className={Styles1.p}>
-                {adotanteData.nome} Esse usuario dedeja adotar seu animal {petData.nome}
+                {adotanteData.nome} dedeja adotar seu animal {petData.nome}
               </p>
               <button
                 className={Styles1.confirmar}

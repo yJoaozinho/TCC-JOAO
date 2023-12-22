@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Post from '../posts/post';
-import Styles from "../posts/post.module.css"
+import Bizarro from "./bizarro"
+import Styles from "./postList.module.css"
 
-export default function PostsList() {
+export default function PostDosPet({id}) {
     const [posts, setPosts] = useState([]);
     const [token, setToken] = useState('');
 
@@ -25,12 +25,9 @@ export default function PostsList() {
     }, []);
 
     useEffect(() => {
-        if (!token) {
-            // Token ainda não está definido, espere até que ele seja definido.
-            return;
-        }
+        
 
-        fetch('http://localhost:2306/post', {
+        fetch(`http://localhost:2306/post/petposts/${id}`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -40,6 +37,7 @@ export default function PostsList() {
                 if (!response.ok) {
                     throw new Error('Erro na requisição');
                 }
+                console.log(response)
                 return response.json();
                 
             })
@@ -52,18 +50,17 @@ export default function PostsList() {
                 }
             })
             .catch((error) => console.error('Erro ao buscar posts:', error));
-    }, [token]);
+    }, [token,id]);
 
     return (
         <div className={Styles.es}>
             {posts.map((post) => (
-                <Post
+                <Bizarro
                     key={post.id}
-                    petId={post.pet}
+                    _id={post._id}
                     nome={post.nome}
                     username={post.username}
                     descricao={post.descricao}
-                    user={post.user}
                 />
             ))}
         </div>

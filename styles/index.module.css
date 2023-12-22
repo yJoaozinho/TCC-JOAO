@@ -8,6 +8,7 @@
     margin: 0; 
     padding: 0; 
     display: flex;
+    overflow: hidden;
 }
 
 .perfil {
@@ -17,7 +18,7 @@
     margin-left: 666px;
     width: 40%;
     flex-direction: column;
-    height: 940px;
+    min-height: 940px;
     border-radius: 10px;
     background-color: #19376D;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
