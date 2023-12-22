@@ -59,15 +59,16 @@ export default function Post({chave, user, petId, nome, username, descricao }) {
                         >
                             @{username}
                         </button>
-                    </div>
-                </div>
-                <div className={Styles.raiPaLa}>
-                    <button
+                        <button
                         className={Styles.petButton}
                         onClick={() => router.push(`/perfilPet/${petId}`)}
                     >
                         @{pet.nome}
                     </button>
+                    </div>
+                </div>
+                <div className={Styles.raiPaLa}>
+                    
                 </div>
             </div>
             <div className={Styles.postContent}>{descricao}</div>
