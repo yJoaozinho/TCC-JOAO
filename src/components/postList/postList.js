@@ -60,7 +60,7 @@ export default function PostsList() {
                 <Post
                     chave={post.id}
                     user={post.user}
-                    petId={post.petId}
+                    petId={post.pet}
                     nome={post.nome}
                     username={post.username}
                     descricao={post.descricao}
