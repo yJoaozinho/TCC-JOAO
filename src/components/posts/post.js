@@ -49,7 +49,7 @@ export default function Post({chave, user, petId, nome, username, descricao }) {
     return (
         <div className={Styles.post}>
             <div className={Styles.postHeader}>
-                <img src="/peraul.jpg" alt={`Foto do ${nome}`} />
+                <img src="/do-utilizador.png" alt={`Foto do ${nome}`} />
                 <div>
                     <div className={Styles.name}>{nome}</div>
                     <div className={Styles.timestamp}>
