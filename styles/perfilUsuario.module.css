@@ -16,16 +16,13 @@
 .sidebar {
     width: 250px;
     background-color: #004ba0;
-    /* Cor de fundo da sidebar */
     color: white;
     display: flex;
     flex-direction: column;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    /* Sombra leve para dar profundidade */
 }
 
-/* Conteúdo do perfil com flex-grow para ocupar o espaço restante */
 .perfil {
     flex-grow: 1;
     background-color: #19376d;
@@ -37,34 +34,28 @@
     box-shadow: 5px 5px 1px 0px rgba(0, 0, 0, 0.5);
 }
 
-/* Estilo dos botões de navegação */
 .botoesNav {
     display: flex;
     justify-content: flex-end;
 }
 
-/* Estilo do botão de informações pessoais */
 .link {
     background-color: #a5d7e8;
-    /* Cor do botão para ação principal */
     color: #333;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     border-radius: 4px;
     text-transform: uppercase;
-    /* Torna o texto do botão em maiúsculas */
     font-weight: bold;
 }
 
-/* Estilo do conteúdo do perfil e imagem de perfil */
 .vemDeLadinho {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
 }
 
-/* Estilo da foto de perfil */
 .fotoDePerfil {
     margin-right: 20px;
     border-radius: 50%;
@@ -96,7 +87,6 @@
     max-height: 35px;
 }
 
-/* Estilos para a biografia e outros campos de informação do usuário */
 .infoUsuario {
     flex-grow: 1;
     overflow-y: auto;
@@ -114,17 +104,16 @@
 .quebra {
     white-space: pre-wrap;
     overflow: hidden;
-    
 }
+
 .timeline {
     margin: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
+}
 
 .barra {
     border: 2px solid #f0f1f1;
-    
+    padding: 5px;
 }

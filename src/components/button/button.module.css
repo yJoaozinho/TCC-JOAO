@@ -1,16 +1,25 @@
 .button {
+    padding: 12.5px 30px;
+    margin: 0 0 5px 0;
+    border: 0;
+    border-radius: 100px;
     background-color: #19376d;
-    text-align: center;
-    color: white;
-    height: 35px;
-    width: 70px;
-    border-radius: 10px;
-    cursor: pointer;
-    border: none;
-   margin-bottom: 10px;
+    color: #ffffff;
+    font-weight: Bold;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
 }
 
-.button:hover{
-    color: black;
-    
+.button:hover {
+    background-color: #6fc5ff;
+    box-shadow: 0 0 20px #6fc5ff50;
+    transform: scale(1.1);
+}
+
+.button:active {
+    background-color: #3382b7;
+    transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+    box-shadow: none;
+    transform: scale(0.98);
 }

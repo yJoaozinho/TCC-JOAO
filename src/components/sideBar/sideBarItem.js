@@ -11,7 +11,7 @@ export default function SideBarItem(props) {
     const isActive = router.pathname === link;
 
     return (
-        <li>
+        <li className={Styles.li}>
             <Link href={link}>
                 <span className={`${Styles.buttonLink} ${isActive ? Styles.activeLink : ''}`}>{text}</span>
             </Link>

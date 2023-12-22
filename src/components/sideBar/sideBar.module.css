@@ -1,34 +1,33 @@
-.sidebar{
-  
-    flex: 0 0 auto;
-    width: 250px;
-    background-color:#19376D;
-    padding-bottom: 20px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    top: 0;
-    bottom: 0;
-    border-top-right-radius: 10px; 
-    border-bottom-right-radius: 10px;
-    justify-content: center;
-    align-items: start;
-    color: #ffffff;
-    font-weight: bold;
-    text-decoration: none;
+.sidebar {
+  flex: 0 0 auto;
+  width: 240px;
+  background-color: #19376D;
+  padding-bottom: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  top: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: start;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
 }
-.central{
+
+.central {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .buttonLink {
-  
   display: block;
   width: 200px;
-  padding: 1rem; 
-  background-color: #19376D; 
-  color: #fff; 
+  padding: 10px 14px;
+  margin: 5px 0;
+  background-color: #19376D;
+  color: #fff;
   text-align: center;
   text-decoration: none;
   border: none;
@@ -37,36 +36,44 @@
 }
 
 .buttonLink:hover {
-  background-color: #2980b9; 
+  background-color: #2980b9;
+  border: 3px #333 solid;
 }
 
-.ul{
+.ul {
   list-style: none;
   padding: 0;
+  margin: 0 0 0 4px;
 }
 
-.logo{
+.li {
+  padding: 0px;
+}
+
+.logo {
   position: center;
 
 }
+
 .activeLink {
-  color: #19376D; 
-  background-color:#A5D7E8;
+  color: #19376D;
+  background-color: #A5D7E8;
+  border: 3px #333 solid;
 }
 
 .buttonContainer {
   position: absolute;
-
   bottom: 0;
   left: 0;
-  width: 250px;
+  width: 95%;
   height: 40px;
   padding: auto;
   display: flex;
+  margin: 0 0 5px 4px;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid #A5D7E8;  
-  border-radius: 10px;     
+  border: 1px solid #A5D7E8;
+  border-radius: 10px;
 
 }
 
@@ -74,6 +81,7 @@
   text-decoration: none;
   color: white;
 }
+
 .btnRemover {
   text-decoration: none;
   color: red;
@@ -81,39 +89,40 @@
   background: none;
   border: none;
 }
+
 .post {
   display: flex;
-  align-items: center; 
-  justify-content: center; 
-  position: fixed; 
+  align-items: center;
+  justify-content: center;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  z-index: 1000; 
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 
 .modalContent {
-  background-color: #f0f0f0; 
+  background-color: #f0f0f0;
   padding: 20px;
-  border-radius: 8px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  width: 250px; 
-  max-width: 400px; 
-  color: black; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  max-width: 400px;
+  color: black;
 }
 
 .closeBtn {
   float: right;
   cursor: pointer;
-  font-size: 24px; 
-  color: black; 
+  font-size: 24px;
+  color: black;
 }
 
 .confirmar,
 .cancelar {
-  border: 2px solid #d3d3d3; 
+  border: 2px solid #d3d3d3;
   padding: 10px 20px;
   margin: 10px;
   border-radius: 4px;
@@ -122,11 +131,11 @@
 }
 
 .confirmar:hover {
-  background-color: #46a049; 
-  border-color: #39843c; 
+  background-color: #46a049;
+  border-color: #39843c;
 }
 
 .cancelar:hover {
-  background-color: #a04444; 
-  border-color: #8c3c3c; 
+  background-color: #a04444;
+  border-color: #8c3c3c;
 }

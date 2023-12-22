@@ -3,13 +3,10 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* Cor de fundo da página */
 }
 
 .modalOverlay {
-    /* Overlay semi-transparente */
     position: fixed;
-    /* Fica por cima do conteúdo da página */
     top: 0;
     left: 0;
     right: 0;
@@ -18,29 +15,21 @@
 
 .modalContent {
     background-color: #19376d;
-    /* Cor de fundo do modal */
     padding: 20px;
     border-radius: 15px;
-    /* Bordas arredondadas */
     width: 300px;
-    /* Largura do modal */
     margin: 10% 0 0 50%;
     position: relative;
-    /* Necessário para posicionar o botão de fechar */
 }
 
 .tituloh1 {
     text-align: center;
-    /* Título centralizado */
     color: #f2f2f2;
-    /* Cor do texto do título */
     margin-bottom: 30px;
-    /* Espaço abaixo do título */
 }
 
 .fechar {
     position: absolute;
-    /* Posiciona o botão de fechar */
     top: 10px;
     right: 15px;
     background: none;
@@ -51,58 +40,41 @@
 
 .input {
     display: block;
-    /* Faz o input ocupar a largura total */
     width: 93%;
-    /* Calcula a largura com base no padding do modalContent */
     padding: 10px;
     margin-bottom: 20px;
-    /* Espaço abaixo de cada input */
     border: 1px solid #bdc3c7;
-    /* Cor da borda do input */
     border-radius: 5px;
-    /* Bordas arredondadas do input */
 }
 
 .checkboxContainer {
     color: #f2f2f2;
     display: flex;
     justify-content: center;
-    /* Centraliza o conteúdo do checkbox */
     align-items: center;
     margin-bottom: 30px;
-    /* Espaço abaixo do checkbox */
 }
 
 .label {
     margin-right: 10px;
-    /* Espaço à direita do label */
 }
 
 .checkboxWrapper {
     position: relative;
-    /* Necessário para personalização do checkbox */
 }
 
-/* Estilo para o checkbox personalizado */
 .checkboxWrapper input[type="checkbox"] {
     -webkit-appearance: none;
-    /* Remove o estilo padrão do Webkit/Blink */
     appearance: none;
     background-color: #ecf0f1;
-    /* Cor de fundo do checkbox */
     margin: 0;
     font: inherit;
     color: currentColor;
     width: 2em;
-    /* Largura do checkbox */
     height: 2em;
-    /* Altura do checkbox */
     border: 1px solid #34495e;
-    /* Cor da borda do checkbox */
     border-radius: 0.15em;
-    /* Bordas arredondadas do checkbox */
     transform: translateY(-0.075em);
-    /* Ajusta a posição do checkbox */
     display: grid;
     place-content: center;
 }
@@ -114,8 +86,6 @@
     transform: scale(0);
     transition: 120ms transform ease-in-out;
     box-shadow: inset 1em 1em #3498db;
-    /* Cor do ícone dentro do checkbox */
-    /* Transforma o quadrado em um ícone de visto */
     clip-path: polygon(14% 44%, 34% 64%, 72% 27%, 81% 37%, 34% 84%, 4% 54%);
 }
 
@@ -125,25 +95,17 @@
 
 .btnform {
     background-color: #a5d7e8;
-    /* Cor de fundo do botão */
     color: #333;
-    /* Cor do texto do botão */
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
-    /* Bordas arredondadas do botão */
     cursor: pointer;
     display: block;
     width: 100%;
     font-size: 16px;
-    /* Tamanho do texto do botão */
     margin-top: 10px;
-    /* Espaço acima do botão */
 }
 
 .btnform:hover {
     background-color: #2980b9;
-    /* Cor de fundo do botão ao passar o mouse */
 }
-
-/* Para dispositivos móveis ou para ajustes de responsividade, considere usar media queries */

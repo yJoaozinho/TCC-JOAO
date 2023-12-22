@@ -1,11 +1,8 @@
 .card {
     display: flex;
-    background-color:#A5D7E8;
+    background-color: #A5D7E8;
     min-height: 300px;
     width: 700px;
     overflow: hidden;
     border-radius: 15px;
-    
-    
 }
-

@@ -35,7 +35,7 @@ export default function PetCard({
           <strong>Sexo:</strong> {sexo}
         </p>
         <p>
-          <strong>Adoção:</strong> {adocao}
+          <strong>Adoção:</strong> {adocao ? "Ativa" : "Desabilitada"}
         </p>
         {descricao && (
           <p>

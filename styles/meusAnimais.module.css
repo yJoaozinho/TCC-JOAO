@@ -1,10 +1,13 @@
+.cardContainer {
+  justify-content: center;
+}
+
 .container{
-    margin-left: 600px;
-    width: 50%;
+    margin: 0 40%;
+    width: 32%;
     height: 100%;
     position: fixed;
     overflow-y: auto;
-    padding: 10px;
 }
 .container::-webkit-scrollbar{
     width: 50px;
@@ -14,18 +17,18 @@
 }
 
 .editButton {
-    background-color: #007BFF;
+    background-color: #19376d;
     color: #fff;
     padding: 8px 16px;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 14px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     transition: background-color 0.3s ease;
-    
+    margin: 2px 2px 15px 2px;
   }
   
   .editButton:hover {
@@ -36,14 +39,14 @@
     color: #fff;
     padding: 8px 16px;
     border: none;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 14px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     transition: background-color 0.3s ease;
-    margin: 5px;
+    margin: 2px 2px 15px 2px;
   }
   
   .deleteButton:hover {

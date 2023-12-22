@@ -112,8 +112,8 @@ export default function doarAnimal() {
 
       <div className={Styles.Content}>
         <form className={Styles.form} onSubmit={handleCadastroPet}>
-          <label className={Styles.label} htmlFor="nomeAnimal">
-            <h1> Cadastrar novo pet</h1>
+          <label className={Styles.labelTitle} htmlFor="nomeAnimal">
+            <h1> Cadastrar pet</h1>
           </label>
 
           <Input
@@ -165,10 +165,7 @@ export default function doarAnimal() {
 
           <div>
             <div className={Styles.checkboxContainer}>
-              <label
-                className={`${Styles.label} ${Styles.labelCentered}`}
-                htmlFor="adocao"
-              >
+              <label className={`${Styles.label}`} htmlFor="adocao">
                 Esta para Adoção ?
               </label>
               <div className={Styles.checkboxWrapper}>

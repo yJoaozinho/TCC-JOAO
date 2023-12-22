@@ -1,42 +1,40 @@
 .card {
-  background-color: #19376d; /* Cor de fundo do card */
-  border-radius: 10px; /* Bordas arredondadas */
-  color: white; /* Cor do texto */
-  overflow: hidden; /* Garante que o conteúdo não ultrapasse as bordas arredondadas */
-  width: 350px; /* Largura do card */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
-  font-family: 'Arial', sans-serif; /* Fonte do texto */
+  background-color: #19376d;
+  border-radius: 10px;
+  color: white;
+  overflow: hidden;
+  width: 350px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-family: 'Arial', sans-serif;
 }
 
 .imageContainer {
-  background-color: #004eae; /* Cor de fundo do container da imagem */
-  display: flex; /* Usa flexbox para centralizar a imagem */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  padding: 20px; /* Espaçamento interno */
+  background-color: #004eae;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .imageContainer img {
-  width: 120px; /* Largura da imagem */
-  height: 120px; /* Altura da imagem */
-  border-radius: 50%; /* Torna a imagem circular */
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
 }
 
 .info {
-  padding: 20px; /* Espaçamento interno */
+  padding: 20px;
 }
 
 .info h2 {
-  margin-bottom: 10px; /* Espaço abaixo do título */
-  text-align: center; /* Centraliza o texto */
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .info p {
-  margin-bottom: 5px; /* Espaço abaixo dos parágrafos */
+  margin-bottom: 5px;
 }
 
 .info p strong {
-  color: #a5d7e8; /* Cor para elementos fortes */
+  color: #a5d7e8;
 }
-
-/* Estilos adicionais para os botões ou outros elementos podem ser adicionados aqui */
