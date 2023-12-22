@@ -149,14 +149,21 @@ export default function perfilPet() {
           <div className={Styles.vemDeLadinho}>
             <FotoDePerfil h="110" w="140" />
             <div className={Styles.infosPrincipais}>
-              <h3 className={Styles.nome}>
-                {" "}
-                <strong className={Styles.nickname}>{petData.nome}</strong> - @
-                {userData.nome}
+            <h3 className={Styles.nome}>
+                <strong className={Styles.nome}></strong>
+                {petData.nome}
               </h3>
-              <h4>
-                {" "}
-                {petData.idade} - {petData.sexo}
+              <h3 className={Styles.nickname}>
+                <strong className={Styles.nome}></strong>@{userData.username}
+              </h3>
+              <h4 className={Styles.email}>
+                {petData.tipo}
+              </h4>
+              <h4 className={Styles.email}>
+                {petData.idade}
+              </h4>
+              <h4 className={Styles.email}>
+                {petData.raca}
               </h4>
             </div>
           </div>

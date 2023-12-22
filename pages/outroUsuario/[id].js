@@ -97,18 +97,26 @@ export default function outroUser() {
             <FotoDePerfil h="110" w="140" />
             <div className={Styles.infosPrincipais}>
               <h3 className={Styles.nome}>
-                <strong className={Styles.nickname}>{userData.nome}</strong> - @
-                {userData.username}
+                <strong className={Styles.nome}></strong>
+                {userData.nome}
               </h3>
-              <h4>
-                {" "}
-                {userData.cidade} - {userData.estado}
+              <h3 className={Styles.nickname}>
+                <strong className={Styles.nome}></strong>@{userData.username}
+              </h3>
+              <h4 className={Styles.email}>
+                {userData.email}
+              </h4>
+              <h4 className={Styles.email}>
+                {userData.cidade}
+              </h4>
+              <h4 className={Styles.email}>
+                {userData.estado}
               </h4>
             </div>
           </div>
           <div className={Styles.infoUsuario}>
             <div className={Styles.campo}>
-              <strong>Descrição:</strong>
+              <strong>Biografia:</strong>
               <br></br>
               <span className={Styles.quebra}>{userData.biografia}</span>
             </div>
