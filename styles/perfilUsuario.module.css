@@ -10,7 +10,7 @@
 .container {
     display: flex;
     min-height: 100vh;
-    width: 190px;
+    width: 700px;
 }
 
 .sidebar {
