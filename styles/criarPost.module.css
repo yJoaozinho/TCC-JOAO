@@ -1,15 +1,16 @@
 .postContainer {
-    background-color: #3b5998;
+    background-color: #19376d;
     border-radius: 10px;
     color: white;
     padding: 20px;
     width: 350px;
-    margin: 0 auto;
+    margin: 0 30% 0 45%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
   .raul{
-    width: 100vw;
-    height: 100vh;
+    width: 1650px;
+    height: 830px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -18,7 +19,6 @@
   .userInfo {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
   }
   
   .avatar {
@@ -42,9 +42,9 @@
     background-color: #eff2f5;
     border: none;
     border-radius: 10px;
-    width: 100%;
+    width: 95%;
     height: 100px;
-    margin-bottom: 20px;
+    margin: 15px 4px;
     padding: 10px;
   }
   
@@ -66,11 +66,11 @@
   }
   
   .cancel {
-    background-color: #f34235;
+    background-color: #cf0000;
   }
   
   .post {
-    background-color: #4267b2;
+    background-color: #a5d7e8;
   }
   
   .iconBar {

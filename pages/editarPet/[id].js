@@ -91,9 +91,7 @@ export default function editarPets() {
 
       <div className={Styles.Content}>
         <form className={Styles.form} onSubmit={teste}>
-        <button className={Styles.fechar} onClick={onClose}>
-          X
-        </button>
+        <img className={Styles.fechar} src="/angle-left.svg" onClick={onClose}/>
           <label className={Styles.labelTitle} htmlFor="nomeAnimal">
             <h1> Editar Pet</h1>
           </label>

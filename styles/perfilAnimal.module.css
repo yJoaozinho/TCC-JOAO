@@ -1,0 +1,119 @@
+.html {
+    margin: 0 40%;
+    padding: 0;
+    height: 100%;
+    width: 50%;
+    font-family: 'Arial', sans-serif;
+    border-radius: 20px;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    width: 190px;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #004ba0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.perfil {
+    flex-grow: 1;
+    background-color: #19376d;
+    padding: 25px;
+    display: flex;
+    min-width: 500px;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 2px solid #004eae;
+    box-shadow: 5px 5px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+.botoesNav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.link {
+    background-color: #a5d7e8;
+    color: #333;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.vemDeLadinho {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.fotoDePerfil {
+    margin-right: 20px;
+    border-radius: 50%;
+    border: 3px solid #a5d7e8;
+}
+
+.infosPrincipais {
+    flex-grow: 1;
+}
+
+.nome {
+    font-size: 30px;
+    color: #f7f7f7;
+    margin: 0;
+    max-height: 45px;
+}
+
+.nickname {
+    font-size: 20px;
+    color: #a5d7e8;
+    margin: 0;
+    max-height: 35px;
+}
+
+.email {
+    font-size: 15px;
+    color: #a5d7e8;
+    margin: 5px 0;
+    max-height: 35px;
+}
+
+.infoUsuario {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.campo {
+    background-color: #a5d7e8;
+    padding: 20px;
+    border-radius: 4px;
+    min-height: auto;
+    width: 80%;
+    margin: 0 0 20px 6%;
+}
+
+.quebra {
+    white-space: pre-wrap;
+    overflow: hidden;
+}
+
+.timeline {
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.barra {
+    border: 2px solid #f0f1f1;
+}
