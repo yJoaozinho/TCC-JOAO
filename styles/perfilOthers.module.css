@@ -91,6 +91,7 @@
 .infoUsuario {
     flex-grow: 1;
     overflow-y: auto;
+    max-height: 110px;
 }
 
 .campo {
