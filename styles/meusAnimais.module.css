@@ -1,55 +1,71 @@
 .cardContainer {
+  display: flex;
   justify-content: center;
+  padding: 20px;
 }
 
-.container{
-    margin: 0 40%;
-    width: 32%;
-    height: 100%;
-    position: fixed;
-    overflow-y: auto;
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  overflow-y: auto;
+  margin-left: 15%;
 }
-.container::-webkit-scrollbar{
-    width: 50px;
+
+.container::-webkit-scrollbar {
+  width: 12px;
 }
-.container::-webkit-scrollbar-thumb{
-    background-image: url(../public/logoSemBG.png);
+
+.container::-webkit-scrollbar-thumb {
+  background-image: url('/logoSemBG.png');
 }
 
 .editButton {
-    background-color: #19376d;
-    color: #fff;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-    margin: 2px 2px 15px 2px;
+  background-color: #19376d;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  margin: 2px 2px 15px 2px;
+}
+
+.editButton:hover {
+  background-color: #0056b3;
+}
+
+.deleteButton {
+  background-color: #cf0000;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  margin: 2px 2px 15px 2px;
+}
+
+.deleteButton:hover {
+  background-color: #b30000;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .editButton:hover {
-    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
   }
-  .deleteButton {
-    background-color: #ff0000;
-    color: #fff;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-    margin: 2px 2px 15px 2px;
-  }
-  
-  .deleteButton:hover {
-    background-color: #b30000;
-  }
-    
+}

@@ -1,168 +1,109 @@
-.post {
-    font-family: 'Arial', sans-serif;
-    box-shadow: 5px 5px 1px 0px rgba(0, 0, 0, 0.5);
-    background-color: #fff;
-    border-radius: 20px;
-    margin: auto;
-    max-width: 500px;
-    padding: 20px;
-    border: 1px solid #004eae;
-    width: 400px;
-    min-height: 150px;
-    margin: 10px;
-    overflow: hidden;
-    word-wrap: break-word;
-    
-  }
-  
-  .postHeader {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .postHeader img {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  .postHeader .name {
-    color: black;
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  
-  .postHeader .timestamp {
-    color: #65676b;
-    font-size: 0.8rem;
-  }
-  
-  .postContent {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
-  
-  .postFooter {
-    color: #65676b;
-    border-top: 1px solid #ccd0d5;
-    padding-top: 10px;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.9rem;
-  }
-  
-  .postFooter span {
-    cursor: pointer;
-  }
-  
-  .postFooter span:hover {
-    text-decoration: underline;
-  }
-  
+.es {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+  margin-left: 10%;
+}
+
+@media (max-width: 1200px) {
   .es {
-    padding: 5px;
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .petButton {
-    background-color: #cdd6e0;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    margin-left: 10px;
-    border-radius: 5px;
-    color: black;
+}
+
+@media (max-width: 768px) {
+  .es {
+    grid-template-columns: 1fr;
   }
-  
-  .petButton:hover {
-    background-color: #868d96;
+}
+
+
+.post {
+  background-color: #19376d;
+  border-radius: 15px;
+  padding: 20px;
+  width: 370px;
+  height: 195px;
+  margin: 0;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.postHeader img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.timestamp {
+  font-size: 0.8em;
+}
+
+.raiPaLa {
+  margin-left: auto;
+}
+
+.petButton {
+  background-color: #a5d7e8;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.petButtonAdopt {
+  background-color: #a5d7e8;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.petButton:hover {
+  background-color: #004eae;
+}
+
+.petButtonAdopt:hover {
+  background-color: #004eae;
+}
+
+.postContent {
+  color: #333;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #a5d7e8;
+  max-width: 95%;
+  min-height: 40px;
+  font-size: 18px;
+  margin: 27px 0;
+}
+
+.postFooter {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .post {
+    width: 90%;
+    margin: 20px auto;
   }
-  
-  .heartContainer {
-    --heart-color: rgb(255, 91, 137);
-    position: relative;
-    width: 50px;
-    height: 50px;
-    transition: .3s;
-  }
-  
-  .heartContainer .checkbox {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 1;
-    z-index: 20;
-    cursor: pointer;
-  }
-  
-  .heartContainer .svgContainer {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .heartContainer .svgOutline,
-  .heartContainer .svgFilled {
-    fill: var(--heart-color);
-    position: absolute;
-  }
-  
-  .heartContainer .svgFilled {
-    animation: keyframes-svg-filled 1s;
-    display: none;
-  }
-  
-  .heartContainer .svgCelebrate {
-    position: absolute;
-    animation: keyframes-svg-celebrate .5s;
-    animation-fill-mode: forwards;
-    display: none;
-    stroke: var(--heart-color);
-    fill: var(--heart-color);
-    stroke-width: 2px;
-  }
-  
-  .heartContainer .checkbox:checked~.svgContainer .svgFilled {
-    display: block
-  }
-  
-  .heartContainer .checkbox:checked~.svgContainer .svgCelebrate {
-    display: block
-  }
-  
-  @keyframes keyframes-svg-filled {
-    0% {
-      transform: scale(0);
-    }
-  
-    25% {
-      transform: scale(1.2);
-    }
-  
-    50% {
-      transform: scale(1);
-      filter: brightness(1.5);
-    }
-  }
-  
-  @keyframes keyframes-svg-celebrate {
-    0% {
-      transform: scale(0);
-    }
-  
-    50% {
-      opacity: 1;
-      filter: brightness(1.5);
-    }
-  
-    100% {
-      transform: scale(1.4);
-      opacity: 0;
-      display: none;
-    }
-  }
+}

@@ -2,7 +2,6 @@
     display: flex;
     align-items: flex-start;
     height: 100vh;
-    padding-top: 50px;
     height: 790px;
 }
 
@@ -11,7 +10,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5% 0 0 10%;
+    margin: 6.5% 0 0 12%;
+}
+
+.fechar {
+    margin-left: 90%;
+    color: aliceblue;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .form {

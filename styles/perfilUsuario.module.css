@@ -1,16 +1,16 @@
 .html {
-    margin: 0 30%;
+    margin: 0 40%;
     padding: 0;
     height: 100%;
     width: 50%;
     font-family: 'Arial', sans-serif;
-    background: #f7f7f7;
     border-radius: 20px;
 }
 
 .container {
     display: flex;
     min-height: 100vh;
+    width: 190px;
 }
 
 .sidebar {
@@ -26,7 +26,7 @@
 .perfil {
     flex-grow: 1;
     background-color: #19376d;
-    padding: 40px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     border-radius: 20px;
@@ -90,15 +90,15 @@
 .infoUsuario {
     flex-grow: 1;
     overflow-y: auto;
-    max-height: 100px;
 }
 
 .campo {
     background-color: #a5d7e8;
     padding: 20px;
     border-radius: 4px;
-    margin-bottom: 20px;
     min-height: auto;
+    width: 80%;
+    margin: 0 0 20px 6%;
 }
 
 .quebra {
@@ -115,5 +115,4 @@
 
 .barra {
     border: 2px solid #f0f1f1;
-    padding: 5px;
 }

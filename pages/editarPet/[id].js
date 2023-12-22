@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Styles from "../../styles/editarPet.module.css";
+import Styles from "../../styles/doar.module.css";
 import SideBar from "../../src/components/sideBar/sideBar";
+import Input from "../../src/components/input/input";
 
 export default function editarPets() {
   const router = useRouter();
@@ -85,70 +86,73 @@ export default function editarPets() {
   };
 
   return (
-    <div className={Styles.pagina}>
-      <div className={Styles.modalOverlay}>
-        <SideBar/>
-        <div className={Styles.modalContent}>
-          <h1 className={Styles.tituloh1}>Editar pet</h1>
-          <button className={Styles.fechar} onClick={onClose}>
-            X
-          </button>
-          <form onSubmit={teste}>
-            <input
-              className={Styles.input}
-              name="nome"
-              placeholder="Nome"
-              value={nome}
-              onChange={(e) => setNome(e.target.value)}
-            />
+    <div className={Styles.central}>
+      <SideBar />
 
-            <input
-              className={Styles.input}
-              name="idade"
-              placeholder="Idade"
-              value={idade}
-              onChange={(e) => setIdade(e.target.value)}
-            />
-            <input
-              className={Styles.input}
-              name="tipo"
-              placeholder="Tipo"
-              value={tipo}
-              onChange={(e) => setTipo(e.target.value)}
-            />
-            <input
-              className={Styles.input}
-              name="raca"
-              placeholder="Raca"
-              value={raca}
-              onChange={(e) => setRaca(e.target.value)}
-            />
-            <input
-              className={Styles.input}
-              name="sexo"
-              placeholder="Sexo"
-              value={sexo}
-              onChange={(e) => setSexo(e.target.value)}
-            />
-            <input
-              className={Styles.input}
-              name="descricao"
-              placeholder="Descricao"
-              value={descricao}
-              onChange={(e) => setDescricao(e.target.value)}
-            />
+      <div className={Styles.Content}>
+        <form className={Styles.form} onSubmit={teste}>
+        <button className={Styles.fechar} onClick={onClose}>
+          X
+        </button>
+          <label className={Styles.labelTitle} htmlFor="nomeAnimal">
+            <h1> Editar Pet</h1>
+          </label>
 
+          <Input
+            type="text"
+            placeholder="Nome "
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+          />
+
+          <label className={Styles.label} htmlFor="nome"></label>
+          <Input
+            type="text"
+            placeholder="Idade "
+            value={idade}
+            onChange={(e) => setIdade(e.target.value)}
+          />
+
+          <label className={Styles.label} htmlFor="idade"></label>
+          <Input
+            type="text"
+            placeholder="Tipo "
+            value={tipo}
+            onChange={(e) => setTipo(e.target.value)}
+          />
+
+          <label className={Styles.label} htmlFor="idade"></label>
+          <Input
+            type="text"
+            placeholder="Raça "
+            value={raca}
+            onChange={(e) => setRaca(e.target.value)}
+          />
+
+          <label className={Styles.label} htmlFor="tipo"></label>
+          <Input
+            type="text"
+            placeholder="Genero "
+            value={sexo}
+            onChange={(e) => setSexo(e.target.value)}
+          />
+
+          <label className={Styles.label} htmlFor="sexo"></label>
+          <Input
+            type="text"
+            placeholder="Descricao "
+            value={descricao}
+            onChange={(e) => setDescricao(e.target.value)}
+          />
+
+          <div>
             <div className={Styles.checkboxContainer}>
-              <label
-                className={`${Styles.label} ${Styles.labelCentered}`}
-                htmlFor="adocao"
-              >
+              <label className={`${Styles.label}`} htmlFor="adocao">
                 Esta para Adoção ?
               </label>
               <div className={Styles.checkboxWrapper}>
-                <input
+                <Input
                   type="checkbox"
-                  name="adocao"
                   placeholder="Adocao ativa"
                   checked={adocao}
                   onChange={(e) => setAdocao(e.target.checked)}
@@ -156,11 +160,11 @@ export default function editarPets() {
               </div>
             </div>
 
-            <button className={Styles.btnform} type="submit">
-              Enviar
+            <button className={Styles.button} type="submit">
+              Salvar
             </button>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </div>
   );

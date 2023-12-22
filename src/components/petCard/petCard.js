@@ -15,10 +15,7 @@ export default function PetCard({
   return (
     <div className={styles.card}>
       <div className={styles.imageContainer}>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKbgX4pT4oqPlpLL7e71-2Aeu6vkY3ZS2oOA&usqp=CAU"
-          alt={`Foto de ${nome}`}
-        />
+        <img src="/sorria-todos-os-dias.png" alt={`Foto de ${nome}`} />
       </div>
       <div className={styles.info}>
         <h2>{nome}</h2>

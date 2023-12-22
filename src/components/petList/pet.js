@@ -2,6 +2,7 @@ import Styles from "./pet.module.css";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import fPet from "../../../public/patas.png"
 
 export default function Post({ _id, nome, descricao, dono }) {
     const router = useRouter();
@@ -123,7 +124,7 @@ export default function Post({ _id, nome, descricao, dono }) {
     return (
         <div className={Styles.post}>
             <div className={Styles.postHeader}>
-                <img src="/peraul.jpg" alt={`Foto do ${nome}`} />
+                <img src="/gato.png" alt={`Foto do ${nome}`} />
                 <div>
                     <div className={Styles.name}>{nome}</div>
                     <div className={Styles.timestamp}>{userData.username}</div>
@@ -139,7 +140,7 @@ export default function Post({ _id, nome, descricao, dono }) {
             </div>
             <div className={Styles.postContent}>{descricao}</div>
             <div className={Styles.postFooter}>
-                <button className={Styles.petButton} onClick={handleAdoptClick}>
+                <button className={Styles.petButtonAdopt} onClick={handleAdoptClick}>
                     Solicitar adocao
                 </button>
 
