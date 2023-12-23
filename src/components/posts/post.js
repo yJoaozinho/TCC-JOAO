@@ -54,13 +54,13 @@ export default function Post({chave, user, petId, nome, username, descricao }) {
                     <div className={Styles.name}>{nome}</div>
                     <div className={Styles.timestamp}>
                         <button
-                            className={Styles.petButton}
+                            className={Styles.arrobaButton}
                             onClick={() => router.push(`/outroUsuario/${user}`)}
                         >
                             @{username}
                         </button>
                         <button
-                        className={Styles.petButton}
+                        className={Styles.arrobaButton}
                         onClick={() => router.push(`/perfilPet/${petId}`)}
                     >
                         @{pet.nome}
