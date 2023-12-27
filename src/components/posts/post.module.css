@@ -2,13 +2,13 @@
   font-family: 'Arial', sans-serif;
   box-shadow: 5px 5px 1px 0px rgba(0, 0, 0, 0.5);
   background-color: #fff;
-  border-radius: 20px;
+  border-radius: 10px;
   margin: auto;
   max-width: 500px;
   padding: 20px;
   border: 1px solid #004eae;
   width: 400px;
-  min-height: 150px;
+  min-height: 100px;
   margin: 10px;
   overflow: hidden;
   word-wrap: break-word;
@@ -18,7 +18,6 @@
 .postHeader {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 .postHeader img {
@@ -42,10 +41,11 @@
 .postContent {
   font-size: 1.2rem;
   line-height: 1.5;
-  margin-bottom: 20px;
+  margin: 5px 0 0 0;
 }
 
 .postFooter {
+  margin: 1% 0 0 0;
   color: #65676b;
   border-top: 1px solid #ccd0d5;
   padding-top: 10px;
@@ -64,6 +64,21 @@
 
 .es {
   padding: 5px;
+}
+
+.timestamp {
+  display: flex;
+  gap: 5px;
+}
+
+.arrobaButton {
+  background-color: #cdd6e0;
+  color: #fff;
+  border: none;
+  padding: 3px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: black;
 }
 
 .petButton {
