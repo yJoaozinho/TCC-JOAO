@@ -25,6 +25,7 @@ export default function SideBar() {
         <SideBarItem link="/meusAnimais" text="Meus Pets" />
         <SideBarItem link="/doarAnimal" text="Criar pet"/>
         <SideBarItem link="/pets" text="Pets"/>
+        <SideBarItem link="/notificacao" text="Notificacoes"/>
         
 
       </ul>

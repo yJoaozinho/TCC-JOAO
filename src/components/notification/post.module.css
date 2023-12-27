@@ -1,0 +1,103 @@
+.actionButton {
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    /* Adicione mais estilos conforme necessário */
+}
+
+.actionButton:first-of-type {
+    background-color: #4CAF50; /* Verde para aceitar */
+    color: white;
+}
+
+.actionButton:last-of-type {
+    background-color: #f44336; /* Vermelho para recusar */
+    color: white;
+}
+.post {
+  font-family: 'Arial', sans-serif;
+  box-shadow: 5px 5px 1px 0px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+  border-radius: 20px;
+  margin: auto;
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #004eae;
+  width: 400px;
+  min-height: 150px;
+  margin: 10px;
+  overflow: hidden;
+  word-wrap: break-word;
+  
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.postHeader img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.postHeader .name {
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.postHeader .timestamp {
+  color: #65676b;
+  font-size: 0.8rem;
+}
+
+.postContent {
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+.postFooter {
+  color: #65676b;
+  border-top: 1px solid #ccd0d5;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+
+.postFooter span {
+  cursor: pointer;
+}
+
+.postFooter span:hover {
+  text-decoration: underline;
+}
+
+.es {
+  padding: 5px;
+}
+
+.petButton {
+  background-color: #cdd6e0;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 5px;
+  color: black;
+}
+
+.petButton:hover {
+  background-color: #868d96;
+}
