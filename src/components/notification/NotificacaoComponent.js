@@ -8,9 +8,18 @@ export default function NotificacaoComponent({ owner, adopter, pet, tome }) {
     const [error, setError] = useState("");
     const [token, setToken] = useState("");
     const [petData, setPetData] = useState({});
+    const [idAdot, setIdAdot] = useState("");
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const toggleExpand = () => {
+        setIsExpanded(!isExpanded);
+    };
 
     useEffect(() => {
-        // A lógica para obter o token permanece igual
+        setIdAdot(tome);
+    }, [tome]);
+
+    useEffect(() => {
         if (typeof window !== "undefined") {
             const storedToken = localStorage.getItem("token");
             if (storedToken) {
@@ -48,49 +57,88 @@ export default function NotificacaoComponent({ owner, adopter, pet, tome }) {
 
         fetchAdotante();
     }, [adopter, token]);
+
     useEffect(() => {
         async function buscarPerfilPet() {
-          if (token && pet) {
-            try {
-              const response = await fetch(`http://localhost:2306/animal/${pet}`, {
-                method: 'GET',
-                headers: {
-                  'Authorization': `Bearer ${token}`
+            if (token && pet) {
+                try {
+                    const response = await fetch(`http://localhost:2306/animal/${pet}`, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Erro ao buscar informações do pet');
+                    }
+
+                    const dadosPerfilPet = await response.json();
+                    setPetData(dadosPerfilPet);
+                } catch (error) {
+                    setError(error.message);
                 }
-              });
-    
-              if (response.status === 401) {
-                throw new Error('Usuário não logado!');
-              } else if (response.status === 403) {
-                throw new Error('Acesso negado!');
-              } else if (!response.ok) {
-                throw new Error('Erro ao buscar informações do pet');
-              }
-    
-              const dadosPerfilPet = await response.json();
-              console.log('Dados do pet:', dadosPerfilPet);
-              setPetData(dadosPerfilPet);
-            } catch (error) {
-              setError(error.message);
             }
-          }
         }
-    
+
         buscarPerfilPet();
-      }, [token, pet]);
+    }, [token, pet]);
 
     const handleAccept = () => {
-        console.log("Notificação aceita");
+        aceitarAdocao(idAdot);
     };
 
     const handleReject = () => {
-        console.log("Notificação recusada");
+        rejeitarAdot(idAdot);
     };
+
+    async function aceitarAdocao(id) {
+        try {
+            const response = await fetch(`http://localhost:2306/adoption/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            if (response.status === 202) {
+                console.log("Adoção aceita com sucesso.");
+               
+            } else {
+                const erroData = await response.json();
+                throw new Error(erroData.mensagem || "Erro ao aceitar adoção");
+            }
+        } catch (error) {
+            console.error("Erro:", error);
+        }
+    }
+
+    async function rejeitarAdot(id) {
+        try {
+            const response = await fetch(`http://localhost:2306/adoption/torefuse/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            if (response.status === 204) {
+                console.log("Adoção recusada com sucesso.");
+                
+            } else {
+                const erroData = await response.json();
+                throw new Error(erroData.mensagem || "Erro ao recusar adoção");
+            }
+        } catch (error) {
+            console.error("Erro:", error);
+        }
+    }
 
     return (
         <div className={Styles.post}>
             <div className={Styles.postHeader}>
-
                 <div>
                     <div className={Styles.name}>Notificação</div>
                 </div>
@@ -109,6 +157,19 @@ export default function NotificacaoComponent({ owner, adopter, pet, tome }) {
                 >
                     @{petData.nome}
                 </button>
+            </div>
+            <div className={Styles.expandSection}>
+                <button onClick={toggleExpand} className={Styles.expandButton}>
+                    {isExpanded ? '▲' : '▼'}
+                </button>
+                <div style={{ display: isExpanded ? 'block' : 'none' }}>
+                   
+                    <p>Contatos do adotante</p>
+                    <div>
+                        {adotanteData.email}
+                        {adotanteData.numero}
+                    </div>
+                </div>
             </div>
             <div className={Styles.postFooter}>
                 <button className={Styles.actionButton} onClick={handleAccept}>Aceitar</button>

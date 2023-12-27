@@ -192,57 +192,7 @@ export default function Home() {
           <PostsList />
         </div>
 
-        {showModal && (
-          <div className={Styles1.modal}>
-            <div className={Styles1.modalContent}>
-              <span
-                className={Styles1.closeBtn}
-                onClick={() => setShowModal(false)}
-              >
-                &times;
-              </span>
-              <p className={Styles1.p}>
-                {adotanteData.nome} dedeja adotar seu animal {petData.nome}
-              </p>
-              <button
-                className={Styles1.confirmar}
-                onClick={() => {
-                  onAccept(idAdot);
-                }}
-              >
-                Sim
-              </button>
-              <button
-                className={Styles1.cancelar}
-                onClick={() => onRejet(idAdot)}
-              >
-                Cancelar
-              </button>
-            </div>
-          </div>
-        )}
-        {showNotificationModal && (
-          <div className={Styles.modalNotification}>
-            <div className={Styles.modalNotificationHeader}>
-              <span
-                className={Styles.modalNotificationCloseBtn}
-                onClick={() => setShowNotificationModal(false)}
-              >
-                &times;
-              </span>
-              <h4>Notificação</h4>
-            </div>
-            <div className={Styles.modalNotificationContent}>
-              Adoção aceita com sucesso!
-            </div>
-            <button
-              className={Styles.modalNotificationConfirmBtn}
-              onClick={() => setShowNotificationModal(false)}
-            >
-              OK
-            </button>
-          </div>
-        )}
+        
       </div>
     </div>
   );
