@@ -2,6 +2,7 @@ import Styles from "../../styles/perfilAnimal.module.css";
 import SideBar from "../../src/components/sideBar/sideBar";
 import FotoDePerfil from "../../src/components/fotoDePerfil/fotoDePerfil";
 import PostDosPet from "../../src/components/userList/postDosPet";
+import Carteira from "../../src/components/carteiraVacina/carteira";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
@@ -138,6 +139,9 @@ export default function perfilPet() {
     <div className={Styles.html}>
       <div className={Styles.container}>
         <SideBar />
+        <div>
+          <Carteira id = {id}/>
+        </div>
         <div className={Styles.perfil}>
           <div className={Styles.botoesNav}>
             {showAdoptButton && (

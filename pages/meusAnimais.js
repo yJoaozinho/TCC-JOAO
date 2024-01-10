@@ -105,6 +105,12 @@ export default function meusAnimais() {
             >
               Excluir
             </button>
+            <button
+              className={Styles.editButton}
+              onClick={() => router.push(`/vacinas/${pet._id}`)}
+            >
+              Vacinas
+            </button>
           </div>
         ))}
       </div>

@@ -3,7 +3,40 @@ import Styles from "./post.module.css";
 import { useRouter } from "next/router";
 import LikeButton from "../likeButtton/likeButton";
 
-export default function Post({chave, user, petId, nome, username, descricao }) {
+function timeSince(date) {
+    const now = new Date();
+    const postDate = new Date(date);
+    const differenceInSeconds = Math.floor((now - postDate) / 1000);
+
+    const secondsInMinute = 60;
+    const secondsInHour = 3600;
+    const secondsInDay = 86400;
+    const secondsInMonth = 2592000;
+    const secondsInYear = 31536000;
+
+    let elapsedTime;
+
+    if (differenceInSeconds < secondsInMinute) {
+        return `${differenceInSeconds} segundos atrás`;
+    } else if (differenceInSeconds < secondsInHour) {
+        elapsedTime = Math.floor(differenceInSeconds / secondsInMinute);
+        return `${elapsedTime} minutos atrás`;
+    } else if (differenceInSeconds < secondsInDay) {
+        elapsedTime = Math.floor(differenceInSeconds / secondsInHour);
+        return `${elapsedTime} horas atrás`;
+    } else if (differenceInSeconds < secondsInMonth) {
+        elapsedTime = Math.floor(differenceInSeconds / secondsInDay);
+        return `${elapsedTime} dias atrás`;
+    } else if (differenceInSeconds < secondsInYear) {
+        elapsedTime = Math.floor(differenceInSeconds / secondsInMonth);
+        return `${elapsedTime} meses atrás`;
+    } else {
+        elapsedTime = Math.floor(differenceInSeconds / secondsInYear);
+        return `${elapsedTime} anos atrás`;
+    }
+}
+
+export default function Post({chave, user, petId, nome, username, descricao, tempo }) {
     const router = useRouter();
     const [pet, setPet] = useState({});
     const [token, setToken] = useState("");
@@ -46,6 +79,8 @@ export default function Post({chave, user, petId, nome, username, descricao }) {
         fetchPets();
     }, [petId, token]);
 
+    const tempoDesdeCriacao = timeSince(tempo);
+
     return (
         <div className={Styles.post}>
             <div className={Styles.postHeader}>
@@ -60,11 +95,12 @@ export default function Post({chave, user, petId, nome, username, descricao }) {
                             @{username}
                         </button>
                         <button
-                        className={Styles.arrobaButton}
-                        onClick={() => router.push(`/perfilPet/${petId}`)}
-                    >
-                        @{pet.nome}
-                    </button>
+                            className={Styles.arrobaButton}
+                            onClick={() => router.push(`/perfilPet/${petId}`)}
+                        >
+                            @{pet.nome}
+                        </button>
+                        <span className={Styles.timeSince}>{tempoDesdeCriacao}</span>
                     </div>
                 </div>
                 <div className={Styles.raiPaLa}>
@@ -74,6 +110,7 @@ export default function Post({chave, user, petId, nome, username, descricao }) {
             <div className={Styles.postContent}>{descricao}</div>
             <div className={Styles.postFooter}>
                 <LikeButton postId={chave} />
+                
             </div>
         </div>
     );

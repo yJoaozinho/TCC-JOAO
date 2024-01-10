@@ -16,8 +16,21 @@
 }
 
 .postHeader {
+  position: relative;
   display: flex;
   align-items: center;
+}
+.timeSince {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  font-size: 0.8em; /* Ajuste o tamanho da fonte conforme necessário */
+  color: #555; /* Ajuste a cor conforme necessário */
+  background-color: rgba(255, 255, 255, 0.7); /* Fundo levemente transparente para destacar sobre a imagem, se necessário */
+  padding: 5px;
+  border-radius: 5px; /* Bordas arredondadas para uma aparência suave */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve para dar destaque */
 }
 
 .postHeader img {

@@ -45,6 +45,7 @@ export default function PostsList() {
             })
             .then((data) => {
                 if (Array.isArray(data)) {
+                    console.log(data)
                     setPosts(data);
                     console.log('post aquis', data)
                 } else {
@@ -64,6 +65,7 @@ export default function PostsList() {
                     nome={post.nome}
                     username={post.username}
                     descricao={post.descricao}
+                    tempo={post.createdAt}
                 />
             ))}
 
