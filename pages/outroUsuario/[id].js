@@ -103,9 +103,7 @@ export default function outroUser() {
               <h3 className={Styles.nickname}>
                 <strong className={Styles.nome}></strong>@{userData.username}
               </h3>
-              <h4 className={Styles.email}>
-                {userData.email}
-              </h4>
+              
               <h4 className={Styles.email}>
                 {userData.cidade}
               </h4>

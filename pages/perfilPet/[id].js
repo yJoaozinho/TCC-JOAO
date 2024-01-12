@@ -139,9 +139,7 @@ export default function perfilPet() {
     <div className={Styles.html}>
       <div className={Styles.container}>
         <SideBar />
-        <div>
-          <Carteira id = {id}/>
-        </div>
+        <Carteira id = {id}/>
         <div className={Styles.perfil}>
           <div className={Styles.botoesNav}>
             {showAdoptButton && (
@@ -184,6 +182,7 @@ export default function perfilPet() {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

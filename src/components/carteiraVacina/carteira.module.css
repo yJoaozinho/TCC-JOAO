@@ -11,3 +11,54 @@
 .coluna-item {
     margin: 0 10px;
 }
+.carteiraContainer {
+    position: absolute; 
+    top: 0;             
+    right: 0;
+    width: 300px;
+    min-height: 100px;
+    padding: 10px;
+    border-right: 1px solid #ccc;
+    background-color: white; 
+    z-index: 1000; 
+}
+
+.carteiraContainer.vazio {
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    color: #999;
+}
+.colunaContainer {
+    border: 1px solid #ddd; /* Borda para destacar cada item */
+    padding: 10px; /* Espaçamento interno para não colar no limite da borda */
+    margin-bottom: 10px; /* Espaçamento entre cada item da lista */
+    border-radius: 5px; /* Cantos arredondados */
+    background-color: #f9f9f9; /* Cor de fundo */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra leve para dar profundidade */
+}
+
+.colunaItem {
+    display: block; /* Cada item em sua própria linha */
+    margin-bottom: 5px; /* Espaçamento entre os itens */
+    color: #333; /* Cor do texto */
+    font-size: 14px; /* Tamanho da fonte */
+}
+
+/* Estilização adicional para o título de cada item, se necessário */
+.colunaItem:nth-child(1) {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Estilização para a data */
+.colunaItem:nth-child(2) {
+    color: #666;
+}
+
+/* Estilização para a data de revacinação */
+.colunaItem:nth-child(3) {
+    color: #a22;
+    font-style: italic;
+}
+
