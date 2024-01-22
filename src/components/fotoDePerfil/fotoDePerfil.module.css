@@ -1,11 +1,10 @@
-
-.container {
-    display: flex;          
-    justify-content: center; 
-    align-items: center;    
-    height: 100vh;        
-    background-color: #fff; 
-}
+/* .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+} */
 
 .fotoDePerfil {
     margin: 40px;
@@ -13,7 +12,7 @@
     border: 0.5em solid #2980b9;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 100%;
-    height: auto;
+    height: 200px;
     object-fit: cover;
     background-color: #fff; 
 }
