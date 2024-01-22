@@ -4,6 +4,7 @@ import FotoDePerfil from "../src/components/fotoDePerfil/fotoDePerfil";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
+import ImageUpload from "../src/components/imagens/imageUpload";
 import UserList from "../src/components/userList/UserList";
 
 export default function perfilUsuario() {
@@ -68,7 +69,10 @@ export default function perfilUsuario() {
       <div className={Styles.container}>
         <SideBar />
         <div className={Styles.perfil}>
+          <ImageUpload userId = {userId}/>
+
           <div className={Styles.botoesNav}>
+           
             <button className={Styles.link} onClick={handleEdit}>
               informações Pessoais
             </button>
