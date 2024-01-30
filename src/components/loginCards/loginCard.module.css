@@ -3,6 +3,15 @@
     background-color: #A5D7E8;
     min-height: 300px;
     width: 700px;
-    overflow: hidden;
     border-radius: 15px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.background_fix{
+    height: 100%;
+    width: 100%;
 }

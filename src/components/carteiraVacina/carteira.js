@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Coluna from './Coluna';
+import Coluna from './coluna';
 import styles from "./carteira.module.css";
 
 export default function Carteira({ id }) {
@@ -76,7 +76,9 @@ export default function Carteira({ id }) {
 
     return (
         <div className={containerClass}>
-            <div><h1>Vacinas</h1></div>
+            <div>
+                <h1 className={styles.vacina_logo}>Vacinas</h1>
+            </div>
             {dados.length > 0 ? (
                 dados.map((vacina, index) => (
                     <Coluna 

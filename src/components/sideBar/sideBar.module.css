@@ -13,6 +13,7 @@
   color: #ffffff;
   font-weight: bold;
   text-decoration: none;
+  overflow: hidden;
 }
 
 .central {

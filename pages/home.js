@@ -191,8 +191,6 @@ export default function Home() {
         <div className="timeline">
           <PostsList />
         </div>
-
-        
       </div>
     </div>
   );

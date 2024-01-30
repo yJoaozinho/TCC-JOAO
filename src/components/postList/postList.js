@@ -1,12 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import Post from '../posts/post';
-import Styles from "../posts/post.module.css"
+import Styles from "../postList/postList.module.css"
 
 export default function PostsList() {
     const [posts, setPosts] = useState([]);
     const [token, setToken] = useState('');
+    const [isVisivel, setIsVisivel] = useState(true);
+    const [divVisivel, setDivVisivel] = useState(false);
+    const [isConditionMet, setIsConditionMet] = useState(false);
+    let n = 0
+
+    const handleScroll = (event) => {
+        let height = window.scrollY;
+        console.log(height);
+
+        if (height >= 354 && n == 0) {
+            setDivVisivel();
+            setDivVisivel(true);
+            document.body.style.overflow = 'hidden';
+            if(n == 0){
+                setTimeout(() => {
+                    n = 1
+                    setDivVisivel(false);
+                    document.body.style.overflow = 'auto';
+                }, 2000);
+            }
+        }
+    };
 
 
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+      
     useEffect(() => {
         if (typeof window !== "undefined") {
             const storedToken = localStorage.getItem('token');
@@ -29,7 +60,7 @@ export default function PostsList() {
             // Token ainda não está definido, espere até que ele seja definido.
             return;
         }
-
+        
         fetch('http://localhost:2306/post', {
             method: 'GET',
             headers: {
@@ -53,22 +84,25 @@ export default function PostsList() {
                 }
             })
             .catch((error) => console.error('Erro ao buscar posts:', error));
-    }, [token]);
-
+        }, [token]);
     return (
         <div className={Styles.es}>
             {posts.map(post => (
                 <Post
-                    chave={post.id}
-                    user={post.user}
-                    petId={post.pet}
-                    nome={post.nome}
-                    username={post.username}
-                    descricao={post.descricao}
-                    tempo={post.createdAt}
+                chave={post.id}
+                user={post.user}
+                petId={post.pet}
+                nome={post.nome}
+                username={post.username}
+                descricao={post.descricao}
+                tempo={post.createdAt}
                 />
             ))}
-
+            {divVisivel && (
+                <div className={Styles.spin_container}>
+                    <div className={Styles.spin}></div>
+                </div>
+            )}
         </div>
     );
 }
