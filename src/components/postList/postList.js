@@ -24,7 +24,7 @@ export default function PostsList() {
                     n = 1
                     setDivVisivel(false);
                     document.body.style.position = 'static';
-                document.body.style.marginLeft = '-10px';
+                    document.body.style.marginLeft = '7px';
                 }, 2000);
             }
         }
