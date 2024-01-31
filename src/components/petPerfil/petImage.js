@@ -28,9 +28,9 @@ export default function FotoDePerfil({ id }) {
               
             }
         })();
-    }, [userId]);
+    }, [petId]);
 
-    const fetchImage = async (token, id) => {
+    const fetchImage = async (token, petId) => {
         try {
             const response = await fetch(`http://localhost:2306/animal/pic/${petId}`, {
                 method: 'GET',
@@ -50,7 +50,7 @@ export default function FotoDePerfil({ id }) {
         }
     };
     const teste = () => {
-        console.log(imageUrl);
+        console.log("URLS",imageUrl.pic);
     };
     
 
