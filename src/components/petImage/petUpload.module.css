@@ -1,0 +1,38 @@
+.form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #E6F4FF;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    max-width: 500px; 
+  }
+  
+  .formLabel {
+    white-space: nowrap; 
+    margin-right: 10px;
+  }
+  
+  .form input[type="file"] {
+    flex-grow: 1;
+    border: 2px solid #A0C4FF;
+    border-radius: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  
+  .form button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .form button:hover {
+    background-color: #0056b3;
+  }

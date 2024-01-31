@@ -94,7 +94,7 @@ export default function outroUser() {
             )}
           </div>
           <div className={Styles.vemDeLadinho}>
-            <FotoDePerfil h="110" w="140" />
+          <FotoDePerfil userId = {id} />
             <div className={Styles.infosPrincipais}>
               <h3 className={Styles.nome}>
                 <strong className={Styles.nome}></strong>
