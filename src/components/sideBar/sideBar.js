@@ -28,11 +28,14 @@ export default function SideBar() {
         <SideBarItem link="/notificacao" text="Notificacoes"/>
       </ul>
 
-      <div>
+      <div className={Styles.fix}>
         <div className={Styles.buttonContainer}>
           <a href="perfilUsuario" className={Styles.btnEditar}>Perfil</a>
           <button className={Styles.btnRemover} onClick={() => setShowModal(true)}>Sair</button>
         </div>
+      </div>
+
+      <div>
 
         {showModal && (
           <div className={Styles.post}>

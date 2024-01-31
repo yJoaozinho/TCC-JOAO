@@ -42,6 +42,16 @@
   scale: 1.1;
 }
 
+.fix{
+  height: 54.5%;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  justify-self: end;
+  justify-items: end;
+  align-items: end;
+}
+
 .ul {
   list-style: none;
   padding: 0;
@@ -65,8 +75,6 @@
 }
 
 .buttonContainer {
-  bottom: 0;
-  left: 0;
   width: 100%;
   height: 40px;
   padding: auto;
@@ -74,8 +82,6 @@
   padding-bottom: 5px;
   align-items: center;
   border-top: 2px solid white;
-  align-self: flex-end;
-  margin-top: 160%;
 }
 
 .btnEditar {
