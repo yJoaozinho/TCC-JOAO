@@ -6,24 +6,26 @@ import { useState, useEffect } from "react";
 export default function Post({ _id, nome, descricao, dono }) {
     const router = useRouter();
     const idPost = _id;
-    
+    const [imageUrl, setImageUrl] = useState({});
     const [token, setToken] = useState("");
     const [erro, setErro] = useState("");
     const [userData, setUserData] = useState({});
+    const [userId, setUserId] = useState("");
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-            const token = localStorage.getItem("token");
-
-            if (token) {
-                try {
-                    console.log("a porra do token do post:", token);
-                    setToken(token);
-                } catch (error) {
-                    console.error("Erro ao decodificar o token:", error);
-                }
+            const storedToken = localStorage.getItem("token");
+            if (storedToken) {
+              setToken(storedToken);
+              try {
+                const decoded = jwtDecode(storedToken);
+                setUserId(decoded.sub);
+                fetchImage(storedToken, decoded.sub)
+              } catch (error) {
+                console.error("Erro ao decodificar o token:", error);
+              }
             } else {
-                console.log("Nenhum token encontrado.");
+              console.log("Nenhum token encontrado.");
             }
         }
         
@@ -56,6 +58,26 @@ export default function Post({ _id, nome, descricao, dono }) {
       
           buscarPerfil();
     }, [dono, token]);
+
+    const fetchImage = async (token, id) => {
+        try {
+            const response = await fetch(`http://localhost:2306/user/pic/${id}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+            });
+            if (response.ok) {
+                const imageUrl = await response.json()
+                console.log("URL da imagem recebida da API:", imageUrl); 
+                setImageUrl(imageUrl);
+            } else {
+                console.error("Falha ao buscar a imagem de perfil. Status:", response.status);
+            }
+        } catch (error) {
+            console.error("Erro ao buscar a imagem de perfil:", error);
+        }
+    };
 
     const excluirPost = async () => {
         try {
@@ -91,7 +113,7 @@ export default function Post({ _id, nome, descricao, dono }) {
     return (
         <div className={Styles.post}>
             <div className={Styles.postHeader}>
-                <img src="/peraul.jpg" alt={`Foto do ${nome}`} />
+                <img src={imageUrl.pic} alt={`Foto do ${nome}`} />
                 <div>
                     <div className={Styles.name}>{nome}</div>
                     <div className={Styles.timestamp}>{userData.username}</div>
