@@ -92,6 +92,9 @@ export default function Post({chave, user, petId, nome, username, descricao, tem
                     <svg width="100" height="50" stroke='gray'>
                         <rect width="150" height="40" />
                     </svg>
+                    <svg width="100" height="50" stroke='gray' className={Styles.anima_content}>
+                        <rect width="150" height="40" />
+                    </svg>
                     <svg width="30" height="30" stroke='gray'>
                         <rect width="30" height="30" />
                     </svg>

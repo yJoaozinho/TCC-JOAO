@@ -17,12 +17,14 @@ export default function PostsList() {
         if (height >= 354 && n == 0) {
             setDivVisivel();
             setDivVisivel(true);
-            document.body.style.overflow = 'hidden';
+            document.body.style.marginLeft = `490px`;
+        document.body.style.position = 'fixed'
             if(n == 0){
                 setTimeout(() => {
                     n = 1
                     setDivVisivel(false);
-                    document.body.style.overflow = 'auto';
+                    document.body.style.position = 'static';
+                document.body.style.marginLeft = '-10px';
                 }, 2000);
             }
         }

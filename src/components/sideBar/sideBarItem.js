@@ -12,9 +12,9 @@ export default function SideBarItem(props) {
 
     return (
         <li className={Styles.li}>
-            <Link href={link}>
+            <a href={link} className={Styles.a}>
                 <span className={`${Styles.buttonLink} ${isActive ? Styles.activeLink : ''}`}>{text}</span>
-            </Link>
+            </a>
         </li>
     );
 }

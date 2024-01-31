@@ -7,6 +7,11 @@
   backdrop-filter: blur(5px); 
 }
 
+.anima_content{
+  position: absolute;
+  margin-left: 130px;
+}
+
 @keyframes opa {
   from{
     filter: blur(2px);

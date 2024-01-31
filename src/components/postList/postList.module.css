@@ -41,6 +41,5 @@
 }
 
 .es::-webkit-scrollbar {
-    width: none;
-    overflow: hidden;
+  display: none;
   }

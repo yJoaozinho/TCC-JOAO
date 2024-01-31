@@ -1,5 +1,8 @@
+.a{
+  text-decoration: none;
+}
+
 .sidebar {
-  flex: 0 0 auto;
   width: 240px;
   background-color: #19376D;
   padding-bottom: 20px;
@@ -24,31 +27,31 @@
 
 .buttonLink {
   display: block;
-  width: 200px;
+  width: 88.5%;
   padding: 10px 14px;
-  margin: 5px 0;
   background-color: #19376D;
   color: #fff;
   text-align: center;
   text-decoration: none;
   border: none;
-  border-radius: 10px;
-  transition: background-color 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .buttonLink:hover {
-  background-color: #2980b9;
-  border: 3px #333 solid;
+  background-color: #1171b1a2;
+  scale: 1.1;
 }
 
 .ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 0 4px;
+  display: flex;
+  flex-direction: column;
 }
 
 .li {
   padding: 0px;
+  text-decoration: none;
 }
 
 .logo {
@@ -59,49 +62,69 @@
 .activeLink {
   color: #19376D;
   background-color: #A5D7E8;
-  border: 3px #333 solid;
 }
 
 .buttonContainer {
-  position: absolute;
+  margin-top: 383px;
   bottom: 0;
   left: 0;
-  width: 95%;
+  width: 100%;
   height: 40px;
   padding: auto;
   display: flex;
-  margin: 0 0 5px 4px;
+  padding-bottom: 5px;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid #A5D7E8;
-  border-radius: 10px;
-
+  border-top: 2px solid white;
 }
 
 .btnEditar {
   text-decoration: none;
   color: white;
+  width: 80%;
+  text-align: center;
+  height: 65%;
+  padding-top: 15px;
+  transition: 0.3s ease;
+}
+
+.btnEditar:hover {
+  background-color: #1171b1a2;
 }
 
 .btnRemover {
+  transition: 0.3s ease;
   text-decoration: none;
-  color: red;
+  color: rgb(255, 255, 255);
   cursor: pointer;
-  background: none;
   border: none;
+  background-color: red;
+  border-left: 1px solid white;
+  height: 111%;
+  width: 40%;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.btnRemover:hover {
+  background-color: rgb(124, 0, 0);
+  font-size: 14px;
 }
 
 .post {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  z-index: 4;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modalContent {
