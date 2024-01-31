@@ -143,6 +143,7 @@
   width: 250px;
   max-width: 400px;
   color: black;
+  position: fixed;
 }
 
 .closeBtn {
