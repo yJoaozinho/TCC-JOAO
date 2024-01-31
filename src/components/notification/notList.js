@@ -35,18 +35,20 @@ export default function NotList() {
         return response.json();
       })
       .then((data) => {
-        console.log("Dados recebidos:", data); // Adicionado para depuração
+        console.log("Dados recebidos:", data);
         if (Array.isArray(data)) {
-          setNotificacoes(data);
+          // Removendo possíveis duplicatas baseadas no '_id'
+          const uniqueData = Array.from(new Set(data.map(item => item._id)))
+            .map(id => {
+              return data.find(item => item._id === id);
+            });
+
+          setNotificacoes(uniqueData);
         } else {
           console.error("A resposta da API não é um array:", data);
         }
       })
       .catch((error) => console.error("Erro ao buscar notificações:", error));
-
-      //////
-
-      
   }, [token]);
 
   if (notificacoes.length === 0) {
@@ -62,7 +64,6 @@ export default function NotList() {
           adopter={notificacao.adopter}
           pet={notificacao.pet}
           tome={notificacao._id}
-          
         />
       ))}
     </div>

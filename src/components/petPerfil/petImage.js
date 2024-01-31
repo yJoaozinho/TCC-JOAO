@@ -1,10 +1,11 @@
-import Styles from "./fotoDePerfil.module.css";
+import Styles from "./ptImage.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 
-export default function FotoDePerfil({ userId }) {
-    const id = userId;
+
+export default function FotoDePerfil({ id }) {
+    const petId = id;
     const [imageUrl, setImageUrl] = useState({});
     const [token, setToken] = useState(null);
     useEffect(() => {
@@ -31,7 +32,7 @@ export default function FotoDePerfil({ userId }) {
 
     const fetchImage = async (token, id) => {
         try {
-            const response = await fetch(`http://localhost:2306/user/pic/${id}`, {
+            const response = await fetch(`http://localhost:2306/animal/pic/${petId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,

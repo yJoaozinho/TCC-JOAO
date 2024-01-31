@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Styles from "../../styles/doar.module.css";
 import SideBar from "../../src/components/sideBar/sideBar";
 import Input from "../../src/components/input/input";
+import PetUpload from "../../src/components/petImage/petUpload"
 
 export default function editarPets() {
   const router = useRouter();
@@ -90,6 +91,7 @@ export default function editarPets() {
       <SideBar />
 
       <div className={Styles.Content}>
+        <PetUpload petId={id}/>
         <form className={Styles.form} onSubmit={teste}>
         <img className={Styles.fechar} src="/angle-left.svg" onClick={onClose}/>
           <label className={Styles.labelTitle} htmlFor="nomeAnimal">
