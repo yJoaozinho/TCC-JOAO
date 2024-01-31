@@ -57,14 +57,14 @@ export default function FotoDePerfil({ userId }) {
         <div className={Styles.container}>
             {imageUrl && (
                 <Image
-                    src={imageUrl.pic}
+                    src={imageUrl}
                     alt='Foto de perfil'
                     width={200}
                     height={200}
-                    className={Styles.fotoDePerfil}
                     unoptimized={true}
                 />
             )}
+            <p className={Styles.foto_dePerfil}>Foto de Perfil</p>
         </div>
     );
 }

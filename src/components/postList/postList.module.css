@@ -1,0 +1,46 @@
+.spin{
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 50px;
+    border: 10px solid #0000005b;
+    border-bottom: 10px solid #004eae;
+    width: 40px;
+    height: 40px;
+    animation: intro_post 2s linear infinite;
+    top: 27%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    z-index: 3;
+  }
+
+  @keyframes intro_post{
+    0%{
+      transform: rotate(0deg);
+    }100%{
+      transform: rotate(360deg);
+    }
+  }
+
+.spin_container{
+    height: 100px;
+    width: 60%;
+    background: linear-gradient(to bottom, transparent, rgb(255, 255, 255), white, white);
+    top: 94%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+}
+
+.es{
+    position: relative;
+}
+
+.spin_none{
+    display: none;
+}
+
+.es::-webkit-scrollbar {
+    width: none;
+    overflow: hidden;
+  }

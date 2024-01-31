@@ -83,6 +83,31 @@ export default function Post({chave, user, petId, nome, username, descricao, tem
 
     return (
         <div className={Styles.post}>
+        <div className={Styles.container2}>
+            <div className={Styles.container}>
+                <div>
+                    <svg width="50" height="50" stroke='gray'>
+                        <rect width="50" height="100" />
+                    </svg>
+                    <svg width="100" height="50" stroke='gray'>
+                        <rect width="150" height="40" />
+                    </svg>
+                    <svg width="30" height="30" stroke='gray'>
+                        <rect width="30" height="30" />
+                    </svg>
+                </div>
+                <div>
+                    <svg width="180" height="50" stroke='gray'>
+                        <rect width="180" height="50" />
+                    </svg>
+                </div>
+                <div>
+                    <svg width="30" height="30" stroke='gray'>
+                        <rect width="30" height="30" />
+                    </svg>
+                </div>
+            </div>
+        </div>
             <div className={Styles.postHeader}>
                 <img src="/do-utilizador.png" alt={`Foto do ${nome}`} />
                 <div>
@@ -110,7 +135,6 @@ export default function Post({chave, user, petId, nome, username, descricao, tem
             <div className={Styles.postContent}>{descricao}</div>
             <div className={Styles.postFooter}>
                 <LikeButton postId={chave} />
-                
             </div>
         </div>
     );

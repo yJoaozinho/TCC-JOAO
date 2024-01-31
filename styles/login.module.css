@@ -1,8 +1,6 @@
 .background {
-    min-height: 840px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 100%;
+    
 }
 
 .cardInfo {
@@ -23,6 +21,10 @@
     text-align: center;
     align-items: center;
 
+}
+
+.cardLogin h2{
+    font-size: 40px;
 }
 
 .form {
