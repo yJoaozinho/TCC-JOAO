@@ -23,7 +23,7 @@
   }
 
 .spin_container{
-    height: 100px;
+    height: 120px;
     width: 60%;
     background: linear-gradient(to bottom, transparent, rgb(255, 255, 255), white, white);
     top: 94%;

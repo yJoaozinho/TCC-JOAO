@@ -170,6 +170,9 @@ export default function perfilPet() {
               <h4 className={Styles.email}>
                 {petData.raca}
               </h4>
+              <h4 className={Styles.email}>
+              <span>Donos antigos </span> {petData.oldOwners}
+              </h4>
             </div>
           </div>
           <div className={Styles.infoUsuario}>
