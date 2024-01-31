@@ -12,7 +12,7 @@ export default function PostsList() {
         let height = window.scrollY;
         console.log(height);
 
-        if (height >= 354 && n == 0) {
+        if (height >= 340 && n == 0) {
             setDivVisivel();
             setDivVisivel(true);
             document.body.style.overflow = 'hidden'
