@@ -10,7 +10,7 @@
     width: 500px; 
     margin-top: -750px;
     position: absolute;
-    z-index: -1;
+    z-index: 0;
   }
   
   .formLabel {
