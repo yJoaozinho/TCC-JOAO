@@ -45,7 +45,7 @@
 }
 
 .fix{
-  height: 53%;
+  height: 52%;
   width: 100%;
   display: flex;
   justify-content: end;
@@ -128,8 +128,8 @@
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 4;
-  position: absolute;
+  z-index: 4000;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -143,6 +143,10 @@
   width: 250px;
   max-width: 400px;
   color: black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .closeBtn {
