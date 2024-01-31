@@ -39,7 +39,3 @@
 .spin_none{
     display: none;
 }
-
-.es::-webkit-scrollbar {
-  display: none;
-  }

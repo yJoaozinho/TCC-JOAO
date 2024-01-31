@@ -18,6 +18,7 @@
   text-decoration: none;
   overflow: hidden;
   z-index: 133;
+  height: 100vh;
 }
 
 .central {
@@ -44,7 +45,7 @@
 }
 
 .fix{
-  height: 54.5%;
+  height: 53%;
   width: 100%;
   display: flex;
   justify-content: end;

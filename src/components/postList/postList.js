@@ -5,9 +5,7 @@ import Styles from "../postList/postList.module.css"
 export default function PostsList() {
     const [posts, setPosts] = useState([]);
     const [token, setToken] = useState('');
-    const [isVisivel, setIsVisivel] = useState(true);
     const [divVisivel, setDivVisivel] = useState(false);
-    const [isConditionMet, setIsConditionMet] = useState(false);
     let n = 0
 
     const handleScroll = (event) => {
@@ -17,14 +15,14 @@ export default function PostsList() {
         if (height >= 354 && n == 0) {
             setDivVisivel();
             setDivVisivel(true);
-            document.body.style.marginLeft = `490px`;
-        document.body.style.position = 'fixed'
+            document.body.style.overflow = 'hidden'
             if(n == 0){
                 setTimeout(() => {
                     n = 1
                     setDivVisivel(false);
                     document.body.style.position = 'static';
                     document.body.style.marginLeft = '7px';
+                    document.body.style.overflow = 'auto'
                 }, 2000);
             }
         }
