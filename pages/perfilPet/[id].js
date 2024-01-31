@@ -1,6 +1,6 @@
 import Styles from "../../styles/perfilAnimal.module.css";
 import SideBar from "../../src/components/sideBar/sideBar";
-import FotoDePerfil from "../../src/components/fotoDePerfil/fotoDePerfil";
+import PetImage from "../../src/components/petPerfil/petImage"
 import PostDosPet from "../../src/components/userList/postDosPet";
 import Carteira from "../../src/components/carteiraVacina/carteira";
 import { useRouter } from "next/router";
@@ -149,7 +149,10 @@ export default function perfilPet() {
             )}
           </div>
           <div className={Styles.vemDeLadinho}>
-            <FotoDePerfil h="110" w="140" />
+          <div className={Styles.imagemRedonda}>
+               <img src={petData.foto_de_perfil} alt="foto do pet" />
+            </div>
+            {/* <PetImage id={id} /> */}
             <div className={Styles.infosPrincipais}>
             <h3 className={Styles.nome}>
                 <strong className={Styles.nome}></strong>

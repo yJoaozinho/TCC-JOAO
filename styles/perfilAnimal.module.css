@@ -7,6 +7,20 @@
     border-radius: 20px;
 }
 
+.imagemRedonda {
+  width: 200px; /* Defina o tamanho da div */
+  height: 200px; /* A altura deve ser a mesma que a largura para ser um círculo */
+  border-radius: 50%; /* Isso torna a div redonda */
+  overflow: hidden; /* Isso garante que nada saia da div redonda */
+}
+
+.imagemRedonda img {
+  width: 100%; /* Faz a imagem ocupar toda a largura da div */
+  height: 100%; /* Faz a imagem ocupar toda a altura da div */
+  object-fit: cover; /* Garante que a imagem cubra toda a div sem distorcer */
+}
+
+
 .container {
     display: flex;
     min-height: 100vh;
