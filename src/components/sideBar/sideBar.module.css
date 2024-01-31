@@ -65,7 +65,6 @@
 }
 
 .buttonContainer {
-  margin-top: 383px;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -73,9 +72,10 @@
   padding: auto;
   display: flex;
   padding-bottom: 5px;
-  justify-content: space-around;
   align-items: center;
   border-top: 2px solid white;
+  align-self: flex-end;
+  margin-top: 160%;
 }
 
 .btnEditar {
