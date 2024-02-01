@@ -5,39 +5,6 @@ import Styles from "../postList/postList.module.css"
 export default function PostsList() {
     const [posts, setPosts] = useState([]);
     const [token, setToken] = useState('');
-    const [divVisivel, setDivVisivel] = useState(false);
-    let n = 0
-
-    const handleScroll = (event) => {
-        let height = window.scrollY;
-        console.log(height);
-
-        if (height >= 340 && n == 0) {
-            setDivVisivel();
-            setDivVisivel(true);
-            document.body.style.overflow = 'hidden'
-            if(n == 0){
-                setTimeout(() => {
-                    n = 1
-                    setDivVisivel(false);
-                    document.body.style.position = 'static';
-                    document.body.style.marginLeft = '7px';
-                    document.body.style.overflow = 'auto'
-                }, 2000);
-            }
-        }
-    };
-
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
-      
 
     useEffect(() => {
         if (typeof window !== "undefined") {
