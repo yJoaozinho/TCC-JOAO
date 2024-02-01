@@ -14,15 +14,13 @@ export default function Home() {
   const [petData, setPetData] = useState({});
   const [idAdot, setIdAdot] = useState('');
   const [showNotificationModal, setShowNotificationModal] = useState(false);
-  const [isVisivel, setIsVisivel] = useState(true);
   const [divVisivel, setDivVisivel] = useState(false);
-    const [isConditionMet, setIsConditionMet] = useState(false);
     let n = 0
     
 
     const handleScroll = (event) => {
       let height = window.scrollY;
-        console.log(height);
+        console.log('oi');
 
         if (height >= 354 && n == 0) {
       const elemento = document.getElementById('meuElemento');
