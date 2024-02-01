@@ -14,6 +14,38 @@ export default function Home() {
   const [petData, setPetData] = useState({});
   const [idAdot, setIdAdot] = useState('');
   const [showNotificationModal, setShowNotificationModal] = useState(false);
+  const [isVisivel, setIsVisivel] = useState(true);
+  const [divVisivel, setDivVisivel] = useState(false);
+    const [isConditionMet, setIsConditionMet] = useState(false);
+    let n = 0
+    
+
+    const handleScroll = (event) => {
+      let height = window.scrollY;
+        console.log(height);
+
+        if (height >= 354 && n == 0) {
+      const elemento = document.getElementById('meuElemento');
+            setDivVisivel();
+            setDivVisivel(true);
+            if(n == 0){
+                setTimeout(() => {
+                  elemento.style.height = "100%"
+                    n = 1
+                    setDivVisivel(false);
+                }, 2000);
+            }
+        }
+    };
+
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
   const onAccept = (idAdot) => {
     aceitarAdocao(idAdot);
@@ -187,10 +219,15 @@ export default function Home() {
   return (
     <div className={Styles.meinha}>
       <SideBar />
-      <div className={Styles.content}>
+      <div id="meuElemento" className={Styles.content}>
         <div className="timeline">
           <PostsList />
         </div>
+        {divVisivel && (
+                <div className={Styles.spin_container}>
+                    <div className={Styles.spin}></div>
+                </div>
+            )}
       </div>
     </div>
   );

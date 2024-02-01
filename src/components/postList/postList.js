@@ -38,6 +38,7 @@ export default function PostsList() {
     }, []);
 
       
+
     useEffect(() => {
         if (typeof window !== "undefined") {
             const storedToken = localStorage.getItem('token');
@@ -98,11 +99,6 @@ export default function PostsList() {
                 tempo={post.createdAt}
                 />
             ))}
-            {divVisivel && (
-                <div className={Styles.spin_container}>
-                    <div className={Styles.spin}></div>
-                </div>
-            )}
         </div>
     );
 }
