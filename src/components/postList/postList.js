@@ -5,6 +5,31 @@ import Styles from "../postList/postList.module.css"
 export default function PostsList() {
     const [posts, setPosts] = useState([]);
     const [token, setToken] = useState('');
+    const [postsAntigos, setPostsAntigos] = useState([]);
+
+    const chunkArray = (arr, tamanho) => {
+        const chunks = [];
+        for (let i = 0; i < arr.length; i += tamanho) {
+          chunks.push(arr.slice(i, i + tamanho));
+        }
+        return chunks;
+      };
+    
+      const renderizarComAtraso = () => {
+        const grupos = chunkArray(posts, 10);
+        grupos.forEach((grupo, index) => {
+          setTimeout(() => {
+            setPostsAntigos((prev) => [...prev, ...grupo]);
+          }, index * 3000);
+        });
+      };
+    
+      useEffect(() => {
+        if (posts.length > 0) {
+          renderizarComAtraso();
+        }
+      }, [posts]);
+      
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -55,17 +80,18 @@ export default function PostsList() {
         }, [token]);
     return (
         <div className={Styles.es}>
-            {posts.map(post => (
-                <Post
-                chave={post.id}
-                user={post.user}
-                petId={post.pet}
-                nome={post.nome}
-                username={post.username}
-                descricao={post.descricao}
-                tempo={post.createdAt}
-                />
-            ))}
-        </div>
+        {postsAntigos.map((post) => (
+          <Post
+            chave={post.id}
+            user={post.user}
+            petId={post.pet}
+            nome={post.nome}
+            username={post.username}
+            descricao={post.descricao}
+            tempo={post.createdAt}
+            key={post.id}  // Use um identificador único como a chave
+          />
+        ))}
+      </div>
     );
 }

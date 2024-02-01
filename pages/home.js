@@ -221,11 +221,6 @@ export default function Home() {
         <div className="timeline">
           <PostsList />
         </div>
-        {divVisivel && (
-                <div className={Styles.spin_container}>
-                    <div className={Styles.spin}></div>
-                </div>
-            )}
       </div>
     </div>
   );
