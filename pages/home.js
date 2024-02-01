@@ -20,9 +20,9 @@ export default function Home() {
 
     const handleScroll = (event) => {
       let height = window.scrollY;
-        console.log('oi');
+        console.log(height);
 
-        if (height >= 354 && n == 0) {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
       const elemento = document.getElementById('meuElemento');
             setDivVisivel();
             setDivVisivel(true);
